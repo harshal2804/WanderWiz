@@ -1,37 +1,86 @@
-import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form';
+import Button from "react-bootstrap/Button";
+import Form from "react-bootstrap/Form";
+import loginBg from "../../public/bg_login.jpg";
 
 function Login() {
-    const myStyle = {
-        height: '100vh',
-        // backgroundImage: "url('../../public/Login_bg.jpeg')"
-        backgroundColor: 'blue'
-    }
+  const handleLogin = (e) => {
+    e.preventDefault();
+  };
+
+  const handleSignUp = (e) => {
+    e.preventDefault();
+  };
+
+  const myStyle = {
+    height: "100vh",
+    backgroundImage: `url(${loginBg})`,
+    backgroundRepeat: "no-repeat",
+    backgroundSize: "cover",
+  };
+  const textStyle = {
+    textAlign: "center",
+    fontSize: "25px",
+    fontWeight: 600,
+    color: "#efefef",
+    letterSpacing: "1px",
+    fontFamily: "Montserrat, sans-serif",
+    textShadow: "4px 4px 4px rgba(0, 0, 0, 0.7)",
+  };
   return (
     <>
-    <div className='p-5 d-flex flex-column justify-content-around' style={myStyle}>
-        <h1 className='p-3 mx-auto'>Welcom Back to WanderWiz</h1>
-        <Form  className='p-3 mx-auto p-4 bg-secondary'>
-        <Form.Group className="mb-3" controlId="formBasicEmail">
-            <Form.Label>Email address</Form.Label>
-            <Form.Control type="email" placeholder="Enter email" />
-            <Form.Text className="text-muted">
-            We'll never share your email with anyone else.
-            </Form.Text>
-        </Form.Group>
+      <div
+        className="p-5 d-flex align-items-center gap-4"
+        style={myStyle}
+      >
+        <Form
+          className="d-flex flex-column mx-auto p-4 border rounded shadow-lg"
+          style={{
+            backgroundColor: "#0f0f0f",
+          }}
+          onSubmit={(e) => handleLogin(e)}
+        >
+          <h1 className="mx-auto pt-3 px-2" style={textStyle}>
+            Welcome Back to
+          </h1>
+          <h1 className="pb-4 px-2" style={textStyle}>
+            WanderWiz
+          </h1>
+          <div>
+            <Form.Group
+              className="mb-3 text-light"
+              controlId="formBasicUsername"
+            >
+              <Form.Label>Username</Form.Label>
+              <Form.Control type="text" placeholder="Enter username" required/>
+              <Form.Control.Feedback type="invalid">
+                Please choose a username.
+              </Form.Control.Feedback>
+            </Form.Group>
 
-        <Form.Group className="mb-3" controlId="formBasicPassword">
-            <Form.Label>Password</Form.Label>
-            <Form.Control type="password" placeholder="Password" />
-        </Form.Group>
-        <Form.Group className="mb-3" controlId="formBasicCheckbox">
-            <Form.Check type="checkbox" label="Check me out" />
-        </Form.Group>
-        <Button variant="primary" type="submit">
-            Submit
-        </Button>
+            <Form.Group
+              className="mb-3 text-light"
+              controlId="formBasicPassword"
+            >
+              <Form.Label>Password</Form.Label>
+              <Form.Control type="password" placeholder="Password" required/>
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="formBasicCheckbox">
+              <Form.Text className="py-2 text-light" id="signupRedirect">
+                Are you new here?
+              </Form.Text>
+              <Button variant="link btn-sm" onClick={(e) => handleSignUp(e)}>
+                Sign Up
+              </Button>
+            </Form.Group>
+            <div className="d-flex justify-content-center">
+              {" "}
+              <Button variant="primary" type="submit">
+                Login
+              </Button>
+            </div>
+          </div>
         </Form>
-        </div>
+      </div>
     </>
   );
 }
