@@ -1,7 +1,8 @@
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
+import ButtonGroup from 'react-bootstrap/ButtonGroup';
+import Button from 'react-bootstrap/Button';
 
 export function MyNavbar() {
   return (
@@ -10,16 +11,19 @@ export function MyNavbar() {
         <Container>
           <Navbar.Brand href="#home">WanderWiz</Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
-          <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
-              <Nav.Link href="#home">Home</Nav.Link>
-              <Nav.Link href="#generateItinerary">Generate Itinerary</Nav.Link>
-              <Nav.Link href="#profile">Profile</Nav.Link>
-              <div>
-                <Nav.Link href="#profile">Login/Sign up</Nav.Link>
-              </div>
+                <Nav.Link href="#home">Home</Nav.Link>
+                <Nav.Link href="#generateItinerary">Generate Itinerary</Nav.Link>
+                <Nav.Link href="#profile">Profile</Nav.Link>
             </Nav>
-          </Navbar.Collapse>
+            <Nav>
+              <ButtonGroup className='me-1' aria-label="Log in button">
+                <Button variant="outline-primary">Log in</Button>{' '}
+                </ButtonGroup>
+              <ButtonGroup aria-label="Sign up button">
+                <Button variant="outline-success">Sign up</Button>{' '}
+              </ButtonGroup>
+            </Nav>
         </Container>
       </Navbar>
     </>
