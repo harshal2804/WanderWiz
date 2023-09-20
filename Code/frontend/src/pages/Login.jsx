@@ -1,6 +1,6 @@
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-import loginBg from "../../public/bg_login.jpg";
+
 
 function Login() {
   const handleLogin = (e) => {
@@ -13,7 +13,7 @@ function Login() {
 
   const myStyle = {
     height: "100vh",
-    backgroundImage: `url(${loginBg})`,
+    backgroundImage: `url(${import.meta.env.BASE_URL}bg_login.jpg)`,
     backgroundRepeat: "no-repeat",
     backgroundSize: "cover",
   };
