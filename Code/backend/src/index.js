@@ -1,5 +1,5 @@
-require('./config/environment');
-require('./database/mongodb/connection');
+import './config/env';
+import './config/database';
 
 const express = require('express');
 const app = express();
