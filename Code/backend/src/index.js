@@ -1,11 +1,18 @@
-import './config/env';
-import './config/database';
+import express from 'express';
+import mongoose from 'mongoose';
+import './config/environment.js';
+import routes from './routes/index.js';
+import mongoConnection from './database/mongodb/connection.js';
 
-const express = require('express');
 const app = express();
-const PORT = process.env.PORT ? process.env.PORT : 3000;
+const PORT = process.env.PORT ? process.env.PORT : 3001;
 
-const apiRouter = require('./api/index');
-app.use('/', apiRouter);
+//Database connection
+mongoConnection(mongoose, process.env.MONGO_URI).connectToMongo();
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+
+routes(app, express);
 
 app.listen(PORT, () => console.log(`App listening on port ${PORT}!`));
