@@ -1,5 +1,5 @@
-import addUser from "usecases/user/add";
-import getUserById from "usecases/user/getUser"
+import addUser from "application/usecases/user/add";
+import getUserById from "application/usecases/user/getUser"
 
 export default function userController(
     userRepository,

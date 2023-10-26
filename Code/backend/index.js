@@ -1,18 +1,15 @@
 import express from 'express';
 import mongoose from 'mongoose';
+import expressConfig from 'frameworks/server/express'
+import mongoConnection from 'frameworks/database/mongodb/connection';
+import routes from 'frameworks/server/routes/index';
 import 'config/environment';
-import routes from 'routes/index';
-import mongoConnection from 'database/mongodb/connection';
 
 const app = express();
-const PORT = process.env.PORT ? process.env.PORT : 3001;
+
+//Server configuration
+expressConfig(app);
+routes(app, express);
 
 //Database connection
 mongoConnection(mongoose, process.env.MONGO_URI).connectToMongo();
-
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
-
-routes(app, express);
-
-app.listen(PORT, () => console.log(`App listening on port ${PORT}!`));

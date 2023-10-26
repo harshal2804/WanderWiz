@@ -1,6 +1,6 @@
 import userController from "controllers/user.controller";
-import userRepository from "repositories/user.repository";
-import userRepositoryMongoDB from "database/mongodb/repositories/user.repository.mongodb";
+import userRepository from "application/repositories/user.repository";
+import userRepositoryMongoDB from "frameworks/database/mongodb/repositories/user.repository.mongodb";
 
 export default function userRouter(express){
     const router = express.Router();
