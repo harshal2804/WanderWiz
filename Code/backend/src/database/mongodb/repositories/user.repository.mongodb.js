@@ -14,23 +14,24 @@ export default function userRepositoryMongoDB() {
             const userCreated = await userModel.create(user);
             return userCreated;
         },
-        async update(id, user) {
-            const userUpdated = await userModel.findByIdAndUpdate(id, user, { new: true });
+        async findByIdAndUpdate(id, user, options) {
+            const userUpdated = await userModel.findByIdAndUpdate(id, user, options);
             return userUpdated;
         },
-        async delete(id) {
+        async findByIdAndDelete(id) {
             const userDeleted = await userModel.findByIdAndDelete(id);
             return userDeleted;
         },
-        async getById(id) {
+        async findById(id) {
             const user = await userModel.findById(id);
+            if(!user) return null;
             return user;
         },
-        async getAll() {
+        async findAll() {
             const users = await userModel.find();
             return users;
         },
-        async getByEmail(email) {
+        async findOne(email) {
             const user = await userModel.findOne({ email });
             return user;
         }

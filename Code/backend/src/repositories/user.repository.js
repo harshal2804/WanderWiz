@@ -17,7 +17,7 @@ export default function userRepository(repository){
             return user;
         },
         async getAll(){
-            const users = await repository.find();
+            const users = await repository.findAll();
             return users;
         },
         async getByEmail(email){
