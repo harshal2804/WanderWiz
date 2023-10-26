@@ -1,4 +1,4 @@
-import addUser from "../usecases/user/add.js";
+import addUser from "usecases/user/add";
 
 export default function userController(
     userRepository,

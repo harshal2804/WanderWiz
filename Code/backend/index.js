@@ -1,8 +1,8 @@
 import express from 'express';
 import mongoose from 'mongoose';
-import './config/environment.js';
-import routes from './routes/index.js';
-import mongoConnection from './database/mongodb/connection.js';
+import 'config/environment';
+import routes from 'routes/index';
+import mongoConnection from 'database/mongodb/connection';
 
 const app = express();
 const PORT = process.env.PORT ? process.env.PORT : 3001;

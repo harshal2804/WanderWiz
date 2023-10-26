@@ -1,4 +1,4 @@
-import user from "../../entities/user.js";
+import user from "entities/user";
 
 export default function addUser(
     name,

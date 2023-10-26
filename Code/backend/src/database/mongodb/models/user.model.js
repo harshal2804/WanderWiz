@@ -1,5 +1,5 @@
 import mongoose from 'mongoose';
-import userValidation from '../../../middlewares/userValidation.js';
+import userValidation from 'middlewares/userValidation';
 
 const userSchema = new mongoose.Schema({
     name: String,
