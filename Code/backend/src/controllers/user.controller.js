@@ -16,8 +16,8 @@ export default function userController(
 
     const getUser = async (req, res, next) => {
         try{
-            const { id } = req.params;
-            const user = await getUserById(id, dbRepository);
+            const { payload } = req.userId;
+            const user = await getUserById(payload, dbRepository);
             if(!user) return res.status(404).json({ message: "User not found" });
             res.status(200).json(user);
         }catch(err){

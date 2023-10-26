@@ -32,7 +32,7 @@ export default function userRepositoryMongoDB() {
             return users;
         },
         async findOne(email) {
-            const user = await userModel.findOne({ email });
+            const user = await userModel.findOne(email);
             return user;
         }
     }
