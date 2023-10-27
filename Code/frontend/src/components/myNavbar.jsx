@@ -3,16 +3,18 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import Button from 'react-bootstrap/Button';
+import WanderWizLogo from '../assets/WanderWizLogo.svg';  
 
 export function MyNavbar() {
   return (
     <>
-      <Navbar expand="lg" className="bg-body-tertiary" bg="dark" data-bs-theme="dark">
+      <Navbar collapseOnSelect expand="lg" style={{ backgroundColor: '#a2d0ed'}}>
         <Container>
-          <Navbar.Brand href="#home">WanderWiz</Navbar.Brand>
-          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <img src={WanderWizLogo} alt="WanderWiz Logo" width="65" height="65" className="mx-3 d-inline-block align-top" />
+          <Navbar.Toggle aria-controls="navbarScroll" />
+          <Navbar.Collapse id="navbarScroll">
             <Nav className="me-auto">
-                <Nav.Link href="#home">Home</Nav.Link>
+                <Nav.Link href="#home" >Home</Nav.Link>
                 <Nav.Link href="#generateItinerary">Generate Itinerary</Nav.Link>
                 <Nav.Link href="#profile">Profile</Nav.Link>
             </Nav>
@@ -24,6 +26,7 @@ export function MyNavbar() {
                 <Button variant="outline-success">Sign up</Button>{' '}
               </ButtonGroup>
             </Nav>
+          </Navbar.Collapse>
         </Container>
       </Navbar>
     </>
