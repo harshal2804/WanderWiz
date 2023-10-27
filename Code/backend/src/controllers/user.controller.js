@@ -3,13 +3,17 @@ import getUserById from "application/usecases/user/getUser"
 
 export default function userController(
     userRepository,
-    userRepositoryImplementation
+    userRepositoryImplementation,
+    authService,
+    authServiceImplementation
 ){
     const dbRepository = userRepository(userRepositoryImplementation())
+    const authServiceImpl = authService(authServiceImplementation())
 
     const addNewUser = (req, res, next) => {
         const { name, email, password, currentCity } = req.body;
-        addUser(name, email, password, currentCity, dbRepository)
+        const encryptedPassword = authServiceImpl.encryptPassword(password);
+        addUser(name, email, encryptedPassword, currentCity, dbRepository)
             .then(user => res.status(201).json(user))
             .catch(next);
     }

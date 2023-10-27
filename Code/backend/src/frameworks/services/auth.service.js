@@ -2,7 +2,7 @@ import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 
 export default function authService() {
-    const encryptedPassword = (password) => {
+    const encryptPassword = (password) => {
         return bcrypt.hashSync(password, 10);
     }
 
@@ -21,7 +21,7 @@ export default function authService() {
     }
 
     return {
-        encryptedPassword,
+        encryptPassword,
         comparePassword,
         generateToken,
         verify

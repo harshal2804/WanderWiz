@@ -8,8 +8,7 @@ export default async function login(
     try{
         const user = await userRepository.getByEmail(email);
         if(!user) throw new Error("User not found");
-        // if(!authService.comparePassword(password, user.password)) throw new Error("Password is incorrect");
-        if(password !== user.password) throw new Error("Password is incorrect");
+        if(!authService.comparePassword(password, user.password)) throw new Error("Password is incorrect");
         const id = user._id;
         return authService.generateToken(id);
     }catch(err){
