@@ -1,14 +1,14 @@
-//import Login from "./Pages/Login"
-import Login from "./pages/Login"
-import Signup from "./pages/Signup"
+
+import Footer from './components/Footer';
+import { MyNavbar } from './components/myNavbar';
 
 function App() {
 
   return (
     <>
-      
-      <Login/>
-      
+
+      <MyNavbar />
+      <Footer />
     </>
   )
 }
