@@ -1,4 +1,5 @@
 
+
 import Footer from './components/Footer';
 import { MyNavbar } from './components/myNavbar';
 import Itineraries from './pages/itineraries';
@@ -11,6 +12,7 @@ function App() {
       <MyNavbar />
       <Itineraries />
       <Footer />
+
     </>
   )
 }
