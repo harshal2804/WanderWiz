@@ -1,0 +1,84 @@
+/* Center the content vertically and horizontally */
+.main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #00588A;
+    justify-content: center;
+    height: 100vh;
+    text-align: center;
+    color: #08202e;
+  }
+  
+  /* Style for the top center text */
+  .top-center {
+    font-size: 24px;
+    color: #08202e;
+  }
+  .top-center1 {
+    margin: 20px;
+    color: #08202e;
+  }
+  
+  /* Style for the search bar */
+  .search-bar {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+  }
+  
+  .search-bar input {
+    padding: 10px;
+    width: 500px;
+    height: 30px;
+    font-size: 16px;
+    border: 0.5px solid #00588A;
+    border-radius: 4px;
+    margin-bottom: 10px;
+  }
+  
+  .search-bar button {
+    background-color: #00588A;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    margin-left: 10px;
+    cursor: pointer;
+  }
+  
+  /* Style for the date input fields */
+  .date-inputs {
+    margin-top: 10px;
+    font-size: larger;
+    color: #08202e;
+  }
+  
+  .date-inputs input {
+    padding: 10px;
+    font-size: 16px;
+    color: #00588A;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-right: 10px;
+    margin-left: 10px;
+  }
+  
+  /* Style for the search button at the end of the main content */
+  button{
+    width: 200px;
+    height: inherit;
+  }
+  .button-container {
+    margin-top: 20px;
+  }
+  
+  .button-container button {
+    background-color: #fff;
+    color: #00588A;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+  
