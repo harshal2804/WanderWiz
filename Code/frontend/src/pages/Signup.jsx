@@ -124,47 +124,70 @@ function Signup() {
 
   return (
 
-    <div className="signup-container d-flex justify-content-center p-5" style={ms}>
-    <div className="text-white p-3 square border border-5 rounded" style={insi}>
-      <Form style={{ width: "400px" }}>
-        <div className="p-3 text-center">
-          <h2>Sign up</h2> {/* Replace with your desired text */}
-        </div>
-        <div className="p-2" style={textStyle}>
-          <Form.Group controlId="formGridEmail">
-            <Form.Label>Email</Form.Label>
-            <Form.Control type="email" placeholder="Enter email" />
-          </Form.Group>
-        </div>
-        <div className="p-2" style={textStyle}>
-          <Form.Group controlId="formGridPassword">
-            <Form.Label>Password</Form.Label>
-            <Form.Control type="password" placeholder="Password" />
-          </Form.Group>
-        </div>
-        <div className="p-3">
-          <Form.Group id="formGridCheckbox">
-            <Form.Check type="checkbox" label="Remember me" />
-          </Form.Group>
-        </div>
-        <div className="p-2">
-          <Form.Text className="py-2 text-light" id="signupRedirect">
-                already have an account?
-          </Form.Text>
-          <Button variant="link btn-sm" onClick={(e) => handleLogin(e)}>
-              Login
-          </Button>
-          <br/>
-          <Button variant="primary" type="submit">
-            Submit
-            
-          </Button>
-          
-        </div>
-      </Form>
-    </div>
+  <div className="signup-container d-flex justify-content-center p-5" style={ms}>
+  <div className="text-white p-3 square border-5 rounded" style={insi}>
+    <Form style={{ width: "400px" }}>
+      <div className="p-2 text-center">
+        <h2>Sign up</h2> {/* Replace with your desired text */}
+      </div>
+      <div className="p-1" style={textStyle}>
+        <Form.Group controlId="formGridFirstName">
+          <Form.Label>First Name</Form.Label>
+          <Form.Control type="text" placeholder="Enter first name" />
+        </Form.Group>
+        
+
+      </div>
+      <div className="p-1" style={textStyle}>
+        <Form.Group controlId="formGridLastName">
+          <Form.Label>Last Name</Form.Label>
+          <Form.Control type="text" placeholder="Enter last name" />
+        </Form.Group>
+      </div>
+      <div className="p-2" style={textStyle}>
+        <Form.Group controlId="formGridEmail">
+          <Form.Label>Email</Form.Label>
+          <Form.Control type="email" placeholder="Enter email" />
+        </Form.Group>
+      </div>
+      
+      <div className="p-2" style={textStyle}>
+        <Form.Group controlId="formGridPassword">
+          <Form.Label>Password</Form.Label>
+          <Form.Control type="password" placeholder="Password" />
+        </Form.Group>
+      </div>
+      <div className="p-1" style={textStyle}>
+        <Form.Group controlId="formGridEmail">
+          <Form.Label>City</Form.Label>
+          <Form.Control type="City" placeholder="Enter city" />
+        </Form.Group>
+      </div>
+      <div className="p-1">
+        <Form.Group id="formGridCheckbox">
+          <Form.Check type="checkbox" label="Remember me" />
+        </Form.Group>
+      </div>
+
+      
+      <div className="p-1">
+
+      <Button variant="primary" type="submit">
+          Submit
+        </Button>
+        
+        <br />
+        <Form.Text className="py-2 text-light" id="signupRedirect">
+          Already have an account?
+        </Form.Text>
+        <Button variant="link btn-sm" onClick={(e) => handleLogin(e)}>
+          Login
+        </Button>
+        
+      </div>
+    </Form>
   </div>
-  
+  </div>
 
     
     // <div className="signup-container d-flex justify-content-center p-5" 
