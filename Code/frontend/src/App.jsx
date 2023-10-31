@@ -2,6 +2,7 @@
 
 import Footer from './components/Footer';
 import { MyNavbar } from './components/myNavbar';
+import Home from './pages/Home';
 import Itineraries from './pages/itineraries';
 
 function App() {
@@ -10,7 +11,8 @@ function App() {
     <>
 
       <MyNavbar />
-      <Itineraries />
+      {/* <Itineraries /> */}
+      <Home />
       <Footer />
 
     </>

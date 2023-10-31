@@ -1,4 +1,5 @@
 import React from 'react';
+import Card from './Card';
 
 function Home() {
   const centeredTextContainer = {
@@ -36,6 +37,42 @@ function Home() {
     textAlign: 'center',
   };
 
+
+  const bestPlaces = [
+    {
+      title: 'Eiffel Tower',
+      description: 'Iconic landmark in Paris, France',
+      image: '/public/effiletower.jpg',
+    },
+    {
+      title: 'Machu Picchu',
+      description: 'Ancient Incan citadel in Peru',
+      image: '/public/machu-picchu.jpg',
+    },
+    {
+      title: 'Great Wall of China',
+      description: 'World-famous wall in China',
+      image: '/public/great-wall-of-china.jpg',
+    },
+    
+    {
+      title: 'Great Wall of China',
+      description: 'World-famous wall in China',
+      image: '/public/great-wall-of-china.jpg',
+    },
+
+
+    // Add more places here...
+  ];
+
+  const cardContainerStyle = {
+    display: 'flex',
+    flexWrap: 'wrap',
+    justifyContent: 'center',
+  };
+
+  
+
   return (
     <>
     <div style={centeredTextContainer}>
@@ -47,6 +84,18 @@ function Home() {
       <button style={butonStyle}> Add Itineraries </button>
 
     </div>
+
+
+    <div style={cardContainerStyle}>
+        {bestPlaces.map((place, index) => (
+          <Card
+            key={index}
+            title={place.title}
+            description={place.description}
+            image={place.image}
+          />
+        ))}
+      </div>
 
 <div style={aboutUsSection}>
 <h1>About Us</h1>
