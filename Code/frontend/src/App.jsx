@@ -1,4 +1,5 @@
-
+import { QueryClient, QueryClientProvider } from 'react-query';
+import { ReactQueryDevtools } from 'react-query/devtools';
 import Footer from './components/Footer';
 import { MyNavbar } from './components/myNavbar';
 import ItineraryOption from './pages/ItineraryOption';
@@ -11,13 +12,15 @@ import ItineraryOption4_3 from './pages/ItineraryOption4_3';
 
 function App() {
 
-  return (
-    <>
+  const queryClient = new QueryClient();
 
-      <MyNavbar />
-      <ItineraryOption4_3/>
-      <Footer />
-    </>
+  return (
+      <QueryClientProvider client={queryClient}>
+          <MyNavbar />
+          <ItineraryOption/>
+          <Footer />
+      <ReactQueryDevtools initialIsOpen={false} />
+      </QueryClientProvider>
   )
 }
 
