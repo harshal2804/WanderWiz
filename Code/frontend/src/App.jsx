@@ -1,23 +1,39 @@
-
+import { QueryClient, QueryClientProvider } from 'react-query';
+import { ReactQueryDevtools } from 'react-query/devtools';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Home from './pages/Home';
 import Footer from './components/Footer';
-import { MyNavbar } from './components/myNavbar';
+import MyNavbar from './components/myNavbar';
+import Login from './pages/Login';
 import ItineraryOption from './pages/ItineraryOption';
-import ItineraryOption4 from './pages/ItineraryOption4';
 import Itineraries from './pages/itineraries';
-import ItineraryOption4_1 from './pages/ItineraryOption4_1';
-import ItineraryOption4_2 from './pages/ItineraryOption4_2';
-import ItineraryOption4_3 from './pages/ItineraryOption4_3';
 
 
 function App() {
 
-  return (
-    <>
+  const queryClient = new QueryClient();
 
+<<<<<<< HEAD
       <MyNavbar />
       <ItineraryOption/>
       <Footer />
     </>
+=======
+  return (
+      <QueryClientProvider client={queryClient}>
+        <MyNavbar />
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/createItinerary" element={<ItineraryOption />} />
+            <Route path="/itineraries" element={<Itineraries />} />
+          </Routes>
+        </BrowserRouter>
+        <Footer />
+      <ReactQueryDevtools initialIsOpen={false} />
+      </QueryClientProvider>
+>>>>>>> 5aa4ea96099dd9c942f7580bfdbcc3e555dcbeb1
   )
 }
 
