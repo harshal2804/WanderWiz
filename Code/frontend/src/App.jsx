@@ -15,7 +15,7 @@ function App() {
     <>
 
       <MyNavbar />
-      <ItineraryOption4_3/>
+      <ItineraryOption/>
       <Footer />
     </>
   )

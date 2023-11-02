@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import '../css/itineraryOption.css'; // Import your CSS file
+import '../css/itineraryOption1.css'; // Import your CSS file
 
 class ItineraryOption extends Component {
   constructor() {
