@@ -1,5 +1,4 @@
 import React from "react";
-import { flushSync } from "react-dom";
 import {
   Button,
   Dropdown,
@@ -11,12 +10,12 @@ import { useQuery } from "react-query";
 import axios from "axios";
 import { useState } from "react";
 
-const placeSearchAPI = import.meta.env.VITE_PLACE_SEARCH_API;
+const placeSearchAPI = import.meta.env.VITE_DEST_SEARCH_API;
 
 const fetchSuggestions = async (query) => {
-  if (query.length < 3) return [];
+  if (query.length < 2) return [];
   const response = await axios.get(
-    `${placeSearchAPI}?q=${query}&format=json&limit=3`
+    `${placeSearchAPI}?q=${query}&format=json&limit=3&addressdetails=1`
   );
   response.data?.map((venue) => {
     console.log(venue);
@@ -25,6 +24,7 @@ const fetchSuggestions = async (query) => {
   const places = response.data?.map((venue) => {
     return {
       place_id: venue.place_id,
+      country: venue.address.country,
       display_name: venue.display_name,
       latitude: venue.lat,
       longitude: venue.lon
@@ -57,6 +57,7 @@ function ItineraryOption() {
       setQuery(venue.display_name);
       setDestination({
         place_id: venue.place_id,
+        country: venue.country,
         display_name: venue.display_name,
         latitude: venue.latitude,
         longitude: venue.longitude
@@ -65,16 +66,20 @@ function ItineraryOption() {
   };
 
   const handleStartDateChange = (e) => {
+    e.preventDefault();
+    const startDate = new Date(e.target.value);
     setDestination({
       ...destination,
-      startDate: e.target.value
+      startDate: startDate
     });
   };
 
   const handleEndDateChange = (e) => {
+    e.preventDefault();
+    const endDate = new Date(e.target.value);
     setDestination({
       ...destination,
-      endDate: e.target.value
+      endDate: endDate
     });
   };
 
@@ -112,8 +117,8 @@ function ItineraryOption() {
                   <Placeholder className="w-50" />
                 </Placeholder>
               </>
-            ) : query.length < 3 ? (
-              <Dropdown.Item>Enter minimum 3 character</Dropdown.Item>
+            ) : query.length < 2 ? (
+              <Dropdown.Item>Enter minimum 2 character</Dropdown.Item>
             ) : data.length === 0 ? (
               <Dropdown.Item>No results found</Dropdown.Item>
             ) : (

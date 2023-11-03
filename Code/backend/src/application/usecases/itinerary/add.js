@@ -1,14 +1,14 @@
-import itinerary from "entities/itinerary";
+import itinerary from "../../../entities/itinerary"
 
 export default function addItinerary(
     name,
-    city,
     country,
     startDate,
     endDate,
     activities,
+    user,
     itineraryRepository
 ) {
-    const newItinerary = itinerary(name, city, country, startDate, endDate, activities);
+    const newItinerary = itinerary(name, country, startDate, endDate, activities, user);
     return itineraryRepository.create(newItinerary);
 }
