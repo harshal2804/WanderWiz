@@ -1,7 +1,6 @@
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { ReactQueryDevtools } from 'react-query/devtools';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-
 import Home from './pages/Home';
 import Footer from './components/Footer';
 import MyNavbar from './components/myNavbar';
@@ -14,6 +13,12 @@ function App() {
 
   const queryClient = new QueryClient();
 
+<<<<<<< HEAD
+      <MyNavbar />
+      <ItineraryOption/>
+      <Footer />
+    </>
+=======
   return (
       <QueryClientProvider client={queryClient}>
         <MyNavbar />
@@ -28,6 +33,7 @@ function App() {
         <Footer />
       <ReactQueryDevtools initialIsOpen={false} />
       </QueryClientProvider>
+>>>>>>> 5aa4ea96099dd9c942f7580bfdbcc3e555dcbeb1
   )
 }
 

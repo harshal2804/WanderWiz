@@ -1,29 +1,29 @@
-.App {
+.App41 {
     text-align: center;
   }
   
-  .App-header {
+  .App-header41 {
     background-color: #00588A;
     padding: 20px;
     color: white;
   }
   
-  .container
+  .container41
   {
     color:#00588A;
     justify-content: center;
   }
-  .row1 {
+  .row141 {
     display: flex;
     justify-content: center;
   }
   
-  .row2 {
+  .row241 {
     display: flex;
     justify-content: center;
   }
   
-  .box {
+  .box41 {
     border: 1px solid #ddd;
     color: white;
     background-color: #0E94DF;
@@ -35,44 +35,47 @@
     text-align: center;
   }
   
-  .icon {
+  .icon41 {
     font-size: 10vh;
   }
   
-  .icons
+  .icons41
   {
     font-size: 5vh;
   }
   
-  p {
+  .para41 {
     margin: 10px 0;
-    font-size: 3vh;
+    font-size: 2.5vh;
   }
   
-  .container1
+  .container141
   {
     display: flex;
     justify-content: space-between;
   }
-  button
+
+  #i141
   {
+      border-top-right-radius: 2vh;
+      border-bottom-right-radius: 2vh;
+      width: 23vh;
+      height: 7vh;
+      font-size: x-large;
+      background-color: #00588A;;
+      border-style: none;
+      color: #FFFFFF;
+  }
+  
+  #i241
+  {
+    border-top-left-radius: 2vh;
+    border-bottom-left-radius: 2vh;
     width: 23vh;
     height: 7vh;
     font-size: x-large;
     background-color: #00588A;;
     border-style: none;
     color: #FFFFFF;
-  }
-  
-  #i1
-  {
-      border-top-right-radius: 2vh;
-      border-bottom-right-radius: 2vh;
-  }
-  
-  #i2
-  {
-    border-top-left-radius: 2vh;
-    border-bottom-left-radius: 2vh;
   }
   

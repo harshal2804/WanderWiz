@@ -11,54 +11,54 @@ import { BiFemale} from "react-icons/bi";
 
 function ItineraryOption4_1() {
   return (
-    <div className="App">
-      <header className="App-header">
+    <div className="App41">
+      <header className="App-header41">
         <h1>Which age group do you fall in?</h1>
         <h3>start date: </h3>
         <h3>end date: </h3>
       </header>
 
-      <div className="container">
+      <div className="container41">
       <h2>male</h2>
-      <BsGenderMale className='icons'></BsGenderMale>
+      <BsGenderMale className='icons41'></BsGenderMale>
       </div>
-      <div className="row1"> 
-        <div className="box">
-       <IoIosPerson className="icon">icon1</IoIosPerson>
-          <p >18 - 30</p>
+      <div className="row141"> 
+        <div className="box41">
+       <IoIosPerson className="icon41">icon1</IoIosPerson>
+       <p className="para41">18 - 30</p>
         </div>
-        <div className="box">
-          <MdPerson3 className="icon">Icon 2</MdPerson3>
-          <p>31 - 50</p>
+        <div className="box41">
+          <MdPerson3 className="icon41">Icon 2</MdPerson3>
+          <p className="para41">31 - 50</p>
         </div>
-        <div className="box">
-          <FaPersonCane className="icon">Icon 3</FaPersonCane>
-          <p>51 and above</p>
+        <div className="box41">
+          <FaPersonCane className="icon41">Icon 3</FaPersonCane>
+          <p className="para41">51 and above</p>
         </div>
       </div>
 
-      <div className="container">
+      <div className="container41">
       <h2>female</h2>
-      <BsGenderFemale className='icons'></BsGenderFemale>
+      <BsGenderFemale className='icons41'></BsGenderFemale>
       </div>
-      <div className="row2">
-        <div className="box">
-        <LiaFemaleSolid className="icon">Icon1</LiaFemaleSolid>
-          <p >18 - 30</p>
+      <div className="row241">
+        <div className="box41">
+        <LiaFemaleSolid className="icon41">Icon1</LiaFemaleSolid>
+        <p className="para41">18 - 30</p>
         </div>
-        <div className="box">
-          <BiFemale className="icon">Icon 2</BiFemale>
-          <p>31 - 50</p>
+        <div className="box41">
+          <BiFemale className="icon41">Icon 2</BiFemale>
+          <p className="para41">31 - 50</p>
         </div>
-        <div className="box">
-          <SlUserFemale className="icon">Icon 3</SlUserFemale>
-          <p>51 and above</p>
+        <div className="box41">
+          <SlUserFemale className="icon41">Icon 3</SlUserFemale>
+          <p className="para41">51 and above</p>
         </div>
         
       </div>
-      <div className="container1">
-        <div className="back"> <button id="i1">back</button></div>
-       <div className="next"> <button id="i2">next</button></div>
+      <div className="container141">
+        <div className="back41"> <button id="i141">back</button></div>
+       <div className="next41"> <button id="i241">next</button></div>
         </div>
     </div>
   );
