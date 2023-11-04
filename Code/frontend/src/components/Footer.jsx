@@ -4,7 +4,7 @@ import github from "../assets/github.png";
 export default function Footer() {
     return (
         <>
-        <Container fluid style={{ width: "100%" }} className="bg-secondary p-3 d-flex justify-content-center align-items-center">
+        <Container fluid style={{ backgroundColor: "#a2d0ed", width: "100%" }} className="p-3 d-flex justify-content-center align-items-center">
                     <span className="mx-2">© 2023</span>
                     <span className="mx-2">WanderWiz</span>
                     <a href="https://github.com/harshal2804/WanderWiz">

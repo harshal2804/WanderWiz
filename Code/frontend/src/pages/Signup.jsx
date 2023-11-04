@@ -106,7 +106,7 @@ function Signup() {
 
       const textStyle = {
         // textAlign: "center",
-        fontSize: "25px",
+        fontSize: "15px",
         fontWeight: 600,
         color: "#efefef",
         letterSpacing: "1px",
@@ -115,8 +115,9 @@ function Signup() {
       };
 
       const insi={
+            height: 545,
             backgroundColor: "#0f0f0f",
-            maxHeight : 450,
+            minHeight : 450,
             maxWidth : 600,
             opacity : 0.9,
       };
@@ -130,6 +131,7 @@ function Signup() {
       <div className="p-2 text-center">
         <h2>Sign up</h2> {/* Replace with your desired text */}
       </div>
+      <div className='d-flex space-around'>
       <div className="p-1" style={textStyle}>
         <Form.Group controlId="formGridFirstName">
           <Form.Label>First Name</Form.Label>
@@ -143,6 +145,7 @@ function Signup() {
           <Form.Label>Last Name</Form.Label>
           <Form.Control type="text" placeholder="Enter last name" />
         </Form.Group>
+      </div>
       </div>
       <div className="p-2" style={textStyle}>
         <Form.Group controlId="formGridEmail">
@@ -172,17 +175,20 @@ function Signup() {
       
       <div className="p-1">
 
-      <Button variant="primary" type="submit">
-          Submit
-        </Button>
         
-        <br />
         <Form.Text className="py-2 text-light" id="signupRedirect">
           Already have an account?
         </Form.Text>
-        <Button variant="link btn-sm" onClick={(e) => handleLogin(e)}>
+        <Button href="/login" variant="link btn-sm">
           Login
         </Button>
+        <br />
+        <div className="d-flex justify-content-center">
+              {" "}
+              <Button className='my-3' variant="primary" type="submit">
+                Signup
+              </Button>
+            </div>
         
       </div>
     </Form>

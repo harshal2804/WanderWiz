@@ -37,7 +37,7 @@
     margin-bottom: 10px;
   }
   
-  .search-bar button {
+  .search-bar button1 {
     background-color: #00588A;
     color: #fff;
     border: none;
@@ -65,10 +65,6 @@
   }
   
   /* Style for the search button at the end of the main content */
-  button{
-    width: 200px;
-    height: inherit;
-  }
   .button-container {
     margin-top: 20px;
   }

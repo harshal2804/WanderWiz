@@ -36,8 +36,8 @@ class ItineraryOption2 extends Component{
       </div>
   </div>
   <div className="container1">
-    <div className="back"> <button id="i1">back</button></div>
-    <div className="next"> <button id="i2">next</button></div>
+    <div className="back"> <button className="button2" id="i1">back</button></div>
+    <div className="next"> <button className="button2" id="i2">next</button></div>
     </div>
 
             </>

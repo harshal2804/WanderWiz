@@ -84,7 +84,7 @@ input {
   display: flex;
   justify-content: space-between;
 }
-button
+.button2
 {
   width: 23vh;
   height: 7vh;
@@ -92,18 +92,8 @@ button
   background-color: #00588A;;
   border-style: none;
   color: #FFFFFF;
-}
-
-#i1
-{
-    border-top-right-radius: 2vh;
-    border-bottom-right-radius: 2vh;
-}
-
-#i2
-{
-  border-top-left-radius: 2vh;
-  border-bottom-left-radius: 2vh;
+  border-top-right-radius: 2vh;
+  border-bottom-right-radius: 2vh;
 }
 
 .st{

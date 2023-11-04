@@ -1,14 +1,37 @@
+import axios from "axios";
+import { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
+import { useMutation, useQuery } from "react-query";
 
+
+const fetchUser = async ({ email, password}) => {
+  const res = await axios.post("http://localhost:3001/api/auth/login", {
+    email: email,
+    password: password,
+  });
+  return res.data;
+};
 
 function Login() {
+
+  const loginMutation = useMutation({
+    mutationFn: fetchUser,
+    onSuccess: (data) => {
+      console.log(data);
+    },
+    onError: (error) => {
+      console.log(error);
+    }
+  })
+
   const handleLogin = (e) => {
     e.preventDefault();
-  };
-
-  const handleSignUp = (e) => {
-    e.preventDefault();
+    console.log(e.target.formBasicEmail.value, e.target.formBasicPassword.value);
+    loginMutation.mutate({
+      email: e.target.formBasicEmail.value,
+      password: e.target.formBasicPassword.value
+    })
   };
 
   const myStyle = {
@@ -48,12 +71,12 @@ function Login() {
           <div>
             <Form.Group
               className="mb-3 text-light"
-              controlId="formBasicUsername"
+              controlId="formBasicEmail"
             >
-              <Form.Label>Username</Form.Label>
-              <Form.Control type="text" placeholder="Enter username" required/>
+              <Form.Label>Email</Form.Label>
+              <Form.Control type="text" placeholder="Enter email" required/>
               <Form.Control.Feedback type="invalid">
-                Please choose a username.
+                Please choose a email.
               </Form.Control.Feedback>
             </Form.Group>
 
@@ -68,7 +91,7 @@ function Login() {
               <Form.Text className="py-2 text-light" id="signupRedirect">
                 Are you new here?
               </Form.Text>
-              <Button variant="link btn-sm" onClick={(e) => handleSignUp(e)}>
+              <Button href="/signup" variant="link btn-sm">
                 Sign Up
               </Button>
             </Form.Group>
