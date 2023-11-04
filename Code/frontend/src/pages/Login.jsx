@@ -3,6 +3,7 @@ import { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { useMutation, useQuery } from "react-query";
+import { useNavigate } from "react-router";
 
 
 const fetchUser = async ({ email, password}) => {
@@ -13,12 +14,18 @@ const fetchUser = async ({ email, password}) => {
   return res.data;
 };
 
-function Login() {
+function Login({ handleUser }) {
+
+  const navigation = useNavigate();
 
   const loginMutation = useMutation({
     mutationFn: fetchUser,
     onSuccess: (data) => {
-      console.log(data);
+      handleUser({
+        user: true,
+        token: data.token,
+      });
+      navigation("/");
     },
     onError: (error) => {
       console.log(error);
@@ -27,11 +34,15 @@ function Login() {
 
   const handleLogin = (e) => {
     e.preventDefault();
-    console.log(e.target.formBasicEmail.value, e.target.formBasicPassword.value);
     loginMutation.mutate({
       email: e.target.formBasicEmail.value,
       password: e.target.formBasicPassword.value
     })
+  };
+
+  const handleSignup = (e) => {
+    e.preventDefault();
+    navigation("/signup");
   };
 
   const myStyle = {
@@ -91,7 +102,7 @@ function Login() {
               <Form.Text className="py-2 text-light" id="signupRedirect">
                 Are you new here?
               </Form.Text>
-              <Button href="/signup" variant="link btn-sm">
+              <Button variant="link btn-sm" onClick={(e) => handleSignup(e)}>
                 Sign Up
               </Button>
             </Form.Group>
