@@ -1,4 +1,5 @@
 import addItinerary from "application/usecases/itinerary/add";
+import getItineraries from "application/usecases/itinerary/getItineraries";
 
 export default function (
     itineraryRepository,
@@ -24,8 +25,29 @@ export default function (
         }
     }
 
+    const getAllItineraries = async (req, res, next) => {
+        try {
+            const itineraries = await getItineraries(dbRepository);
+            res.status(200).json(itineraries);
+        } catch (err) {
+            next(err);
+        }
+    }
+
+    const getItineraryById = async (req, res, next) => {
+        try {
+            const { payload } = req.userId;
+            const { id } = req.params;
+            const itinerary = await dbRepository.getItineraryById(id, payload);
+            res.status(200).json(itinerary);
+        } catch (err) {
+            next(err);
+        }
+    }
+
     return {
-        addNewItinerary
+        addNewItinerary,
+        getAllItineraries
     }
 
 }

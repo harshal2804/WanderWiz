@@ -14,20 +14,20 @@ export default function itineraryRepositoryMongoDB() {
             }
             return await itineraryModel.create(itinerary);
         },
-        async update(id, itinerary){
+        async findByIdAndUpdate(id, itinerary){
             return await itineraryModel.findByIdAndUpdate(id, itinerary, { new: true });
         },
-        async delete(id){
+        async findByIdAndDelete(id) {
             return await itineraryModel.findByIdAndDelete(id);
         },
-        async getById(id){
+        async findById(id) {
             return await itineraryModel.findById(id);
         },
-        async getAll(){
-            return await itineraryModel.findAll();
+        async findAll(){
+            return await itineraryModel.find();
         },
-        async getByUser(id){
-            return await itineraryModel.find({ user: id });
+        async find(id){
+            return await itineraryModel.findOne({ user: id });
         }
     }
 

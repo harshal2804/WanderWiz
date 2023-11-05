@@ -12,5 +12,11 @@ export default function itineraryRouter(express){
     //POST /itinerary
     router.post('/', authMiddleware, controller.addNewItinerary);
 
+    //GET /itinerary
+    router.get('/', authMiddleware, controller.getAllItineraries);
+
+    //GET /itinerary/:id
+    // router.get('/:id', authMiddleware, controller.getItineraryById);
+
     return router;
 }
