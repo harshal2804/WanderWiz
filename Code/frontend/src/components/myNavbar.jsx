@@ -44,12 +44,12 @@ export default function MyNavbar() {
             </Nav>
             <Nav>
               <ButtonGroup className="me-1" aria-label="Log in button">
-                <Button variant="outline-primary" style={customFontStyle}>
+                <Button href="/login" variant="outline-primary" style={customFontStyle}>
                   Log in
                 </Button>{" "}
               </ButtonGroup>
               <ButtonGroup aria-label="Sign up button">
-                <Button variant="outline-success" style={customFontStyle}>
+                <Button href="/signup" variant="outline-success" style={customFontStyle}>
                   Sign up
                 </Button>{" "}
               </ButtonGroup>

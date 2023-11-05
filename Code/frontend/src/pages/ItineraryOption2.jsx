@@ -8,6 +8,11 @@ class ItineraryOption2 extends Component{
     render() {
         return(
         <>
+
+        
+
+
+
         <div id="header">
       <h1>Select duration for your cities</h1>
       <h3 className="st">Start Date: </h3>

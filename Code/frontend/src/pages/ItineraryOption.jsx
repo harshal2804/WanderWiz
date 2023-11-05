@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-import React, { Component } from 'react';
-import '../css/itineraryOption.css'; // Import your CSS file
-=======
 import React from "react";
 import { flushSync } from "react-dom";
 import {
@@ -14,7 +10,6 @@ import "../css/itineraryOption.css";
 import { useQuery } from "react-query";
 import axios from "axios";
 import { useState } from "react";
->>>>>>> 5aa4ea96099dd9c942f7580bfdbcc3e555dcbeb1
 
 const placeSearchAPI = import.meta.env.VITE_PLACE_SEARCH_API;
 

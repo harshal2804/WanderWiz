@@ -116,7 +116,7 @@ function Signup() {
 
       const insi={
             backgroundColor: "#0f0f0f",
-            maxHeight : 450,
+            maxHeight : 700,
             maxWidth : 600,
             opacity : 0.9,
       };
@@ -163,11 +163,11 @@ function Signup() {
           <Form.Control type="City" placeholder="Enter city" />
         </Form.Group>
       </div>
-      <div className="p-1">
+      {/* <div className="p-1">
         <Form.Group id="formGridCheckbox">
           <Form.Check type="checkbox" label="Remember me" />
         </Form.Group>
-      </div>
+      </div> */}
 
       
       <div className="p-1">
