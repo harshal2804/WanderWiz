@@ -23,8 +23,9 @@ export default function itineraryRepositoryMongoDB() {
         async findById(id) {
             return await itineraryModel.findById(id);
         },
-        async findAll(){
-            return await itineraryModel.find();
+        async findAll(lim, pageNum){
+            console.log("repo:", lim, pageNum);
+            return await itineraryModel.find().skip(pageNum * lim).limit(lim);
         },
         async find(id){
             return await itineraryModel.findOne({ user: id });

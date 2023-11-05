@@ -27,7 +27,9 @@ export default function (
 
     const getAllItineraries = async (req, res, next) => {
         try {
-            const itineraries = await getItineraries(dbRepository);
+            const pageNum = req.query._pageNum;
+            const lim = req.query._lim;
+            const itineraries = await getItineraries(lim, pageNum, dbRepository);
             res.status(200).json(itineraries);
         } catch (err) {
             next(err);
