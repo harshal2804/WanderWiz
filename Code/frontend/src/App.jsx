@@ -35,7 +35,9 @@ function App() {
             <Route path="/createItinerary" element={user.user ? <ItineraryOption /> : 
               <Login handleUser={(user) => updateUser(user)} />} 
             />
-            <Route path="/itineraries" element={<Itineraries />}/>
+            <Route path="/itineraries" element={user.user ? <Itineraries /> :
+              <Login handleUser={(user) => updateUser(user)} />}
+            />
           </Routes>
         <Footer />
         </BrowserRouter>

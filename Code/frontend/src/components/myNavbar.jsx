@@ -61,9 +61,14 @@ export default function MyNavbar() {
             </Nav> 
             :
             <Nav>
-              <Nav.Link to="/profile" as={NavLink} style={customFontStyle}>
-                <BsFillPersonFill size={25} />
+                <div className="d-flex flex-column align-items-center">
+              <Nav.Link className="p-1" to="/profile" as={NavLink} style={customFontStyle}>
+                <Button className="p-1 rounded-circle" variant="dark">
+                  <BsFillPersonFill size={30} />
+                </Button>
               </Nav.Link>
+                <div className="text-center">Your Profile</div>
+                </div>
             </Nav>
 
             }

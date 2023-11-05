@@ -1,9 +1,10 @@
 import axios from "axios";
-import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { useMutation, useQuery } from "react-query";
 import { useNavigate } from "react-router";
+import { UserContext } from "../context/UserContext";
 
 
 const fetchUser = async ({ email, password}) => {
@@ -17,6 +18,7 @@ const fetchUser = async ({ email, password}) => {
 function Login({ handleUser }) {
 
   const navigation = useNavigate();
+  const user = useContext(UserContext);
 
   const loginMutation = useMutation({
     mutationFn: fetchUser,
@@ -62,6 +64,12 @@ function Login({ handleUser }) {
   };
   return (
     <>
+      {user.user ? 
+        useEffect(() => {
+          navigation("/");
+        }
+      )
+      :
       <div
         className="p-5 d-flex align-items-center gap-4"
         style={myStyle}
@@ -114,7 +122,7 @@ function Login({ handleUser }) {
             </div>
           </div>
         </Form>
-      </div>
+      </div>}
     </>
   );
 }
