@@ -70,12 +70,21 @@
 
 // export default Signup;
 
-import React from 'react';
+import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import Signupp from "../../public/bg_Signup.jpg";
+import { useNavigate } from 'react-router';
+import { useMutation } from 'react-query';
+import axios from 'axios';
+
+
+const postUser = async (user) => {
+  const res = await axios.post("http://localhost:3001/api/user", user);
+  return res.data;
+}
 
 function Signup() {
 
@@ -86,12 +95,31 @@ function Signup() {
   //   backgroundSize: "cover",
   // };
 
+  const navigation = useNavigate();
+  const [user, setUser] = useState({});
+
+  const signupMutation = useMutation({
+    mutationFn: postUser,
+    onSuccess: (data) => {
+      console.log(data);
+      navigation("/login");
+    },
+  })
+
   const handleLogin = (e) => {
     e.preventDefault();
+    navigation("/login");
   };
 
   const handleSignUp = (e) => {
     e.preventDefault();
+    setUser({
+      name: e.target.formGridFirstName.value + " " + e.target.formGridLastName.value,
+      email: e.target.formGridEmail.value,
+      password: e.target.formGridPassword.value,
+      curretCity: e.target.formGridCity.value,
+    })
+    signupMutation.mutate(user);
   };
 
   const ms={
@@ -106,7 +134,7 @@ function Signup() {
 
       const textStyle = {
         // textAlign: "center",
-        fontSize: "25px",
+        fontSize: "15px",
         fontWeight: 600,
         color: "#efefef",
         letterSpacing: "1px",
@@ -115,8 +143,9 @@ function Signup() {
       };
 
       const insi={
+            height: 545,
             backgroundColor: "#0f0f0f",
-            maxHeight : 700,
+            minHeight : 450,
             maxWidth : 600,
             opacity : 0.9,
       };
@@ -126,10 +155,11 @@ function Signup() {
 
   <div className="signup-container d-flex justify-content-center p-5" style={ms}>
   <div className="text-white p-3 square border-5 rounded" style={insi}>
-    <Form style={{ width: "400px" }}>
+    <Form style={{ width: "400px" }} onSubmit={(e) => handleSignUp(e)}>
       <div className="p-2 text-center">
         <h2>Sign up</h2> {/* Replace with your desired text */}
       </div>
+      <div className='d-flex space-around'>
       <div className="p-1" style={textStyle}>
         <Form.Group controlId="formGridFirstName">
           <Form.Label>First Name</Form.Label>
@@ -143,6 +173,7 @@ function Signup() {
           <Form.Label>Last Name</Form.Label>
           <Form.Control type="text" placeholder="Enter last name" />
         </Form.Group>
+      </div>
       </div>
       <div className="p-2" style={textStyle}>
         <Form.Group controlId="formGridEmail">
@@ -158,7 +189,7 @@ function Signup() {
         </Form.Group>
       </div>
       <div className="p-1" style={textStyle}>
-        <Form.Group controlId="formGridEmail">
+        <Form.Group controlId="formGridCity">
           <Form.Label>City</Form.Label>
           <Form.Control type="City" placeholder="Enter city" />
         </Form.Group>
@@ -172,17 +203,20 @@ function Signup() {
       
       <div className="p-1">
 
-      <Button variant="primary" type="submit">
-          Submit
-        </Button>
         
-        <br />
         <Form.Text className="py-2 text-light" id="signupRedirect">
           Already have an account?
         </Form.Text>
         <Button variant="link btn-sm" onClick={(e) => handleLogin(e)}>
           Login
         </Button>
+        <br />
+        <div className="d-flex justify-content-center">
+              {" "}
+              <Button className='my-3' variant="primary" type="submit">
+                Signup
+              </Button>
+            </div>
         
       </div>
     </Form>

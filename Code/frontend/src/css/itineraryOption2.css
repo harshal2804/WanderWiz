@@ -1,4 +1,4 @@
-*{
+.maindiv{
     box-sizing: border-box;
     margin:0;
     padding:0;
@@ -6,42 +6,21 @@
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
-/* body {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-} */
-/* html{
-    background-image: url("1.avif");
-} */
-
-#header {
+#header12 {
     text-align: center;
     padding: 30px;
     background-color: #00588A;
     border-radius: 5px;
 }
 
-/* #header {
-    height:100%;
-    width: 100%;
-    text-align: center;
-    margin-bottom:20px;
-    color: black;
-    background-color: #00588A;
-} */
-
-#input-blocks {
+#input-blocks12 {
     display: flex;
     flex-direction: column;
     justify-content: center;
     margin: 0px 37%;
 }
 
-.input-block {
+.input-block12 {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -53,60 +32,67 @@
     margin: 3vh 0px;
 }
 
-label {
+.labelname{
     display: block;
     margin-bottom: 5px;
     text-align: center;     
 }
+#a1{
+    color: black;
+}
 
-input {
+/* input {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    text-align: center;
+    height:40px;
+} */
+.box012{
+    width: 100%;
+    text-align: center;
+    color: #ccc;
+}
+.box12{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color:black;
+
     border: 1px solid #ccc;
     border-radius: 4px;
     text-align: center;
     height:40px;
 }
-.box{
-    width: 100%;
-    text-align: center;
-    color: #ccc;
-}
-.box1{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color:black;
-}
-.a1{
-    color: black;
-}
+
 .container1
 {
   display: flex;
   justify-content: space-between;
 }
-button
+.button2
 {
   width: 23vh;
   height: 7vh;
   font-size: x-large;
-  background-color: #00588A;;
+  background-color: #00588A;
   border-style: none;
   color: #FFFFFF;
-}
+} 
 
-#i1
+#i112
 {
     border-top-right-radius: 2vh;
     border-bottom-right-radius: 2vh;
 }
 
-#i2
+#i212
 {
   border-top-left-radius: 2vh;
   border-bottom-left-radius: 2vh;
 }
 
-.st{
+.st12{
     margin: 4vh;
 }
 
