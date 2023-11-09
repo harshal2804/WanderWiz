@@ -10,6 +10,7 @@ import Signup from './pages/Signup';
 import ItineraryOption from './pages/ItineraryOption';
 import Itineraries from './pages/itineraries';
 import { UserContext } from './context/UserContext';
+import Edit_Profile from './pages/EditProfile';
 
 
 function App() {
@@ -32,6 +33,7 @@ function App() {
               <Login handleUser={(user) => updateUser(user)} />} 
             />
             <Route path="/signup" element={<Signup />} />
+            <Route path="/profile" element={<Edit_Profile />} />
             <Route path="/createItinerary" element={user.user ? <ItineraryOption /> : 
               <Login handleUser={(user) => updateUser(user)} />} 
             />

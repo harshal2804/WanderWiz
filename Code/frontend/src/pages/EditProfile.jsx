@@ -51,15 +51,13 @@ class Edit_Profile extends Component {
       padding: '20px', 
     };
     return (
-    <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-    <div className="profile-container">
+    <div className="p-5" style={{ display: 'flex', justifyContent: 'space-around' }}>
+    <div className="profile-container d-flex flex-column align-items-center gap-5">
         <img src='https://ca.slack-edge.com/T0266FRGM-U2Q173U05-g863c2a865d7-512' alt="Profile" className="profile-photo" style={smallProfilePhotoStyle}/>
-       </div>
-       <div>
        <div style={functionbutton}>
          <ButtonToolbar aria-label="Toolbar with button groups">
       <ButtonGroup className="me-2" aria-label="First group">
-      <Button variant="secondary" type="submit">
+      <Button variant="info" type="submit">
         View Itenerary
       </Button>
       </ButtonGroup>
@@ -72,12 +70,14 @@ class Edit_Profile extends Component {
 
      
       <ButtonGroup className="me-2" aria-label="Third group">
-      <Button variant="secondary" type="reset">
+      <Button variant="danger" type="reset">
         Log Out
       </Button>
       </ButtonGroup>
       </ButtonToolbar>
        </div>
+       </div>
+       <div>
        <div style={formSectionStyle}>
       <Form>
      <Row className="g-2">

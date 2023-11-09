@@ -7,7 +7,7 @@ import WanderWizLogo from "../assets/WanderWizLogo.svg";
 import { useContext } from "react";
 import { UserContext } from "../context/UserContext";
 import { BsFillPersonFill } from "react-icons/bs";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 export default function MyNavbar() {
   const customFontStyle = {
@@ -16,6 +16,12 @@ export default function MyNavbar() {
   };
 
   const user = useContext(UserContext);
+  const navigation = useNavigate();
+
+  const handleProfile = (e) => {
+    e.preventDefault();
+    navigation("/profile");
+  }
 
   return (
     <>
@@ -63,7 +69,7 @@ export default function MyNavbar() {
             <Nav>
                 <div className="d-flex flex-column align-items-center">
               <Nav.Link className="p-1" to="/profile" as={NavLink} style={customFontStyle}>
-                <Button className="p-1 rounded-circle" variant="dark">
+                <Button className="p-1 rounded-circle" variant="dark" onClick={(e) => handleProfile(e)}>
                   <BsFillPersonFill size={30} />
                 </Button>
               </Nav.Link>
