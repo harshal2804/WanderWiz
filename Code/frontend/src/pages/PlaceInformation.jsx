@@ -347,41 +347,6 @@ export default function PlaceInformation() {
         ))}
       </div> */}
  
-      {/* <style>
-        {
-          .place-info {
-            padding: 20px;
-            border: 1px solid #ccc;
-            margin: 10px;
-          }
-
-          .rating {
-            font-weight: bold;
-          }
-
-          .reviews {
-            margin-top: 20px;
-          }
-
-          .review {
-            margin: 10px 0;
-            padding: 10px;
-            border: 1px solid #eee;
-            background-color: #f5f5f5;
-            width : 400px
-          }
-
-          .review-text {
-            font-size: 14px;
-          }
-
-          .review-date {
-            font-size: 12px;
-            color: #888;
-          }
-        }
-      </style>
-       */}
 
       <div className="place-info-container">
         {/* First Div: Image */}
