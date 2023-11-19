@@ -1,5 +1,5 @@
 
-.main{
+.main1{
     margin: 0;
     padding: 0;
     font-family: 'Poppins',sans-serif;
@@ -10,9 +10,9 @@
 .timeline{
     position: relative;
     max-width: 1200px;
-    margin: 100px auto;
+    margin: auto;
 }
-.container{
+.container9{
     padding: 10px 50px;
     position: relative;
     width: 50%;
@@ -29,23 +29,23 @@
         transform: translateY(0px);
     }
 }
-.container:nth-child(2)
+.container9:nth-child(2)
 {
     animation-delay: 1s;
 }
-.container:nth-child(3)
+.container9:nth-child(3)
 {
     animation-delay: 2s;
 }
-.container:nth-child(4)
+.container9:nth-child(4)
 {
     animation-delay: 3s;
 }
-.container:nth-child(5)
+.container9:nth-child(5)
 {
     animation-delay: 4s;
 }
-.container:nth-child(6)
+.container9:nth-child(6)
 {
     animation-delay: 5s;
 }
@@ -56,13 +56,13 @@
     border-radius: 6px;
     font-size: 15px;
 }
-.left-container{
+.left-container9{
     left: 0;
 }
-.right-container{
+.right-container9{
     left: 50%
 }
-.container img{
+.container9 img{
     position: absolute;
     width: 40px;
     border-radius: 50%;
@@ -70,7 +70,7 @@
     top: 32px;
     z-index: 10;
 }
-.right-container img{
+.right-container9 img{
     left: -20px;
 }
 .timeline::after{
@@ -100,7 +100,7 @@
     display: inline-block;
     margin-bottom: 15px;
 }
-.left-container-arrow{
+.left-container9-arrow{
     height:0;
     width:0;
     position: absolute;
@@ -111,7 +111,7 @@
     border-left:15px solid #fff;
     right: -15px;
 }
-.right-container-arrow{
+.right-container9-arrow{
     height:0;
     width:0;
     position: absolute;

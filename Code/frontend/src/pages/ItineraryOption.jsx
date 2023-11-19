@@ -4,6 +4,7 @@ import "../css/itineraryOption.css";
 import { useQuery } from "react-query";
 import axios from "axios";
 import { useState } from "react";
+import { useNavigate } from "react-router";
 
 const placeSearchAPI = import.meta.env.VITE_HERE_PLACE_SEARCH_API;
 
@@ -35,6 +36,7 @@ function ItineraryOption() {
   const [query, setQuery] = useState("Gandhinagar"); //user.currentCity
   const [destination, setDestination] = useState({});
   const [isActive, setIsActive] = useState(true);
+  const navigate = useNavigate();
   const { data, error, isLoading } = useQuery(
     ["suggestions", query],
     () => fetchSuggestions(query),
@@ -76,6 +78,11 @@ function ItineraryOption() {
       ...destination,
       endDate: endDate,
     });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    navigate("/createItinerary2", { state: { ...destination, currentCity: "Gandhinagar"} }) // user.currentCity
   };
 
   return (
@@ -137,7 +144,7 @@ function ItineraryOption() {
         end date :
         <input type="date" onChange={(e) => handleEndDateChange(e)} />
       </div>
-      <Button variant="dark">submit</Button>
+      <Button variant="dark" onClick={(e) => handleSubmit(e)}>submit</Button>
     </div>
   );
 }
