@@ -1,4 +1,5 @@
 import itineraryModel from "../models/itinerary.model";
+import userModel from "../models/user.model";
 
 export default function itineraryRepositoryMongoDB() {
 
@@ -12,7 +13,9 @@ export default function itineraryRepositoryMongoDB() {
                 activities: itineraryEntity.getActivities(),
                 user: itineraryEntity.getUser()
             }
-            return await itineraryModel.create(itinerary);
+            const resItinerary =  await itineraryModel.create(itinerary);
+            await userModel.findByIdAndUpdate(itinerary.user, { $push: { itineraries: resItinerary._id } });
+            return resItinerary;
         },
         async findByIdAndUpdate(id, itinerary){
             return await itineraryModel.findByIdAndUpdate(id, itinerary, { new: true });

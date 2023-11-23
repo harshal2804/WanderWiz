@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import '../css/itineraryOption4_1.css';
 import { IoIosPerson} from "react-icons/io";
 import { MdPerson3 } from "react-icons/md";
@@ -10,21 +10,31 @@ import { SlUserFemale} from "react-icons/sl";
 import { BiFemale} from "react-icons/bi";
 import { useLocation, useNavigate } from 'react-router-dom';
 import getDate from '../utils/getDate';
+import { useItineraryGeneration } from '../hooks/useItineraryGenration';
+import { UserContext } from '../context/UserContext';
 
 function ItineraryOption4_1({ handleTravelCount }) {
 
   const navigate = useNavigate();
   const { state } = useLocation();
+  const itiGen = useItineraryGeneration();
 
   const handleBack = (e) => {
     e.preventDefault();
     handleTravelCount(0);
   }
 
+  const handleNext = (e) => {
+    e.preventDefault();
+    itiGen.mutate({ state, token: user.token});
+  }
+
+
 
   const { startDate, endDate } = state;
   const startingDate = getDate(startDate);
   const endingDate = getDate(endDate);
+  const user = useContext(UserContext);
 
   return (
     <div className="App41 min-vh-100">
@@ -74,7 +84,7 @@ function ItineraryOption4_1({ handleTravelCount }) {
       </div>
       <div className="container141">
         <div className="back41" onClick={(e) => handleBack(e)}> <button id="i141">back</button></div>
-       <div className="next41"> <button id="i241">next</button></div>
+       <div className="next41" onClick={(e) => handleNext(e)}> <button id="i241">next</button></div>
         </div>
     </div>
   );

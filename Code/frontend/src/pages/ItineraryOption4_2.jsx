@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import '../css/ItineraryOption4_2.css';
 import { FaPerson} from "react-icons/fa6";
 import {PiPersonSimpleBold} from "react-icons/pi";
 import getDate from '../utils/getDate';
 import { useLocation } from 'react-router-dom';
+import { useItineraryGeneration } from '../hooks/useItineraryGenration';
+import { UserContext } from '../context/UserContext';
 
 function ItineraryOption4_2({ handleTravelCount }) {
 
@@ -17,6 +19,14 @@ function ItineraryOption4_2({ handleTravelCount }) {
   const { startDate, endDate } = state;
   const startingDate = getDate(startDate);
   const endingDate = getDate(endDate);
+
+  const user = useContext(UserContext)
+
+  const itiGen = useItineraryGeneration();
+  const handleNext = (e) => {
+    e.preventDefault();
+    itiGen.mutate({ state, token: user.token });
+  }
 
   return (
     <div className="App42 min-vh-100">
@@ -43,7 +53,7 @@ function ItineraryOption4_2({ handleTravelCount }) {
         </div>
         <div className="container142">
         <div className="back42" onClick={(e) => handleBack(e)}> <button id="i142">back</button></div>
-       <div className="next42"> <button id="i242">next</button></div>
+       <div className="next42" onClick={(e) => handleNext(e)}> <button id="i242">next</button></div>
         </div>
       </div>
       
