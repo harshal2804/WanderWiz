@@ -16,6 +16,7 @@ import Itineraries from './pages/itineraries';
 import { UserContext } from './context/UserContext';
 import Edit_Profile from './pages/EditProfile';
 import Timeline from './pages/timeline';
+import Profile from './pages/Profile';
 
 function App() {
 
@@ -25,6 +26,15 @@ function App() {
   const updateUser = (user) => {
     setUser(user);
   }
+
+  const token = localStorage.getItem("token");
+  if(token && !user.user) {
+    updateUser({
+      user: true,
+      token: token,
+    })
+  }
+  
 
   return (
       <QueryClientProvider client={queryClient}>
@@ -37,7 +47,9 @@ function App() {
               <Login handleUser={(user) => updateUser(user)} />} 
             />
             <Route path="/signup" element={<Signup />} />
-            <Route path="/profile" element={<Edit_Profile />} />
+            <Route path="/profile" element={user.user ? <Profile handleUser={(user) => updateUser(user)}/> :
+              <Login habdleUser={(user) => updateUser(user)} />}
+            />
             <Route path="/createItinerary" element={user.user ? <ItineraryOption /> : 
               <Login handleUser={(user) => updateUser(user)} />} 
             />

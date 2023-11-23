@@ -27,6 +27,7 @@ function Login({ handleUser }) {
   const loginMutation = useMutation({
     mutationFn: fetchUser,
     onSuccess: (data) => {
+      localStorage.setItem("token", data.token);
       handleUser({
         user: true,
         token: data.token,
