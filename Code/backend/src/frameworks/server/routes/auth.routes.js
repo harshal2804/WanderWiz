@@ -9,7 +9,7 @@ export default function authRouter(express){
     const controller = authController(userRepository, userRepositoryMongoDB, authService, authServiceImplementation);
 
     //GET /auth/login
-    router.get('/login', controller.loginUser);
+    router.post('/login', controller.loginUser);
 
     return router;
 }

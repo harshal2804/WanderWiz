@@ -47,7 +47,7 @@
     text-align: center;
     height:40px;
 } */
-.box0{
+.box012{
     width: 100%;
     text-align: center;
     color: #ccc;
@@ -70,7 +70,7 @@
   display: flex;
   justify-content: space-between;
 }
-button
+.button2
 {
   width: 23vh;
   height: 7vh;
