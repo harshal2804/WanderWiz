@@ -3,12 +3,17 @@ import '../css/ItineraryOption4_3.css';
 import { HiOutlineUserGroup} from "react-icons/hi2";
 import { MdOutlineGroups } from "react-icons/md";
 import { MdGroups2} from "react-icons/md";
+import { useLocation } from 'react-router-dom';
+import getDate from '../utils/getDate';
+
 function ItineraryOption4_3({ handleTravelCount }) {
 
   const handleBack = (e) => {
     e.preventDefault();
     handleTravelCount(0);
   }
+
+  const { state } = useLocation();
 
   const { startDate, endDate } = state;
   const startingDate = getDate(startDate);

@@ -3,6 +3,7 @@ import '../css/ItineraryOption4_2.css';
 import { FaPerson} from "react-icons/fa6";
 import {PiPersonSimpleBold} from "react-icons/pi";
 import getDate from '../utils/getDate';
+import { useLocation } from 'react-router-dom';
 
 function ItineraryOption4_2({ handleTravelCount }) {
 
@@ -10,6 +11,8 @@ function ItineraryOption4_2({ handleTravelCount }) {
     e.preventDefault();
     handleTravelCount(0);
   }
+
+  const { state } = useLocation();
 
   const { startDate, endDate } = state;
   const startingDate = getDate(startDate);

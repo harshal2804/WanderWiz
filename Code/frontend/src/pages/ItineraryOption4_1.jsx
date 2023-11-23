@@ -21,6 +21,7 @@ function ItineraryOption4_1({ handleTravelCount }) {
     handleTravelCount(0);
   }
 
+
   const { startDate, endDate } = state;
   const startingDate = getDate(startDate);
   const endingDate = getDate(endDate);
