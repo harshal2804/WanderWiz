@@ -17,6 +17,7 @@ import { UserContext } from './context/UserContext';
 import Edit_Profile from './pages/EditProfile';
 import Timeline from './pages/timeline';
 import Profile from './pages/Profile';
+import ItineraryDisplay from './pages/ItineraryDisplay';
 
 function App() {
 
@@ -34,7 +35,7 @@ function App() {
       token: token,
     })
   }
-  
+
 
   return (
       <QueryClientProvider client={queryClient}>
@@ -56,6 +57,9 @@ function App() {
             <Route path="/createItinerary2" element={<ItineraryOption2 />} />
             <Route path="/createItinerary3" element={<ItineraryOption3 />} />
             <Route path="/createItinerary4" element={<ItineraryOption4 />} />
+
+            <Route path="/itinerary/:id" element={<ItineraryDisplay />} />
+
             <Route path="/itineraries" element={user.user ? <Itineraries /> :
               <Login handleUser={(user) => updateUser(user)} />}
             />

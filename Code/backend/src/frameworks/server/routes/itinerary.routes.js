@@ -16,7 +16,7 @@ export default function itineraryRouter(express){
     router.get('/', authMiddleware, controller.getAllItineraries);
 
     //GET /itinerary/:id
-    // router.get('/:id', authMiddleware, controller.getItineraryById);
+    router.get('/:id', authMiddleware, controller.getItineraryById);
 
     return router;
 }
