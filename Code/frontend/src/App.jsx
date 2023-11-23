@@ -12,10 +12,11 @@ import ItineraryOption2 from './pages/ItineraryOption2';
 import ItineraryOption3 from './pages/ItineraryOption3';
 import ItineraryOption4 from './pages/ItineraryOption4';
 import ItineraryOption4_1 from './pages/ItineraryOption4_1';
+import ItineraryOption4_2 from './pages/ItineraryOption4_2';
+import ItineraryOption4_3 from './pages/ItineraryOption4_3';
 import Itineraries from './pages/itineraries';
 import { UserContext } from './context/UserContext';
 import Edit_Profile from './pages/EditProfile';
-import Timeline from './pages/timeline';
 import Profile from './pages/Profile';
 import ItineraryDisplay from './pages/ItineraryDisplay';
 
@@ -26,6 +27,11 @@ function App() {
   const [user, setUser] = useState({user: false, token: null});
   const updateUser = (user) => {
     setUser(user);
+  }
+
+  const [travelCount, setTravelCount] = useState(0);
+  const updateTravelCount = (count) => {
+    setTravelCount(count);
   }
 
   const token = localStorage.getItem("token");
@@ -56,7 +62,12 @@ function App() {
             />
             <Route path="/createItinerary2" element={<ItineraryOption2 />} />
             <Route path="/createItinerary3" element={<ItineraryOption3 />} />
-            <Route path="/createItinerary4" element={<ItineraryOption4 />} />
+            <Route path="/createItinerary4" element={travelCount === 0 ? <ItineraryOption4 handleTravelCount={(travelCount) => updateTravelCount(travelCount)} />
+                : travelCount === 1 ? <ItineraryOption4_3 handleTravelCount={(travelCount) => updateTravelCount(travelCount)}/>
+                : travelCount === 2 ? <ItineraryOption4_1 handleTravelCount={(travelCount) => updateTravelCount(travelCount)}/>
+                : travelCount === 3 ? <ItineraryOption4_2 handleTravelCount={(travelCount) => updateTravelCount(travelCount)}/>
+                : <ItineraryOption4 />} 
+             />
 
             <Route path="/itinerary/:id" element={<ItineraryDisplay />} />
 

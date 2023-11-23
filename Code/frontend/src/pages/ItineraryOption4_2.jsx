@@ -2,14 +2,25 @@ import React from 'react';
 import '../css/ItineraryOption4_2.css';
 import { FaPerson} from "react-icons/fa6";
 import {PiPersonSimpleBold} from "react-icons/pi";
+import getDate from '../utils/getDate';
 
-function ItineraryOption4_2() {
+function ItineraryOption4_2({ handleTravelCount }) {
+
+  const handleBack = (e) => {
+    e.preventDefault();
+    handleTravelCount(0);
+  }
+
+  const { startDate, endDate } = state;
+  const startingDate = getDate(startDate);
+  const endingDate = getDate(endDate);
+
   return (
-    <div className="App42">
+    <div className="App42 min-vh-100">
       <header className="App-header42">
         <h1>How many of you are traveling?</h1>
-        <h3>start date: </h3>
-        <h3>end date: </h3>
+        <h3>start date: {startingDate}</h3>
+        <h3>end date: {endingDate}</h3>
       </header>
 
       <div className="row142"> 
@@ -28,7 +39,7 @@ function ItineraryOption4_2() {
         </div>
         </div>
         <div className="container142">
-        <div className="back42"> <button id="i142">back</button></div>
+        <div className="back42" onClick={(e) => handleBack(e)}> <button id="i142">back</button></div>
        <div className="next42"> <button id="i242">next</button></div>
         </div>
       </div>
