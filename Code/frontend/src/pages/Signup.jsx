@@ -1,74 +1,4 @@
-// import Button from 'react-bootstrap/Button';
-// import Col from 'react-bootstrap/Col';
-// import Form from 'react-bootstrap/Form';
-// import Row from 'react-bootstrap/Row';
 
-// function Signup() {
-//   return (
-//     <div display:inline-block className="d-flex justify-content-center my-5 " >
-//         <Form className style={{maxWidth: 500}} >
-      
-//       <div className="px-5 my-3" >
-//           <Form.Group as={Col} controlId="formGridEmail">
-//           <Form.Label>Email</Form.Label>
-//           <Form.Control type="email" placeholder="Enter email" />
-//           </Form.Group>
-//       </div>
-      
-//       <div className="px-5">
-//       <Form.Group as={Col} controlId="formGridPassword">
-//         <Form.Label>Password</Form.Label>
-//         <Form.Control type="password" placeholder="Password" />
-//       </Form.Group>
-//       </div>
-    
-
-//     {/* <Form.Group className="mb-3" controlId="formGridAddress1">
-//       <Form.Label>Address</Form.Label>
-//       <Form.Control placeholder="1234 Main St" />
-//     </Form.Group> */}
-
-//     {/* <Form.Group className="mb-3" controlId="formGridAddress2">
-//       <Form.Label>Address 2</Form.Label>
-//       <Form.Control placeholder="Apartment, studio, or floor" />
-//     </Form.Group> */}
-
-//     <Row className="mb-5 px-5 my-3">
-//       <Form.Group as={Col} controlId="formGridCity">
-//         <Form.Label>City</Form.Label>
-//         <Form.Control />
-//       </Form.Group>
-
-//       <Form.Group as={Col} controlId="formGridState">
-//         <Form.Label>State</Form.Label>
-//         <Form.Select defaultValue="Choose...">
-//           <option>Choose...</option>
-//           <option>...</option>
-//         </Form.Select>
-//       </Form.Group>
-
-//       <Form.Group as={Col} controlId="formGridZip">
-//         <Form.Label>Zip</Form.Label>
-//         <Form.Control />
-//       </Form.Group>
-//     </Row>
-
-//     <Form.Group className="px-5 my-3" id="formGridCheckbox" >
-//       <Form.Check type="checkbox" label="Check me out" />
-//     </Form.Group>
-
-//     <div className='px-5'>
-//     <Button variant="primary" type="submit" >
-//          Submit
-//     </Button>
-//     </div>
-//   </Form>
-//     </div>
-    
-//   );
-// }
-
-// export default Signup;
 
 import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
@@ -113,15 +43,39 @@ function Signup() {
 
   const handleSignUp = (e) => {
     e.preventDefault();
+
+    // const firstName = e.target.formGridFirstName.value;
+    // const lastName = e.target.formGridLastName.value;
+    // const email = e.target.formGridEmail.value;
+    // const password = e.target.formGridPassword.value;
+    // const confirmPassword = e.target.formGridConfirmPassword.value;
+    // const city = e.target.formGridCity.value;
+
+    // if (password !== confirmPassword) {
+    //   console.log("Password and Confirm Password do not match");
+    //   // You can handle the error here, show a message, or prevent the form submission
+    //   return;
+    // }
+
+    // setUser({
+    //   name: `${firstName} ${lastName}`,
+    //   email,
+    //   password,
+    //   curretCity: city,
+    // });
+
     setUser({
       name: e.target.formGridFirstName.value + " " + e.target.formGridLastName.value,
       email: e.target.formGridEmail.value,
       password: e.target.formGridPassword.value,
+      //confirmPassword=e.target.formGridConfirmPassword.value;
       curretCity: e.target.formGridCity.value,
     })
+
     signupMutation.mutate(user);
   };
 
+  
   const ms={
     backgroundImage: `url(${Signupp})`, 
       backgroundPosition: 'center',
@@ -134,7 +88,7 @@ function Signup() {
 
       const textStyle = {
         // textAlign: "center",
-        fontSize: "15px",
+        fontSize: "2.2vh",
         fontWeight: 600,
         color: "#efefef",
         letterSpacing: "1px",
@@ -143,7 +97,7 @@ function Signup() {
       };
 
       const insi={
-            height: 545,
+            height: "20vh",
             backgroundColor: "#0f0f0f",
             minHeight : 450,
             maxWidth : 600,
@@ -188,6 +142,14 @@ function Signup() {
           <Form.Control type="password" placeholder="Password" />
         </Form.Group>
       </div>
+
+      {/* <div className="p-2" style={textStyle}>
+        <Form.Group controlId="formGridConfirmPassword">
+          <Form.Label>Confirm Password</Form.Label>
+          <Form.Control type="password" placeholder="Confirm Password" />
+        </Form.Group>
+      </div>
+       */}
       <div className="p-1" style={textStyle}>
         <Form.Group controlId="formGridCity">
           <Form.Label>City</Form.Label>

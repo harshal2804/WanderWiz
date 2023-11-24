@@ -7,23 +7,26 @@ function Home() {
     alignItems: 'center',
     justifyContent: 'center',
     height: 'calc(70vh - 45px)',
-    background: `url("/public/Photo3.jpg") center/cover no-repeat`,
+    background: `url("/public/Photo4.jpg") center/cover no-repeat`,
     backgroundSize: '100% auto',
     color: 'white',
     flexDirection: 'column',
     textAlign: 'center',
+   
   };
 
   const centeredText = {
-    fontSize: '36px',
+    fontSize: '5vh',
     fontWeight: 'bold',
-    color: 'white',
+    color: 'black',
+    textShadow: '2px 2px 4px rgba(0, 0, 0, 0.3)', // Adding text shadow
   };
+  
 
   const butonStyle = {
-    backgroundColor: 'teal',
-    color: 'white',
-    padding: '10px 20px',
+    backgroundColor: '#D4F1F4',
+    color: '#05588A',
+    padding: '8px 16px',
     cursor: 'pointer',
     transition: 'background-color 0.2s',
     marginTop: '40px',
@@ -32,6 +35,7 @@ function Home() {
 
   const aboutUsSection = {
     //background: 'teal',
+    //backgroundColor : "rgb(1,49,98)",
     color: 'black',
     padding: '40px',
     textAlign: 'center',
@@ -86,7 +90,7 @@ function Home() {
     </div>
 
 
-    <div style={cardContainerStyle}>
+    {/* <div style={cardContainerStyle}>
         {bestPlaces.map((place, index) => (
           <Card
             key={index}
@@ -95,7 +99,7 @@ function Home() {
             image={place.image}
           />
         ))}
-      </div>
+      </div> */}
 
 <div style={aboutUsSection}>
 <h1>About Us</h1>
