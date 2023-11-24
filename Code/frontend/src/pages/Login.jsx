@@ -11,7 +11,11 @@ const fetchUser = async ({ email, password}) => {
   const res = await axios.post("http://localhost:3001/api/auth/login", {
     email: email,
     password: password,
-  });
+  })
+  .catch((error) => {
+    console.log("Axios error : ", error);
+  }
+  );
   return res.data;
 };
 
@@ -23,6 +27,7 @@ function Login({ handleUser }) {
   const loginMutation = useMutation({
     mutationFn: fetchUser,
     onSuccess: (data) => {
+      localStorage.setItem("token", data.token);
       handleUser({
         user: true,
         token: data.token,
@@ -30,7 +35,7 @@ function Login({ handleUser }) {
       navigation("/");
     },
     onError: (error) => {
-      console.log(error);
+      console.log("react query error: ", error);
     }
   })
 

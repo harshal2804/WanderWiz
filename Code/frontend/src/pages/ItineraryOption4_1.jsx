@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import '../css/itineraryOption4_1.css';
 import { IoIosPerson} from "react-icons/io";
 import { MdPerson3 } from "react-icons/md";
@@ -8,14 +8,40 @@ import { BsGenderFemale} from "react-icons/bs";
 import {LiaFemaleSolid} from "react-icons/lia";
 import { SlUserFemale} from "react-icons/sl";
 import { BiFemale} from "react-icons/bi";
+import { useLocation, useNavigate } from 'react-router-dom';
+import getDate from '../utils/getDate';
+import { useItineraryGeneration } from '../hooks/useItineraryGenration';
+import { UserContext } from '../context/UserContext';
 
-function ItineraryOption4_1() {
+function ItineraryOption4_1({ handleTravelCount }) {
+
+  const navigate = useNavigate();
+  const { state } = useLocation();
+  const itiGen = useItineraryGeneration();
+
+  const handleBack = (e) => {
+    e.preventDefault();
+    handleTravelCount(0);
+  }
+
+  const handleNext = (e) => {
+    e.preventDefault();
+    itiGen.mutate({ state, token: user.token});
+  }
+
+
+
+  const { startDate, endDate } = state;
+  const startingDate = getDate(startDate);
+  const endingDate = getDate(endDate);
+  const user = useContext(UserContext);
+
   return (
-    <div className="App41">
+    <div className="App41 min-vh-100">
       <header className="App-header41">
         <h1>Which age group do you fall in?</h1>
-        <h3>start date: </h3>
-        <h3>end date: </h3>
+        <h3>start date: {startingDate}</h3>
+        <h3>end date: {endingDate}</h3>
       </header>
 
       <div className="container41">
@@ -57,8 +83,8 @@ function ItineraryOption4_1() {
         
       </div>
       <div className="container141">
-        <div className="back41"> <button id="i141">back</button></div>
-       <div className="next41"> <button id="i241">next</button></div>
+        <div className="back41" onClick={(e) => handleBack(e)}> <button id="i141">back</button></div>
+       <div className="next41" onClick={(e) => handleNext(e)}> <button id="i241">next</button></div>
         </div>
     </div>
   );

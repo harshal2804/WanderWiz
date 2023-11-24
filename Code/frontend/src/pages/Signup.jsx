@@ -18,15 +18,10 @@ const postUser = async (user) => {
 
 function Signup() {
 
-  // const myStyle = {
-  //   height: "100vh",
-  //   backgroundImage: `url(${loginBg})`,
-  //   backgroundRepeat: "no-repeat",
-  //   backgroundSize: "cover",
-  // };
-
   const navigation = useNavigate();
-  const [user, setUser] = useState({});
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [validatePassword, setValidatePassword] = useState(true);
 
   const signupMutation = useMutation({
     mutationFn: postUser,
@@ -76,13 +71,29 @@ function Signup() {
   };
 
   
+    if(password !== confirmPassword) {
+      setValidatePassword(false);
+      console.log("passwords do not match");
+      return;
+    }else{
+      signupMutation.mutate({
+        name: e.target.formGridFirstName.value + " " + e.target.formGridLastName.value,
+        email: e.target.formGridEmail.value,
+        password: e.target.formGridPassword.value,
+        curretCity: e.target.formGridCity.value,
+      });
+    }
+  };
+
+  
+
   const ms={
     backgroundImage: `url(${Signupp})`, 
       backgroundPosition: 'center',
        backgroundSize: 'cover',
        backgroundRepeat: 'no-repeat',
-       width: '100vw',
-      height: '100vh',
+      //  width: '100vw',
+      // height: '100vh',
       
     }
 
@@ -98,6 +109,7 @@ function Signup() {
 
       const insi={
             height: "20vh",
+            // height: 545,
             backgroundColor: "#0f0f0f",
             minHeight : 450,
             maxWidth : 600,
@@ -117,7 +129,7 @@ function Signup() {
       <div className="p-1" style={textStyle}>
         <Form.Group controlId="formGridFirstName">
           <Form.Label>First Name</Form.Label>
-          <Form.Control type="text" placeholder="Enter first name" />
+          <Form.Control type="text" placeholder="Enter first name" required/>
         </Form.Group>
         
 
@@ -132,14 +144,14 @@ function Signup() {
       <div className="p-2" style={textStyle}>
         <Form.Group controlId="formGridEmail">
           <Form.Label>Email</Form.Label>
-          <Form.Control type="email" placeholder="Enter email" />
+          <Form.Control type="email" placeholder="Enter email" required/>
         </Form.Group>
       </div>
       
       <div className="p-2" style={textStyle}>
         <Form.Group controlId="formGridPassword">
           <Form.Label>Password</Form.Label>
-          <Form.Control type="password" placeholder="Password" />
+          <Form.Control onChange={(e) => setPassword(e.target.value)} type="password" placeholder="Password" required/>
         </Form.Group>
       </div>
 
@@ -150,10 +162,21 @@ function Signup() {
         </Form.Group>
       </div>
        */}
+      <div className="p-2" style={textStyle}>
+        <Form.Group controlId="formGridPassword2">
+          <Form.Label>Confirm Password</Form.Label>
+          <Form.Control onChange={(e) => setConfirmPassword(e.target.value)} type="password" placeholder="Confirm Password" required/>
+        </Form.Group>
+      </div>
+      <div className='p-2' style={textStyle}>
+      <Form.Group controlId="passwordErrorMessage">
+        <Form.Text className="text-danger">{validatePassword ? "" : "Passwords do not match"}</Form.Text>
+      </Form.Group>
+      </div>
       <div className="p-1" style={textStyle}>
         <Form.Group controlId="formGridCity">
           <Form.Label>City</Form.Label>
-          <Form.Control type="City" placeholder="Enter city" />
+          <Form.Control type="City" placeholder="Enter city" required/>
         </Form.Group>
       </div>
       <div className="p-1">
@@ -185,72 +208,8 @@ function Signup() {
   </div>
   </div>
 
-    
-    // <div className="signup-container d-flex justify-content-center p-5" 
-    //   style={ms}>
-
-    //   <div className=" text-white p-3 square border border-5"  style={insi}>
-    //     <div className="p-2">
-    //       <h2>Sign Up</h2>
-    //     </div>
-    //     <Form style={{width: "300px"}}>
-
-    //       <div className="p-2 " style={textStyle} >
-    //       <Form.Group controlId="formGridEmail">
-    //         <Form.Label>Email</Form.Label>
-    //         <Form.Control type="email" placeholder="Enter email"  />
-    //       </Form.Group>
-    //       </div>
-
-    //       <div className="p-2" style={textStyle}>
-    //       <Form.Group controlId="formGridPassword">
-    //         <Form.Label>Password</Form.Label>
-    //         <Form.Control type="password" placeholder="Password" />
-    //       </Form.Group>
-
-    //       </div>
-
-          
-
-    //       {/* <Row>
-    //         <Form.Group as={Col} controlId="formGridCity">
-    //           <Form.Label>City</Form.Label>
-    //           <Form.Control />
-    //         </Form.Group>
-
-    //         <Form.Group as={Col} controlId="formGridState">
-    //           <Form.Label>State</Form.Label>
-    //           <Form.Control as="select" defaultValue="Choose...">
-    //             <option>Choose...</option>
-    //             <option>...</option>
-    //           </Form.Control>
-    //         </Form.Group>
-
-    //         <Form.Group as={Col} controlId="formGridZip">
-    //           <Form.Label>Zip</Form.Label>
-    //           <Form.Control />
-    //         </Form.Group>
-    //       </Row> */}
-
-          
-
-    //       <div className="p-3">
-    //       <Form.Group id="formGridCheckbox">
-    //         <Form.Check type="checkbox" label="Check me out" />
-    //       </Form.Group>
-
-    //       </div>
-
-    //       <div className="p-3">
-    //       <Button variant="primary" type="submit">
-    //         Submit
-    //       </Button>
-    //       </div>
-    //     </Form>
-    //   </div>
-    // </div>
   );
-}
+
 
 export default Signup;
 
