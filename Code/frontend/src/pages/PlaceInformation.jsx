@@ -2,7 +2,9 @@ import React from "react";
 import "../css/PlaceInformation.css";
 import 'bootstrap/dist/css/bootstrap.css';// https://blog.hubspot.com/website/react-bootstrap-css
 import  LikeButton from "./LikeButton.jsx"
-import { FaStar, FaStarHalf } from "react-icons/fa";
+import { FaStar, FaStarHalf, FaArrowRight, FaArrowLeft } from "react-icons/fa";
+import { Button } from "react-bootstrap";
+
 export default function PlaceInformation() {
   const placeData = {
     "categories": [
@@ -316,60 +318,35 @@ export default function PlaceInformation() {
     }
   }
 
+  const [index, setIndex] = React.useState(1);
 
   return (
     <>
 
-
-
-      {/* <div className="place-info">
-        
-        <h1>{placeData.name}</h1>
-        <p>{placeData.description}</p>
-        <div className="rating">
-          <span>Rating: {placeData.rating}</span>
-        </div>
-      </div> */}
-
-
-
-
-      {/* Reviews section
-      <div className="reviews">
-        <h2>Most Recent Reviews</h2>
-        {recentReviews.map((review) => (
-          <div className="review" key={review.id}>
-            <div className="review-text">{review.text}</div>
-            <div className="review-date">
-              {new Date(review.created_at).toDateString()}
-            </div>
-          </div>
-        ))}
-      </div> */}
- 
-
-      <div className="place-info-container">
+      <div className="d-flex justify-content-center">
         {/* First Div: Image */}
-        <div className="place-image">
+        <div className="d-flex border border-primary border-4 rounded m-4">
+          <Button style={{ position: "absolute", margin: "180px -20px"}} variant="primary" onClick={(e) => setIndex(index-1)} disabled={index === 1}>
+            <FaArrowLeft />
+          </Button>
           <img
-            src={photos[0].prefix + photos[0].suffix}
+            src={photos[index].prefix +"400x400"+ photos[index].suffix}
             alt="Place Photo"
-            width={photos[0].width}
-            height={photos[0].height}
           />
+          <Button style={{ position: "absolute", margin: "180px 380px" }} variant="primary" onClick={(e) => setIndex(index+1)} disabled={index === photos.length - 1}>
+            <FaArrowRight />
+          </Button>
         </div>
 
         {/* Second Div: Place Information */}
-        <div className="place-info">
+        <div className="place-info m-4 border rounded">
           <h2>{placeData.name}</h2>
-          {/* //<p>{placeData.description}</p> */}
-          <div className="best-time">
-            <p>Best Time to Visit: {placeData.hours.display}</p>
+          <p>{placeData.description}</p>
+          <div className="d-flex gap-2 best-time">
+            <p className="fw-bold">Best Time to Visit : </p> <p>{placeData.hours.display}</p>
           </div>
-          <div className="address">
-            <p>
-              Address: {placeData.location.formatted_address}, {placeData.location.postcode}
-            </p>
+          <div className="d-flex gap-2 address">
+            <p className="fw-bold">Address : </p> <p>{placeData.location.formatted_address}, {placeData.location.postcode}</p>
           </div>
           <div className="rating">
         <span>Rating: {stars}</span>
@@ -380,9 +357,9 @@ export default function PlaceInformation() {
         </div>
        
       </div>
-      <div className="d-flex justify-content-center mx-auto Des" style={{ height: '9vw', background: '#f0f0f0', padding: '10px', borderRadius: '5px', boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)', textAlign: 'center', fontSize: '1.2vw', width: '80vw' }}>
+      {/* <div className="d-flex justify-content-center mx-auto Des" style={{ height: '9vw', background: '#f0f0f0', padding: '10px', borderRadius: '5px', boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)', textAlign: 'center', fontSize: '1.2vw', width: '80vw' }}>
   {placeData.description}
-</div>
+</div> */}
 
 
 

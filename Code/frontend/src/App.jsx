@@ -19,6 +19,7 @@ import { UserContext } from './context/UserContext';
 import Edit_Profile from './pages/EditProfile';
 import Profile from './pages/Profile';
 import ItineraryDisplay from './pages/ItineraryDisplay';
+import PlaceInformation from './pages/PlaceInformation';
 
 function App() {
 
@@ -74,7 +75,7 @@ function App() {
             <Route path="/itineraries" element={user.user ? <Itineraries /> :
               <Login handleUser={(user) => updateUser(user)} />}
             />
-            <Route path='/test' element={<ItineraryOption4_1 />} />
+            <Route path='/placeinfo' element={<PlaceInformation />} />
           </Routes>
         <Footer />
         </BrowserRouter>
