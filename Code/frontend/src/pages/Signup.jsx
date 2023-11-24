@@ -39,38 +39,6 @@ function Signup() {
   const handleSignUp = (e) => {
     e.preventDefault();
 
-    // const firstName = e.target.formGridFirstName.value;
-    // const lastName = e.target.formGridLastName.value;
-    // const email = e.target.formGridEmail.value;
-    // const password = e.target.formGridPassword.value;
-    // const confirmPassword = e.target.formGridConfirmPassword.value;
-    // const city = e.target.formGridCity.value;
-
-    // if (password !== confirmPassword) {
-    //   console.log("Password and Confirm Password do not match");
-    //   // You can handle the error here, show a message, or prevent the form submission
-    //   return;
-    // }
-
-    // setUser({
-    //   name: `${firstName} ${lastName}`,
-    //   email,
-    //   password,
-    //   curretCity: city,
-    // });
-
-    setUser({
-      name: e.target.formGridFirstName.value + " " + e.target.formGridLastName.value,
-      email: e.target.formGridEmail.value,
-      password: e.target.formGridPassword.value,
-      //confirmPassword=e.target.formGridConfirmPassword.value;
-      curretCity: e.target.formGridCity.value,
-    })
-
-    signupMutation.mutate(user);
-  };
-
-  
     if(password !== confirmPassword) {
       setValidatePassword(false);
       console.log("passwords do not match");
@@ -85,6 +53,8 @@ function Signup() {
     }
   };
 
+  
+    
   
 
   const ms={
@@ -108,8 +78,6 @@ function Signup() {
       };
 
       const insi={
-            height: "20vh",
-            // height: 545,
             backgroundColor: "#0f0f0f",
             minHeight : 450,
             maxWidth : 600,
@@ -154,14 +122,6 @@ function Signup() {
           <Form.Control onChange={(e) => setPassword(e.target.value)} type="password" placeholder="Password" required/>
         </Form.Group>
       </div>
-
-      {/* <div className="p-2" style={textStyle}>
-        <Form.Group controlId="formGridConfirmPassword">
-          <Form.Label>Confirm Password</Form.Label>
-          <Form.Control type="password" placeholder="Confirm Password" />
-        </Form.Group>
-      </div>
-       */}
       <div className="p-2" style={textStyle}>
         <Form.Group controlId="formGridPassword2">
           <Form.Label>Confirm Password</Form.Label>
@@ -209,6 +169,7 @@ function Signup() {
   </div>
 
   );
+}
 
 
 export default Signup;
