@@ -40,8 +40,8 @@ function ItineraryOption4_1({ handleTravelCount }) {
     <div className="App41 min-vh-100">
       <header className="App-header41">
         <h1>Which age group do you fall in?</h1>
-        <h3>start date: {startingDate}</h3>
-        <h3>end date: {endingDate}</h3>
+        <h5>start date: {startingDate}</h5>
+        <h5>end date: {endingDate}</h5>
       </header>
 
       <div className="container41">
