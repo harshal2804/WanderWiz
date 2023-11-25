@@ -19,6 +19,7 @@ import { UserContext } from './context/UserContext';
 import Edit_Profile from './pages/EditProfile';
 import Profile from './pages/Profile';
 import ItineraryDisplay from './pages/ItineraryDisplay';
+import ContactUsPage from './pages/Contactus';
 
 function App() {
 
@@ -81,6 +82,9 @@ function App() {
         </UserContext.Provider>
       <ReactQueryDevtools initialIsOpen={false} />
       </QueryClientProvider>
+      // <MyNavbar/>
+      // <ContactUsPage/>
+      
   )
 }
 
