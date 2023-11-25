@@ -86,15 +86,18 @@ function ItineraryOption() {
   };
 
   return (
+    
     <div className="p-2 main">
       <h1 className="p-2 top-center">Build Your Own Customized Trip Plan</h1>
       <h4 className="p-2 top-center1">
         Create your travel itinerary. Book your accommodation, tours and flights
       </h4>
-      <div className="p-2 d-flex dropdown-container">
-        <div className="p-2 mx-2 fs-5 dropdown-label">Select destination: </div>
-        <Dropdown as={Form} show={isActive} onFocus={() => setIsActive(true)}>
+      <div className="p-2 mx-2 fs-5 dropdown-label">Select destination:</div>
+      <div className="p-2 d-flex dropdown-container" id="drop">
+        <Dropdown  as={Form} show={isActive} onFocus={() => setIsActive(true)}>
           <Form.Group
+            className="drop-form"
+      
             style={{ width: "auto", minWidth: "500px" }}
             controlId="searchDropdown"
           >
