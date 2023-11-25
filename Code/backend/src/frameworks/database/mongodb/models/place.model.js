@@ -84,7 +84,9 @@ const placeSchema = new mongoose.Schema({
         {
             id: String,
             created_at: String,
-            text: String
+            text: String,
+            agree_count: Number,
+            disagree_count: Number,
         }
     ]
 });

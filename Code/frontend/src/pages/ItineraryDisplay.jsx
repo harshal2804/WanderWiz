@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import Activity from "../components/Activity";
 import getDate from "../utils/getDate";
 import { useQuery } from "react-query";
@@ -31,6 +31,7 @@ export default function ItineraryDisplay() {
     const user = useContext(UserContext);
     const { id } = useParams();
     const { isLoading, isError, error, data } = useQuery(["itinerary", id], () => fetchItinerary(id, user.token));
+    const navigate = useNavigate();
 
 
     if(isLoading) {
@@ -45,6 +46,11 @@ export default function ItineraryDisplay() {
     const startDay = new Date(data.startDate).getDay();
     const endDate = new Date(data.endDate).getDay();
 
+    const handleActivityClick = (e, fsq_id) => {
+        e.preventDefault();
+        navigate(`/placeinfo/${fsq_id}`);
+    }
+
     return (
         <div>
 
@@ -58,6 +64,7 @@ export default function ItineraryDisplay() {
                             <p className="p-1 fw-bold fs-4 text-center">Day - {index+1}</p>
                             {activityColumn.map((activity) => {
                                 return <Activity
+                                            onClick={(e) => handleActivityClick(e, activity.fsq_id)}
                                             key={activity._id}
                                             photo={activity.photo? activity.photo : activity.categories[0].icon}
                                             cat_icon={activity.categories[0].icon}

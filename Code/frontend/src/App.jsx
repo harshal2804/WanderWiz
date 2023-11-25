@@ -75,7 +75,7 @@ function App() {
             <Route path="/itineraries" element={user.user ? <Itineraries /> :
               <Login handleUser={(user) => updateUser(user)} />}
             />
-            <Route path='/placeinfo' element={<PlaceInformation />} />
+            <Route path='/placeinfo/:id' element={<PlaceInformation />} />
           </Routes>
         <Footer />
         </BrowserRouter>

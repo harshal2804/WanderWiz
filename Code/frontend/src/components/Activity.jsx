@@ -1,6 +1,9 @@
-export default function Activity({ photo, name, time, photoType, cat_icon, cat_name}) {
+export default function Activity({ onClick, photo, name, time, photoType, cat_icon, cat_name}) {
     return (
-        <div className="d-flex border border-2 border-secondary rounded shadow-lg p-2 gap-3" style={{ backgroundColor: "#c9c9c9" }}>
+        <div className="d-flex border border-2 border-secondary rounded shadow-lg p-2 gap-3"
+            style={{ backgroundColor: "#c9c9c9" }}
+            onClick={onClick}
+        >
             <img 
                 className="border border-secondary rounded-4"
                 src={photoType === "fsq" ? photo.prefix + "100x100" + photo.suffix : photo.prefix + "bg_100" + photo.suffix}
