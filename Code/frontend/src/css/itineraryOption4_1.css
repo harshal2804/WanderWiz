@@ -1,87 +1,4 @@
-/* .App41 {
-    text-align: center;
-    background-color: rgb(1, 49, 98);
-  }
-  
-  .App-header41 {
-    background-color: rgb(5, 109, 189);
-    padding: 20px;
-    color: white;
-    margin-bottom: 5vh;
-  }
-  
-  .container41
-  {
-    color:#ffffff;
-    justify-content: center;
-  }
-  .row141 {
-    display: flex;
-    justify-content: center;
-  }
-  
-  .row241 {
-    display: flex;
-    justify-content: center;
-  }
-  
-  .box41 {
-    color: white;
-    background-color: rgb(132, 193, 236);
-    border-radius: 3vh;
-    padding: 10px;
-    margin: 10px;
-    height: 20vh;
-    width: 20vh;
-    text-align: center;
-  }
-  
-  .icon41 {
-    font-size: 10vh;
-  }
-  
-  .icons41
-  {
-    font-size: 5vh;
-  }
-  
-  .para41 {
-    margin: 10px 0;
-    font-size: 2.5vh;
-  }
-  
-  .container141
-  {
-    display: flex;
-    justify-content: space-between;
-  }
 
-  #i141
-  {
-      border-top-right-radius: 2vh;
-      width: 23vh;
-      height: 7vh;
-      font-size: x-large;
-      background-color: #00588A;;
-      border-style: none;
-      color: #FFFFFF;
-  }
-  
-  #i241
-  {
-    border-top-left-radius: 2vh;
-    width: 23vh;
-    height: 7vh;
-    font-size: x-large;
-    background-color: #00588A;;
-    border-style: none;
-    color: #FFFFFF;
-  }
-  
-
-   */
-
-   /* General styles */
 .App41 {
   text-align: center;
   background-color: rgb(1, 49, 98);
@@ -98,7 +15,6 @@
   color: #ffffff;
   display: flex;
   justify-content: center;
-  margin-bottom: 0.5vh;
 }
 
 .row141,
@@ -185,7 +101,8 @@
 
   #i141,
   #i241 {
-    width: 90%; /* Adjust button width for smaller screens */
+    width: 12vh; /* Adjust button width for smaller screens */
+    height: 7vh; /* Adjust button height for smaller screens */
     font-size: 100%; /* Adjust button font size for smaller screens */
   }
 }

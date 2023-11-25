@@ -95,7 +95,8 @@
 
   #i142,
   #i242 {
-    width: 90%; /* Adjust button width for smaller screens */
-    font-size: 120%; /* Adjust button font size for smaller screens */
+    width: 12vh; /* Adjust button width for smaller screens */
+    height: 7vh; /* Adjust button height for smaller screens */
+    font-size: 100%; /* Adjust button font size for smaller screens */
   }
 }
