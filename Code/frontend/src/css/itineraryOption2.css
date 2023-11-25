@@ -2,15 +2,15 @@
     box-sizing: border-box;
     margin:0;
     padding:0;
-    color: white;
+    background-color: rgb(1, 49, 98);
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 #header12 {
     text-align: center;
     padding: 30px;
-    background-color: #00588A;
-    border-radius: 5px;
+    background-color: rgb(5, 109, 189);
+    color:white;
 }
 
 #input-blocks12 {
@@ -24,7 +24,8 @@
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    background-color: #0e94df; 
+    background-color: rgb(132, 193, 236);
+    ; 
     padding: 10px;
     border-radius: 5px;
     width: 100%;
@@ -35,10 +36,11 @@
 .labelname{
     display: block;
     margin-bottom: 5px;
-    text-align: center;     
+    text-align: center; 
+    color:white;    
 }
 #a1{
-    color: black;
+    color: white;
 }
 
 /* input {
@@ -82,18 +84,40 @@
 
 #i112
 {
-    border-top-right-radius: 2vh;
-    border-bottom-right-radius: 2vh;
+    width: 23vh;
+  height: 7vh;
+  font-size: 150%;
+  background-color: rgb(5, 109, 189);
+  border-style: none;
+  color: #FFFFFF;
+  border-top-right-radius: 2vh;
+
 }
 
 #i212
 {
-  border-top-left-radius: 2vh;
-  border-bottom-left-radius: 2vh;
+    width: 23vh;
+    height: 7vh;
+    font-size: 150%;
+    background-color: rgb(5, 109, 189);
+    border-style: none;
+    color: #FFFFFF;
+    border-top-left-radius:2vh;
+  
 }
 
-.st12{
+/* .st12{
     margin: 4vh;
-}
+} */
 
+@media screen and (max-width: 768px) {
+    #input-blocks12 {
+        margin: 0 5%;
+    }
+    #i112,
+  #i212 {
+    width: 40vw; /* Adjust button width for smaller screens */
+    font-size: 120%; /* Adjust button font size for smaller screens */
+  }
+}
 

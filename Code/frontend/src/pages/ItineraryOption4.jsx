@@ -40,23 +40,23 @@ function ItineraryOption4({ handleTravelCount }) {
     <div className="App4 min-vh-100 d-flex flex-column justify-content-between">
       <header className="App-header4">
         <h1>Who are you traveling with?</h1>
-        <h3>start date: {startingDate}</h3>
-        <h3>end date: {endingDate}</h3>
+        <h5>start date: {startingDate}</h5>
+        <h5>end date: {endingDate}</h5>
       </header>
       <div className="row4">
-        <div className="btn box4" onClick={(e) => handleSolo(e)}>
+        <div className="box4" onClick={(e) => handleSolo(e)}>
         <IoAccessibility className="icon4">Icon1</IoAccessibility>
           <p className="para4">Wandering solo</p>
         </div>
-        <div className="btn box4" onClick={(e) => handlCouple(e)}>
+        <div className="box4" onClick={(e) => handlCouple(e)}>
           <BsPeopleFill className="icon4">Icon 2</BsPeopleFill>
           <p className="para4">Holidaying as couple</p>
         </div>
-        <div className="btn box4" onClick={(e) => handleFam(e)}>
+        <div className="box4" onClick={(e) => handleFam(e)}>
           <MdFamilyRestroom className="icon4">Icon 3</MdFamilyRestroom>
           <p className="para4">Vacatinoing with family</p>
         </div>
-        <div className="btn box4" onClick={(e) => handleFam(e)}>
+        <div className="box4" onClick={(e) => handleFam(e)}>
           <GiThreeFriends className="icon4">Icon 4</GiThreeFriends>
           <p className="para4">traveling with friends</p>
         </div>
@@ -64,7 +64,7 @@ function ItineraryOption4({ handleTravelCount }) {
 
       <div className="container14">
       <div className="back4" onClick={(e) => handleBack(e)}> <button id="i14">back</button></div>
-      {/* <div className="next4" onClick={(e) => handleNext(e)}> <button id="i24">next</button></div> */}
+      <div className="next4" onClick={(e) => handleNext(e)}> <button id="i24">next</button></div>
       </div>
     </div>
   );
