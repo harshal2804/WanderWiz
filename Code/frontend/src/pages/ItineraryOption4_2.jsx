@@ -1,15 +1,39 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import '../css/ItineraryOption4_2.css';
 import { FaPerson} from "react-icons/fa6";
 import {PiPersonSimpleBold} from "react-icons/pi";
+import getDate from '../utils/getDate';
+import { useLocation } from 'react-router-dom';
+import { useItineraryGeneration } from '../hooks/useItineraryGenration';
+import { UserContext } from '../context/UserContext';
 
-function ItineraryOption4_2() {
+function ItineraryOption4_2({ handleTravelCount }) {
+
+  const handleBack = (e) => {
+    e.preventDefault();
+    handleTravelCount(0);
+  }
+
+  const { state } = useLocation();
+
+  const { startDate, endDate } = state;
+  const startingDate = getDate(startDate);
+  const endingDate = getDate(endDate);
+
+  const user = useContext(UserContext)
+
+  const itiGen = useItineraryGeneration();
+  const handleNext = (e) => {
+    e.preventDefault();
+    itiGen.mutate({ state, token: user.token });
+  }
+
   return (
-    <div className="App42">
+    <div className="App42 min-vh-100">
       <header className="App-header42">
         <h1>How many of you are traveling?</h1>
-        <h3>start date: </h3>
-        <h3>end date: </h3>
+        <h5>start date: {startingDate}</h5>
+        <h5>end date: {endingDate}</h5>
       </header>
 
       <div className="row142"> 
@@ -28,8 +52,8 @@ function ItineraryOption4_2() {
         </div>
         </div>
         <div className="container142">
-        <div className="back42"> <button id="i142">back</button></div>
-       <div className="next42"> <button id="i242">next</button></div>
+        <div className="back42" onClick={(e) => handleBack(e)}> <button id="i142">back</button></div>
+       <div className="next42" onClick={(e) => handleNext(e)}> <button id="i242">next</button></div>
         </div>
       </div>
       

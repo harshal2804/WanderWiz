@@ -11,8 +11,9 @@ import { NavLink, useNavigate } from "react-router-dom";
 
 export default function MyNavbar() {
   const customFontStyle = {
+    color : "#05588A",
     fontFamily: "Montserrat, sans-serif",
-    fontSize: "18px", 
+    fontSize: "2.5vh", 
   };
 
   const user = useContext(UserContext);
@@ -28,15 +29,15 @@ export default function MyNavbar() {
       <Navbar
         collapseOnSelect
         expand="lg"
-        style={{ backgroundColor: "#a2d0ed" }}
+        style={{ backgroundColor: "#D4F1F4" }}
       >
         <Container>
           <Navbar.Brand to="/" as={NavLink}>
             <img
               src={WanderWizLogo}
               alt="WanderWiz Logo"
-              width="65"
-              height="65"
+              width="85vh"
+              height="85vw"
               className="mx-3 d-inline-block align-top"
             />
           </Navbar.Brand>

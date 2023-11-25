@@ -8,7 +8,7 @@ export default function itineraryService(){
         const startDateFormatted = new Date(startDate).toISOString().split('T')[0];
         const endDateFormatted = new Date(endDate).toISOString().split('T')[0];
         const days = Math.floor((Date.parse(endDateFormatted) - Date.parse(startDateFormatted)) / 86400000) + 1;
-        const activities = await axios.get(`${placeSearchApi}search?ll=${latitude}%2C${longitude}&radius=100000&categories=10000%2C14000%2C16000&fields=fsq_id%2Cname%2Chours_popular&sort=POPULARITY&limit=${(days - 1)*4}`, {
+        const activities = await axios.get(`${placeSearchApi}search?ll=${latitude}%2C${longitude}&radius=100000&categories=10000%2C14000%2C16000&fields=fsq_id%2Cname%2Chours_popular%2Ccategories&sort=POPULARITY&limit=${(days - 1)*4}`, {
                 headers: {
                     accept: "application/json",
                     authorization: `${process.env.VITE_API_AUTH}`

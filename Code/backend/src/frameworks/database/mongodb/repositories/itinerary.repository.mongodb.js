@@ -1,4 +1,5 @@
 import itineraryModel from "../models/itinerary.model";
+import userModel from "../models/user.model";
 
 export default function itineraryRepositoryMongoDB() {
 
@@ -12,7 +13,9 @@ export default function itineraryRepositoryMongoDB() {
                 activities: itineraryEntity.getActivities(),
                 user: itineraryEntity.getUser()
             }
-            return await itineraryModel.create(itinerary);
+            const resItinerary =  await itineraryModel.create(itinerary);
+            await userModel.findByIdAndUpdate(itinerary.user, { $push: { itineraries: resItinerary._id } });
+            return resItinerary;
         },
         async findByIdAndUpdate(id, itinerary){
             return await itineraryModel.findByIdAndUpdate(id, itinerary, { new: true });
@@ -24,7 +27,17 @@ export default function itineraryRepositoryMongoDB() {
             return await itineraryModel.findById(id);
         },
         async findAll(lim, pageNum){
-            return await itineraryModel.find().skip(pageNum * lim).limit(lim);
+            const itineraries = await itineraryModel.find().skip(pageNum * lim).limit(lim);
+            if(pageNum === 1){
+                const count = await itineraryModel.countDocuments();
+                itineraries.map((itinerary) => {
+                    return {
+                        ...itinerary._doc,
+                        count: count
+                    }
+                })
+            }
+            return itineraries;
         },
         async find(id){
             return await itineraryModel.findOne({ user: id });
