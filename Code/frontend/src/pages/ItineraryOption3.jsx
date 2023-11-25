@@ -25,8 +25,8 @@ function ItineraryOption3() {
                 <div className="mainDiv1 d-flex flex-column justify-content-between">
                 <div className="header3">
                     <h1>How can we help you?</h1>
-                    <h3 className="st3">Start Date: </h3>
-                    <h3 className="end">End Date: </h3>
+                    <h5 className="st3">Start Date: </h5>
+                    <h5 className="end">End Date: </h5>
                 </div>
 
                 <div className="info-container3">
@@ -68,8 +68,8 @@ function ItineraryOption3() {
                     </div>
                 </div>
                 <div className="container13">
-                    <div className="back4" onClick={(e) => handleBack(e)}> <button id="i14">back</button></div>
-                    <div className="next4" onClick={(e) => handleNext(e)}> <button id="i24">next</button></div>
+                    <div className="back4" onClick={(e) => handleBack(e)}> <button id="i13">back</button></div>
+                    <div className="next4" onClick={(e) => handleNext(e)}> <button id="i23">next</button></div>
                 </div>
                 </div>
             </>
