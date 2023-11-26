@@ -1,21 +1,21 @@
 import { useState } from 'react';
-import { QueryClient, QueryClientProvider } from 'react-query';
-import { ReactQueryDevtools } from 'react-query/devtools';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Home from './pages/Home';
+// import { QueryClient, QueryClientProvider } from 'react-query';
+// import { ReactQueryDevtools } from 'react-query/devtools';
+// import { BrowserRouter, Routes, Route } from 'react-router-dom';
+// import Home from './pages/Home';
 import Footer from './components/Footer';
-import MyNavbar from './components/myNavbar';
-import Login from './pages/Login';
-import Signup from './pages/Signup';
-import ItineraryOption from './pages/ItineraryOption';
-import Itineraries from './pages/itineraries';
+import Mynavbar from './components/Mynavbar.jsx';
+// import Login from './pages/Login';
+// import Signup from './pages/Signup';
+// import ItineraryOption from './pages/ItineraryOption';
+// import Itineraries from './pages/itineraries';
 import PlaceInformation from './pages/PlaceInformation';
-import { UserContext } from './context/UserContext';
+// import { UserContext } from './context/UserContext';
 
 
 function App() {
 
-  const queryClient = new QueryClient();
+  // const queryClient = new QueryClient();
 
   // return (
   //     <QueryClientProvider client={queryClient}>
@@ -37,26 +37,35 @@ function App() {
   // }
 
   return (
-      <QueryClientProvider client={queryClient}>
-        <MyNavbar />
-        <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/login" element={
-              <Login handleUser={(user) => updateUser(user)} />} 
-            />
-            <Route path="/signup" element={<Signup />} />
-            <Route path="/createItinerary" element={user.user ? <ItineraryOption /> : 
-              <Login handleUser={(user) => updateUser(user)} />} 
-            />
-            <Route path="/itineraries" element={<Itineraries />}/>
-          </Routes>
-        <Footer />
-        </BrowserRouter>
-        </UserContext.Provider>
+      <>
+      {/* <QueryClientProvider client={queryClient}>
+      <UserContext.Provider>
+      <MyNavbar />
+      <BrowserRouter>
+      <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/login" element={
+      <Login handleUser={(user) => updateUser(user)} />} 
+      />
+      <Route path="/signup" element={<Signup />} />
+      <Route path="/createItinerary" element={user.user ? <ItineraryOption /> : 
+      <Login handleUser={(user) => updateUser(user)} />} 
+      />
+      <Route path="/itineraries" element={<Itineraries />}/>
+      </Routes>
+      <Footer />
+      </BrowserRouter>
+      </UserContext.Provider>
       <ReactQueryDevtools initialIsOpen={false} />
-      </QueryClientProvider>
+      </QueryClientProvider> */}
+      <Mynavbar/>
+      {/* <PlaceInformation/>
+      <footer></footer> */}
+      </>
+      
+      
+
   )
 }
 
-export default App
+export default App;

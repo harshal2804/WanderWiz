@@ -1,4 +1,5 @@
 import React from "react";
+import { FaStar, FaStarHalf } from "react-icons/fa";
 
 export default function PlaceInformation() {
     const placeData = {
@@ -106,7 +107,7 @@ export default function PlaceInformation() {
           },
           "name": "Piccadilly Circus",
           "popularity": 0.9999796121489352,
-          "rating": 9,
+          "rating": 8,
           "related_places": {
             "children": [
               {
@@ -299,6 +300,22 @@ export default function PlaceInformation() {
       // Take the top three reviews (most recent)
         const recentReviews = sortedReviews.slice(0, 3);
 
+        const maxRating = 5;
+  const ratingOn5Scale = (placeData.rating / 2); // Assuming the rating is on a scale of 0 to 10
+
+  // Create an array to render stars
+  const stars = [];
+  for (let i = 1; i <= maxRating; i++) {
+    if (i <= ratingOn5Scale) {
+      stars.push(<FaStar key={i} color="#F6BE00" style={{height : '30px' }}/>);
+    } else if (i - 0.5 <= ratingOn5Scale) {
+      stars.push(<FaStarHalf key={i} color="#F6BE00" style={{height : '30px' }} />);
+    } else {
+      stars.push(<FaStar key={i} color="gray" style={{height : '30px' }}/>);
+    }
+  }
+
+
 
       
 
@@ -369,6 +386,8 @@ export default function PlaceInformation() {
       </style>
        */}
 
+
+
 <div className="place-info-container">
       {/* First Div: Image */}
       <div className="place-image">
@@ -393,8 +412,8 @@ export default function PlaceInformation() {
           </p>
         </div>
         <div className="rating">
-          <span>Rating: {placeData.rating}</span>
-        </div>
+        <span>Rating: {stars}</span>
+      </div>
         
       </div>
       </div>
@@ -413,6 +432,15 @@ export default function PlaceInformation() {
 
       <style>
         {`
+
+          .rating {
+            font-weight: bold;
+          }
+          .rating > svg {
+            width: 20px;
+            height: 20px;
+          }
+
           .place-info-container {
             display: flex;
           }
@@ -428,9 +456,7 @@ export default function PlaceInformation() {
             margin: 10px;
           }
 
-          .rating {
-            font-weight: bold;
-          }
+          
           .address {
             font-weight: bold;
           }
