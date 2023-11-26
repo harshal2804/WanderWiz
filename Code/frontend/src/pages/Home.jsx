@@ -1,5 +1,5 @@
 import React from 'react';
-import Card from './Card';
+import photo4 from "../assets/photo4.jpg"
 
 function Home() {
   const centeredTextContainer = {
@@ -7,7 +7,7 @@ function Home() {
     alignItems: 'center',
     justifyContent: 'center',
     height: 'calc(70vh - 45px)',
-    background: `url("/public/Photo4.jpg") center/cover no-repeat`,
+    background: `url("${photo4}") center/cover no-repeat`,
     backgroundSize: '100% auto',
     color: 'white',
     flexDirection: 'column',

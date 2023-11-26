@@ -10,12 +10,14 @@ export default function userController(
     const dbRepository = userRepository(userRepositoryImplementation())
     const authServiceImpl = authService(authServiceImplementation())
 
-    const addNewUser = (req, res, next) => {
+    const addNewUser = async (req, res, next) => {
         const { name, email, password, currentCity } = req.body;
+        const user = await dbRepository.getByEmail(email);
+        if(user) return res.status(409).json({ message: `User with email '${email}' already exists` });
         const encryptedPassword = authServiceImpl.encryptPassword(password);
         addUser(name, email, encryptedPassword, currentCity, dbRepository)
             .then(user => res.status(201).json(user))
-            .catch(next);
+            .catch(err => res.status(500).json({ message: err.message }));
     }
 
     const getUser = async (req, res, next) => {
@@ -25,7 +27,7 @@ export default function userController(
             if(!user) return res.status(404).json({ message: "User not found" });
             res.status(200).json(user);
         }catch(err){
-            next(err);
+            res.status(500).json({ message: err.message });
         }
     }
 

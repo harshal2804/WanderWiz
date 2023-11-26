@@ -12,7 +12,6 @@ const fetchUserDetails = async (token) => {
       Authorization: `Bearer ${token}`,
     },
   });
-  console.log("user details: ", res.data);
   res.data.itineraries.map((element) => {
     element.activities.some((activity) => {
       if(activity.photo) {
@@ -39,10 +38,7 @@ export default function Profile({ handleUser }) {
     "userDetails",
     () => fetchUserDetails(user.token),
     {
-      staleTime: Infinity,
-      onSuccess: (data) => {
-        console.log("user details: ", data);
-      },
+      staleTime: Infinity
     }
   );
 
@@ -94,8 +90,8 @@ export default function Profile({ handleUser }) {
 
   return (
     <div>
-      <div className="container d-flex min-vh-100 p-5 justify-content-around gap-5">
-        <div className="profile-container d-flex flex-column align-items-center border border-dark border-32">
+      <div className="container d-flex min-vh-100 p-5 justify-content-around gap-4">
+        <div className="profile-container d-flex flex-column align-items-center border border-dark border-32 h-100">
           <img
             src="https://ca.slack-edge.com/T0266FRGM-U2Q173U05-g863c2a865d7-512"
             alt="Profile"
@@ -138,7 +134,7 @@ export default function Profile({ handleUser }) {
 
         <div className="d-flex flex-column align-element-center justify-content-around">
           <div className="fw-bold fs-1 text-center py-3 px-1 w-100">Your Itineraries</div>
-          <div className="d-flex align-items-center gap-2">
+          <div className="d-flex flex-wrap align-items-center gap-2">
             {data.itineraries.map((element) => {
               return (
                 <div onClick={(e) => handleIti(e, element._id)} key={element._id}>

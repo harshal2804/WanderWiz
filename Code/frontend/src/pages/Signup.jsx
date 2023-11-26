@@ -2,10 +2,9 @@
 
 import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
-import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
-import Row from 'react-bootstrap/Row';
-import Signupp from "../../public/bg_Signup.jpg";
+import Alert from "react-bootstrap/Alert";
+import Signupp from "../assets/bg_Signup.jpg";
 import { useNavigate } from 'react-router';
 import { useMutation } from 'react-query';
 import axios from 'axios';
@@ -13,7 +12,13 @@ import axios from 'axios';
 
 const postUser = async (user) => {
   const res = await axios.post("http://localhost:3001/api/user", user);
-  return res.data;
+  if(res.status !== 200){
+    return { 
+      status: res.status,
+      message: res.data.message,
+    }
+  }
+  return {...res.data, status: res.status };
 }
 
 function Signup() {
@@ -22,13 +27,20 @@ function Signup() {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [validatePassword, setValidatePassword] = useState(true);
+  const [status, setStatus] = useState(200);
+  const [message, setMessage] = useState("");
 
   const signupMutation = useMutation({
     mutationFn: postUser,
     onSuccess: (data) => {
-      console.log(data);
+      setStatus(data.status);
+      setMessage(data.message);
       navigation("/login");
     },
+    onError: (error) => {
+      setStatus(error.response.status);
+      setMessage(error.response.data.message);
+    }
   })
 
   const handleLogin = (e) => {
@@ -40,10 +52,11 @@ function Signup() {
     e.preventDefault();
 
     if(password !== confirmPassword) {
+      setStatus(200);
       setValidatePassword(false);
-      console.log("passwords do not match");
       return;
     }else{
+      setValidatePassword(true);
       signupMutation.mutate({
         name: e.target.formGridFirstName.value + " " + e.target.formGridLastName.value,
         email: e.target.formGridEmail.value,
@@ -139,23 +152,27 @@ function Signup() {
           <Form.Control type="City" placeholder="Enter city" required/>
         </Form.Group>
       </div>
-      <div className="p-1">
+      <div className="px-1 py-2">
         <Form.Group id="formGridCheckbox">
           <Form.Check type="checkbox" label="Remember me" />
         </Form.Group>
       </div>
 
       
-      <div className="p-1">
+      <div className="px-1">
 
         
-        <Form.Text className="py-2 text-light" id="signupRedirect">
+        <Form.Text className="text-light" id="signupRedirect">
           Already have an account?
         </Form.Text>
         <Button variant="link btn-sm" onClick={(e) => handleLogin(e)}>
           Login
         </Button>
         <br />
+        { status !== 200 ? 
+          // <Alert variant="danger"> {message} </Alert>
+          <div className='py-2 text-danger'> {message} </div>
+        : null }
         <div className="d-flex justify-content-center">
               {" "}
               <Button className='my-3' variant="primary" type="submit">

@@ -5,6 +5,7 @@ import Form from "react-bootstrap/Form";
 import { useMutation, useQuery } from "react-query";
 import { useNavigate } from "react-router";
 import { UserContext } from "../context/UserContext";
+import bg_login from "../assets/bg_login.jpg"
 
 
 const fetchUser = async ({ email, password}) => {
@@ -12,10 +13,7 @@ const fetchUser = async ({ email, password}) => {
     email: email,
     password: password,
   })
-  .catch((error) => {
-    console.log("Axios error : ", error);
-  }
-  );
+
   return res.data;
 };
 
@@ -23,6 +21,8 @@ function Login({ handleUser }) {
 
   const navigation = useNavigate();
   const user = useContext(UserContext);
+  const [status, setStatus] = useState(200);
+  const [message, setMessage] = useState("");
 
   const loginMutation = useMutation({
     mutationFn: fetchUser,
@@ -35,8 +35,8 @@ function Login({ handleUser }) {
       navigation("/");
     },
     onError: (error) => {
-      console.log("react query error: ", error);
-    }
+      setStatus(error.response.status);
+      setMessage(error.response.data.message);    }
   })
 
   const handleLogin = (e) => {
@@ -54,7 +54,7 @@ function Login({ handleUser }) {
 
   const myStyle = {
     height: "100vh",
-    backgroundImage: `url(${import.meta.env.BASE_URL}bg_login.jpg)`,
+    backgroundImage: `url(${bg_login})`,
     backgroundRepeat: "no-repeat",
     backgroundSize: "cover",
   };
@@ -111,7 +111,7 @@ function Login({ handleUser }) {
               <Form.Label>Password</Form.Label>
               <Form.Control type="password" placeholder="Password" required/>
             </Form.Group>
-            <Form.Group className="mb-3" controlId="formBasicCheckbox">
+            <Form.Group controlId="formBasicCheckbox">
               <Form.Text className="py-2 text-light" id="signupRedirect">
                 Are you new here?
               </Form.Text>
@@ -119,7 +119,8 @@ function Login({ handleUser }) {
                 Sign Up
               </Button>
             </Form.Group>
-            <div className="d-flex justify-content-center">
+            <div className="py-2 text-danger">{message}</div>
+            <div className="my-2 d-flex justify-content-center">
               {" "}
               <Button variant="primary" type="submit">
                 Login
