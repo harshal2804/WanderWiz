@@ -1,4 +1,7 @@
 import addItinerary from "application/usecases/itinerary/add";
+import getItineraries from "application/usecases/itinerary/getItineraries";
+import getItinerary from "application/usecases/itinerary/getItinerary";
+import { get } from "mongoose";
 
 export default function (
     itineraryRepository,
@@ -24,8 +27,33 @@ export default function (
         }
     }
 
+    const getAllItineraries = async (req, res, next) => {
+        try {
+            const pageNum = req.query._pageNum;
+            const lim = req.query._lim;
+            const itineraries = await getItineraries(lim, pageNum, dbRepository);
+            res.status(200).json(itineraries);
+        } catch (err) {
+            next(err);
+        }
+    }
+
+    const getItineraryById = async (req, res, next) => {
+        try {
+            const { payload } = req.userId;
+            const { id } = req.params;
+            getItinerary(id, dbRepository)
+                .then(itinerary => res.status(200).json(itinerary))
+                .catch(next);
+        } catch (err) {
+            next(err);
+        }
+    }
+
     return {
-        addNewItinerary
+        addNewItinerary,
+        getAllItineraries,
+        getItineraryById
     }
 
 }

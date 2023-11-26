@@ -20,7 +20,17 @@ const itinerarySchema = new mongoose.Schema({
             createdAt: Number,
             width: Number,
             height: Number
-        }
+        },
+        categories: [{
+            id: String,
+            name: String,
+            pluralName: String,
+            shortName: String,
+            icon: {
+                prefix: String,
+                suffix: String
+            },
+        }]
     }],
     user: {
         type: mongoose.Schema.Types.ObjectId,

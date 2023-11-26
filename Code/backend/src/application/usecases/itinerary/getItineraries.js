@@ -1,5 +1,7 @@
-export default function(
+export default function getItineraries(
+    lim,
+    pageNum,
     itineraryRepository
 ) {
-    return itineraryRepository.getAll();
+    return itineraryRepository.getAll(lim, pageNum);
 }

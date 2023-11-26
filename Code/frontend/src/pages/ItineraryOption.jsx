@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Button, Dropdown, Form, Placeholder } from "react-bootstrap";
 import "../css/itineraryOption.css";
 import { useQuery } from "react-query";
 import axios from "axios";
 import { useState } from "react";
+import { useNavigate } from "react-router";
+import { UserContext } from "../context/UserContext";
 
 const placeSearchAPI = import.meta.env.VITE_HERE_PLACE_SEARCH_API;
 
@@ -31,16 +33,48 @@ const fetchSuggestions = async (query) => {
   return places;
 };
 
+const fetchUserDetails = async (token) => {
+  const res = await axios.get("http://localhost:3001/api/user", {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+  console.log("user details: ", res.data);
+  res.data.itineraries.map((element) => {
+    element.activities.some((activity) => {
+      if(activity.photo) {
+        element.photo = activity.photo;
+        return true;
+      }
+      return false;
+    })
+    element._id = element._id.toString();
+    const startDateFormatted = new Date(element.startDate).toISOString().split("T")[0];
+    const endDateFormatted = new Date(element.endDate).toISOString().split("T")[0];
+    element.startDate = startDateFormatted;
+    element.endDate = endDateFormatted;
+  })
+
+  return res.data;
+};
+
 function ItineraryOption() {
-  const [query, setQuery] = useState("Gandhinagar"); //user.currentCity
+  const [query, setQuery] = useState(""); //user.currentCity
   const [destination, setDestination] = useState({});
-  const [isActive, setIsActive] = useState(true);
-  const { data, error, isLoading } = useQuery(
+  const [isActive, setIsActive] = useState(false);
+  const navigate = useNavigate();
+  const user = useContext(UserContext);
+
+  const { data: suggestions, error, isLoading } = useQuery(
     ["suggestions", query],
     () => fetchSuggestions(query),
     {
       refetchOnWindowFocus: false,
     }
+  );
+
+  const { data: userDetails } = useQuery("userDetails", () =>
+    fetchUserDetails(user.token)
   );
 
   if (error) {
@@ -78,16 +112,24 @@ function ItineraryOption() {
     });
   };
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    navigate("/createItinerary2", { state: { ...destination, currentCity: userDetails.currentCity} }) // user.currentCity
+  };
+
   return (
+    
     <div className="p-2 main">
       <h1 className="p-2 top-center">Build Your Own Customized Trip Plan</h1>
       <h4 className="p-2 top-center1">
         Create your travel itinerary. Book your accommodation, tours and flights
       </h4>
-      <div className="p-2 d-flex dropdown-container">
-        <div className="p-2 mx-2 fs-5 dropdown-label">Select destination: </div>
-        <Dropdown as={Form} show={isActive} onFocus={() => setIsActive(true)}>
+      <div className="p-2 mx-2 fs-5 dropdown-label">Select destination:</div>
+      <div className="p-2 d-flex dropdown-container" id="drop">
+        <Dropdown  as={Form} show={isActive} onFocus={() => setIsActive(true)}>
           <Form.Group
+            className="drop-form"
+      
             style={{ width: "auto", minWidth: "500px" }}
             controlId="searchDropdown"
           >
@@ -95,7 +137,7 @@ function ItineraryOption() {
               type="text"
               value={query}
               onChange={(e) => setQuery(e.target.value)}
-              placeholder="Search..."
+              placeholder="Search Destination"
             />
           </Form.Group>
           <Dropdown.Menu style={{ width: "auto", minWidth: "500px" }}>
@@ -113,10 +155,10 @@ function ItineraryOption() {
               </>
             ) : query.length < 2 ? (
               <Dropdown.Item>Enter minimum 2 character</Dropdown.Item>
-            ) : data.length === 0 ? (
+            ) : suggestions.length === 0 ? (
               <Dropdown.Item>No results found</Dropdown.Item>
             ) : (
-              data.map((venue) => {
+              suggestions.map((venue) => {
                 return (
                   <Dropdown.Item
                     key={venue.place_id}
@@ -137,7 +179,7 @@ function ItineraryOption() {
         end date :
         <input type="date" onChange={(e) => handleEndDateChange(e)} />
       </div>
-      <Button variant="dark">submit</Button>
+      <Button variant="dark" onClick={(e) => handleSubmit(e)}>submit</Button>
     </div>
   );
 }

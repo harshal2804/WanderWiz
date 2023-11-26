@@ -1,68 +1,83 @@
+/* General styles */
 .App4 {
-    text-align: center;
-  }
-  
-  .App-header4 {
-    background-color: #00588A;
-    padding: 20px;
-    color: #FFFFFF;
-  }
-  
-  .row4 {
-    display: flex;
-    justify-content: center;
-  }
-  
+  text-align: center;
+  background-color: rgb(1, 49, 98);
+}
+
+.App-header4 {
+  background-color: rgb(5, 109, 189);
+  padding: 3vh;
+  color: #FFFFFF;
+}
+
+.row4 {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap; /* Ensure flexibility in wrapping items */
+}
+
+.box4 {
+  color: white;
+  background-color: rgb(132, 193, 236);
+  border-radius: 3vh;
+  padding: 5vh;
+  margin: 2vh;
+  height: 30vh;
+  width: 30vh;
+  text-align: center;
+}
+
+.icon4 {
+  font-size: 10vh; /* Adjust the font size for your icon */
+}
+
+.para4 {
+  margin: 2vh 0;
+  font-size: 3vh;
+}
+
+.container14 {
+  display: flex;
+  justify-content: space-between;
+}
+
+#i14{
+  border-top-right-radius: 2vh;
+  width: 23vh; /* Adjusted to percentage for better responsiveness */
+  height: 7vh;
+  font-size: 150%; /* Adjusted for smaller screens */
+  background-color: rgb(5, 109, 189);
+  border-style: none;
+  color: #FFFFFF;
+}
+#i24 {
+  border-top-left-radius: 2vh;
+  width: 23vh; /* Adjusted to percentage for better responsiveness */
+  height: 7vh;
+  font-size: 150%; /* Adjusted for smaller screens */
+  background-color: rgb(5, 109, 189);
+  border-style: none;
+  color: #FFFFFF;
+}
+/* Media query for responsiveness */
+@media screen and (max-width: 768px) {
   .box4 {
-    border: 1px solid #ddd;
-    color: white;
-    background-color: #0E94DF;
-    border-radius: 3vh;
-    padding: 10px;
-    margin: 10px;
-    height: 30vh;
-    width: 30vh;
-    text-align: center;
-  }
-  
-  .icon4 {
-    font-size: 10vh /* Adjust the font size for your icon */
-  }
-  
-  .para4 {
-    margin: 10px 0;
-    font-size: 3vh;
-  }
-  
-  .container14
-  {
-    display: flex;
-    justify-content: space-between;
+    width: 45%; /* Adjust box width for smaller screens */
+    margin: 2vh 2.5%; /* Add spacing between boxes */
   }
 
-  
-  #i14
-  {
-      border-top-right-radius: 2vh;
-      border-bottom-right-radius: 2vh;
-      width: 23vh;
-      height: 7vh;
-      font-size: x-large;
-      background-color: #00588A;;
-      border-style: none;
-      color: #FFFFFF;
+  .icon4 {
+    font-size: 6vh; /* Adjust icon size for smaller screens */
   }
-  
-  #i24
-  {
-    border-top-left-radius: 2vh;
-    border-bottom-left-radius: 2vh;
-    width: 23vh;
-    height: 7vh;
-    font-size: x-large;
-    background-color: #00588A;;
-    border-style: none;
-    color: #FFFFFF;
+
+  .para4 {
+    font-size: 2.5vh; /* Adjust paragraph font size for smaller screens */
   }
-  
-  
+
+  #i14,
+  #i24 {
+    width: 12vh; /* Adjust button width for smaller screens */
+    height: 7vh; /* Adjust button height for smaller screens */
+    font-size: 100%; /* Adjust button font size for smaller screens */
+  }
+}

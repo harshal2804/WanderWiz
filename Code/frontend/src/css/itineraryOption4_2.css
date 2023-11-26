@@ -1,21 +1,23 @@
 .App42 {
     text-align: center;
+    background-color: rgb(1, 49, 98);
   }
   
   .App-header42 {
-    background-color: #00588A;
+    background-color: rgb(5, 109, 189);
     padding: 20px;
     color: white;
   }
   .row142 {
+    margin-top: 20vh;
+    margin-bottom: 21vh;
     display: flex;
     justify-content: center;
   }
   
   .box42 {
-    border: 1px solid #ddd;
     color: white;
-    background-color: #0E94DF;
+    background-color: rgb(132, 193, 236);
     border-radius: 3vh;
     padding: 10px;
     margin: 10px;
@@ -56,11 +58,10 @@
   #i142
   {
       border-top-right-radius: 2vh;
-      border-bottom-right-radius: 2vh;
       width: 23vh;
       height: 7vh;
       font-size: x-large;
-      background-color: #00588A;;
+      background-color: rgb(5, 109, 189);
       border-style: none;
       color: #FFFFFF;
   }
@@ -68,11 +69,34 @@
   #i242
   {
     border-top-left-radius: 2vh;
-    border-bottom-left-radius: 2vh;
     width: 23vh;
     height: 7vh;
     font-size: x-large;
-    background-color: #00588A;;
+    background-color: rgb(5, 109, 189);
     border-style: none;
     color: #FFFFFF;
+  } 
+
+
+  /* Media query for responsiveness */
+@media screen and (max-width: 768px) {
+  .box42 {
+    width: 25%; /* Adjust width for smaller screens */
+    max-width: none; /* Remove maximum width */
   }
+
+  .icon42 {
+    font-size: 6vh; /* Adjust icon size for smaller screens */
+  }
+
+  .para42 {
+    font-size: 2vh; /* Adjust paragraph font size for smaller screens */
+  }
+
+  #i142,
+  #i242 {
+    width: 12vh; /* Adjust button width for smaller screens */
+    height: 7vh; /* Adjust button height for smaller screens */
+    font-size: 100%; /* Adjust button font size for smaller screens */
+  }
+}
