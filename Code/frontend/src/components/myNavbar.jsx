@@ -9,7 +9,7 @@ import { UserContext } from "../context/UserContext";
 import { BsFillPersonFill } from "react-icons/bs";
 import { NavLink, useNavigate } from "react-router-dom";
 
-export default function MyNavbar() {
+export default function Mynavbar() {
   const customFontStyle = {
     color : "#05588A",
     fontFamily: "Montserrat, sans-serif",
