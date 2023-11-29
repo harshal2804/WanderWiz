@@ -56,7 +56,7 @@ export default function ItineraryDisplay() {
 
             <div className="d-flex flex-column align-items-center justify-content-around min-vh-100">
                 <div>
-                    <h1 className="p-4">Itinerary Name</h1>
+                    <h1 className="p-4">{data.name}</h1>
                 </div>
                 <div className="d-flex">
                     {activityData.map((activityColumn, index) => {

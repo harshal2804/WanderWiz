@@ -1,8 +1,8 @@
 import { useState } from 'react';
-// import { QueryClient, QueryClientProvider } from 'react-query';
-// import { ReactQueryDevtools } from 'react-query/devtools';
-// import { BrowserRouter, Routes, Route } from 'react-router-dom';
-// import Home from './pages/Home';
+import { QueryClient, QueryClientProvider } from 'react-query';
+import { ReactQueryDevtools } from 'react-query/devtools';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Home from './pages/Home';
 import Footer from './components/Footer';
 import MyNavbar from './components/myNavbar';
 import Login from './pages/Login';
@@ -24,26 +24,11 @@ import PlaceInformation from './pages/PlaceInformation';
 
 function App() {
 
-  // const queryClient = new QueryClient();
-
-  // return (
-  //     <QueryClientProvider client={queryClient}>
-  //       <MyNavbar />
-  //       {/* <BrowserRouter>
-  //         <Routes>
-  //           <Route path="/" element={<Home />} />
-  //           <Route path="/login" element={<Login />} />
-  //           <Route path='/signup' element={<Signup />} />
-  //           <Route path="/createItinerary" element={<ItineraryOption />} />
-  //           <Route path="/itineraries" element={<Itineraries />} />
-  //         </Routes>
-  //       </BrowserRouter> */}
-
-  //       <PlaceInformation/>
-  // const [user, setUser] = useState({user: false, token: null});
-  // const updateUser = (user) => {
-  //   setUser(user);
-  // }
+  const queryClient = new QueryClient();
+  const [user, setUser] = useState({user: false, token: null});
+  const updateUser = (user) => {
+    setUser(user);
+  }
 
   const [travelCount, setTravelCount] = useState(0);
   const updateTravelCount = (count) => {
@@ -60,6 +45,7 @@ function App() {
 
 
   return (
+    <>
       <QueryClientProvider client={queryClient}>
         <UserContext.Provider value={user}>
         <BrowserRouter>
@@ -97,8 +83,11 @@ function App() {
         </UserContext.Provider>
       <ReactQueryDevtools initialIsOpen={false} />
       </QueryClientProvider>
-      // <MyNavbar/>
-      // <ContactUsPage/>
+      
+      
+      
+      
+      </>
       
   )
 }
