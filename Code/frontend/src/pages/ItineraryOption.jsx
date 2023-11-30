@@ -117,6 +117,22 @@ function ItineraryOption() {
     navigate("/createItinerary2", { state: { ...destination, currentCity: userDetails.currentCity} }) // user.currentCity
   };
 
+  const [startDate, setStartDate] = useState('');
+  const [endDate, setEndDate] = useState('');
+  
+  const getCurrentDate = () => {
+    const today = new Date();
+    const year = today.getFullYear();
+    let month = today.getMonth() + 1;
+    let day = today.getDate();
+
+    // Add leading zeros if needed
+    month = month < 10 ? `0${month}` : month;
+    day = day < 10 ? `0${day}` : day;
+
+    return `${year}-${month}-${day}`;
+  };
+
   return (
     
     <div className="p-2 main">
@@ -175,9 +191,9 @@ function ItineraryOption() {
 
       <div className="p-2 date-inputs">
         start date :
-        <input type="date" onChange={(e) => handleStartDateChange(e)} />
+        <input type="date" onChange={(e) => handleStartDateChange(e)} min={getCurrentDate()} value={startDate}/>
         end date :
-        <input type="date" onChange={(e) => handleEndDateChange(e)} />
+        <input type="date" onChange={(e) => handleEndDateChange(e)} min={getCurrentDate()} value={endDate}/>
       </div>
       <Button variant="dark" onClick={(e) => handleSubmit(e)}>submit</Button>
     </div>
