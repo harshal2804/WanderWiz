@@ -9,8 +9,8 @@ function ItineraryOption2(){
     const { state } = useLocation();
     // console.log(state);
     const { startDate, endDate, display_name, currentCity } = state;
-    const startingDate = getDate(startDate);
-    const endingDate = getDate(endDate);
+    const startingDate = new Date(startDate).toLocaleDateString('en-CA');
+    const endingDate = new Date(endDate).toLocaleDateString('en-CA');
 
 
     const [ destination, setDestination ] = useState(display_name);
