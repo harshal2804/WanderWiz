@@ -27,6 +27,7 @@ function Signup() {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [validatePassword, setValidatePassword] = useState(true);
+  const [passwordError, setPasswordError] = useState('');
   const [status, setStatus] = useState(200);
   const [message, setMessage] = useState("");
 
@@ -66,8 +67,29 @@ function Signup() {
     }
   };
 
-  
+  const handlePasswordChange = (e) => {
+    setPassword(e.target.value);
+    const isValidPassword = checkPassword(e.target.value);
+    if (!isValidPassword) {
+      setPasswordError('Password must contain at least 8 characters including upper and lower case letters, numbers, and special characters.');
+    } else {
+      setPasswordError('');
+    }
+  };
     
+  const checkPassword = (password) => {
+    const passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/;
+    return passwordRegex.test(password);
+  }
+
+  const handleConfirmPasswordChange = (e) => {
+    setConfirmPassword(e.target.value);
+    if (e.target.value !== password) {
+      setValidatePassword(false);
+    } else {
+      setValidatePassword(true);
+    }
+  };
   
 
   const ms={
@@ -132,20 +154,27 @@ function Signup() {
       <div className="p-2" style={textStyle}>
         <Form.Group controlId="formGridPassword">
           <Form.Label>Password</Form.Label>
-          <Form.Control onChange={(e) => setPassword(e.target.value)} type="password" placeholder="Password" required/>
+          <Form.Control onChange={(e) => handlePasswordChange(e)} type="password" placeholder="Password" required/>
         </Form.Group>
       </div>
+      {passwordError && 
+      <div className='p-2' style={textStyle}>
+      <Form.Group controlId="passwordErrorMessage">
+        <Form.Text className="text-danger">{passwordError}</Form.Text>
+      </Form.Group>
+      </div> }
       <div className="p-2" style={textStyle}>
         <Form.Group controlId="formGridPassword2">
           <Form.Label>Confirm Password</Form.Label>
-          <Form.Control onChange={(e) => setConfirmPassword(e.target.value)} type="password" placeholder="Confirm Password" required/>
+          <Form.Control onChange={(e) => handleConfirmPasswordChange(e)} type="password" placeholder="Confirm Password" required/>
         </Form.Group>
       </div>
+      {!validatePassword && 
       <div className='p-2' style={textStyle}>
       <Form.Group controlId="passwordErrorMessage">
-        <Form.Text className="text-danger">{validatePassword ? "" : "Passwords do not match"}</Form.Text>
+        <Form.Text className="text-danger">Passwords do not match</Form.Text>
       </Form.Group>
-      </div>
+      </div> }
       <div className="p-1" style={textStyle}>
         <Form.Group controlId="formGridCity">
           <Form.Label>City</Form.Label>

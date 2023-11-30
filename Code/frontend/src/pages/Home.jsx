@@ -41,34 +41,6 @@ function Home() {
     textAlign: 'center',
   };
 
-
-  const bestPlaces = [
-    {
-      title: 'Eiffel Tower',
-      description: 'Iconic landmark in Paris, France',
-      image: '/public/effiletower.jpg',
-    },
-    {
-      title: 'Machu Picchu',
-      description: 'Ancient Incan citadel in Peru',
-      image: '/public/machu-picchu.jpg',
-    },
-    {
-      title: 'Great Wall of China',
-      description: 'World-famous wall in China',
-      image: '/public/great-wall-of-china.jpg',
-    },
-    
-    {
-      title: 'Great Wall of China',
-      description: 'World-famous wall in China',
-      image: '/public/great-wall-of-china.jpg',
-    },
-
-
-    // Add more places here...
-  ];
-
   const cardContainerStyle = {
     display: 'flex',
     flexWrap: 'wrap',
@@ -83,9 +55,9 @@ function Home() {
       <div className="p-3" style={centeredText}>
         World Smartest Vacation Planner
         <br />
-        <h4>WonderWiz - Trips, Tales & Trust</h4>
+        <h4>WanderWiz - Trips, Tales & Trust</h4>
       </div>
-      <button style={butonStyle}> Add Itineraries </button>
+      {/* <button style={butonStyle}> Add Itineraries </button> */}
 
     </div>
 
@@ -102,9 +74,9 @@ function Home() {
       </div> */}
 
 <div style={aboutUsSection}>
-<h1>About Us</h1>
+<h1>About WanderWiz</h1>
 <p>
-Welcome to WonderWiz, your ultimate travel companion. We are dedicated to helping you plan your dream vacations with ease and precision. Our mission is to provide you with the smartest tools and insights to make your trips memorable. Whether it's finding the best places to visit, planning itineraries, or discovering hidden gems, we've got you covered. With WonderWiz, it's not just about traveling; it's about creating stories, making memories, and building trust.
+Welcome to WanderWiz, your ultimate travel companion. We are dedicated to helping you plan your dream vacations with ease and precision. Our mission is to provide you with the smartest tools and insights to make your trips memorable. Whether it's finding the best places to visit, planning itineraries, or discovering hidden gems, we've got you covered. With WanderWiz, it's not just about traveling; it's about creating stories, making memories, and building trust.
 </p>
 </div>
 

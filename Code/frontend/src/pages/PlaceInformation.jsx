@@ -3,7 +3,7 @@ import "../css/PlaceInformation.css";
 import 'bootstrap/dist/css/bootstrap.css';// https://blog.hubspot.com/website/react-bootstrap-css
 import  LikeButton from "./LikeButton.jsx"
 import { FaStar, FaStarHalf, FaArrowRight, FaArrowLeft,FaArrowCircleUp, FaArrowCircleDown } from "react-icons/fa";
-import { Button } from "react-bootstrap";
+import { Button, Carousel } from "react-bootstrap";
 import { useQuery } from "react-query";
 import { UserContext } from "../context/UserContext.js";
 import { useParams } from "react-router-dom";
@@ -36,11 +36,6 @@ export default function PlaceInformation() {
   if(isLoading) return <div>Loading...</div>;
   if(isError) return <div>{error.message}</div>;
 
-  // Sort the reviews by 'created_at' in descending order to get the most recent first
-  // const sortedReviews = reveiws.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
-
-  // Take the top three reviews (most recent)
-  // const recentReviews = sortedReviews.slice(0, 4);
   const maxRating = 5;
   const ratingOn5Scale = (data.rating / 2); // Assuming the rating is on a scale of 0 to 10
 
@@ -57,21 +52,21 @@ export default function PlaceInformation() {
   }
 
   return (
-    <>
+    <div className="min-vh-100">
       <div className="d-flex justify-content-center">
         {/* First Div: Image */}
-        <div className="d-flex border border-primary border-4 rounded m-4">
-          <Button style={{ position: "absolute", margin: "180px -20px"}} variant="primary" onClick={(e) => setIndex(index-1)} disabled={index === 1}>
-            <FaArrowLeft />
-          </Button>
-          <img
-            src={data.photos[index].prefix +"400x400"+ data.photos[index].suffix}
-            alt="Place Photo"
-          />
-          <Button style={{ position: "absolute", margin: "180px 380px" }} variant="primary" onClick={(e) => setIndex(index+1)} disabled={index === data.photos.length - 1}>
-            <FaArrowRight />
-          </Button>
-        </div>
+
+        <Carousel interval={1500} className="d-flex border border-secondary border-4 rounded m-4" style={{ height: "400px", width: "400px"}}>
+          {data && data.photos && data.photos.map((photo) => (
+            <Carousel.Item key={photo.id}>
+              <img
+                className="d-block"
+                src={photo.prefix +"400x400"+ photo.suffix}
+                alt="Place Photo"
+              />
+            </Carousel.Item>
+          ))}
+        </Carousel>
 
         {/* Second Div: Place Information */}
         <div className="place-info m-4 border rounded">
@@ -99,19 +94,19 @@ export default function PlaceInformation() {
 
 
       {/* add this classes if you want alert message alert alert-warning alert-dismissible fade show */}
-      <h2>Most Recent Reviews</h2>
+      <h2 className="p-4">Top Reviews</h2>
       <div className="reviews">
         {data.tips.map((review) => (
-          <div className="review p-3 border rounded"  key={review.id}>
+          <div className="d-flex flex-column review p-3 border rounded"  key={review.id}>
             <div className="review-text fs-6">{review.text}</div>
-            <div className="review-date ">
+            <div className="fw-bold fs-6 review-date align-self-end">
               {new Date(review.created_at).toDateString()}
 
             </div>
           {/* <LikeButton/>
            */}
            <div className="p-2 d-flex gap-2 align-items-center">
-            <FaArrowCircleUp/>
+            <FaArrowCircleUp onClick={(e) => console.log()}/>
               <div className="">
                 {review.agree_count - review.disagree_count}
               </div>
@@ -120,6 +115,6 @@ export default function PlaceInformation() {
           </div>
         ))}
       </div>
-    </>
+    </div>
   )
 }

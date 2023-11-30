@@ -19,6 +19,8 @@ import React from 'react';
 import github from "../assets/github.png";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebook, faLinkedin, faTwitter, faInstagram, faGithub } from '@fortawesome/free-brands-svg-icons';
+import { useNavigate } from 'react-router-dom';
+
 
 function Footer() {
   const footerStyles = {
@@ -35,6 +37,8 @@ function Footer() {
     fontSize: 'calc(12px + (15 - 12) * ((100vw - 360px) / (1600 - 360)))',
   };
 
+  const navigate = useNavigate();
+
   
 
   return (
@@ -44,20 +48,18 @@ function Footer() {
           <div className="col-11">
             <div className="row">
               <div className="col-xl-8 col-md-4 col-sm-4 col-10 my-auto mx-auto a">
-                <h3 className="text-muted mb-md-0 mb-5 bold-text">WonderWiz.</h3>
+                <h3 className="text-muted mb-md-0 mb-5 bold-text">WanderWiz.</h3>
               </div>
               <div className="col-xl-2 col-md-4 col-sm-4 col-12">
                 <h6 className="mb-3 mb-lg-4 bold-text"><b>MENU</b></h6>
-                <ul className="list-unstyled">
-                  <li>Home</li>
-                  <li>Itineries</li>
-                  <li>About Us</li>
-                  <li>Contact Us</li>
-                  
+                <ul className="d-flex flex-column align-item-left list-unstyled">
+                  <li className='p-0 btn-link' onClick={() => navigate("/")}>Home</li>
+                  <li className='p-0 btn-link' onClick={() => navigate("/itineraries")}>Itineries</li>
+                  <li className='p-0 btn-link' onClick={() => navigate("/")}>About Us</li>
                 </ul>
               </div>
               <div className="col-xl-2 col-md-4 col-sm-4 col-12">
-                <h6 className="mb-3 mb-lg-4 text-muted bold-text mt-sm-0 mt-5"><b>ADDRESS</b></h6>
+                <h6 className="mb-3 mb-lg-4 bold-text mt-sm-0 mt-5"><b>ADDRESS</b></h6>
                 <p className="mb-1">Daiict college, Reliance Cross Rd, Gandhinagar, Gujarat 382007</p>
                 
               </div>
@@ -86,16 +88,16 @@ function Footer() {
                     </a>
                 </span>
                 </p>
-                <span className="mx-2">© 2023 WonderWiz</span>
+                <span className="mx-2">© 2023 WanderWiz</span>
                 
                 {/* <small className="rights"><span>&#174;</span> Pepper All Rights Reserved.</small> */}
               </div>
               <div className="col-xl-2 col-md-4 col-sm-4 col-auto order-1 align-self-end">
-                <h6 className="mt-55 mt-2 text-muted bold-text"><b>COMPANY</b></h6>
-                <small><span><i className="fa fa-envelope" aria-hidden="true"></i></span>Wonderwiz@gmail.com</small>
+                <h6 className="mt-55 mt-2 bold-text"><b>COMPANY</b></h6>
+                <small><span><i className="fa fa-envelope" aria-hidden="true"></i></span>WanderWiz@gmail.com</small>
               </div>
               <div className="col-xl-2 col-md-4 col-sm-4 col-auto order-2 align-self-end mt-3">
-                <h6 className="text-muted bold-text"><b>Harshal Patel</b></h6>
+                <h6 className=" bold-text"><b>Harshal Patel</b></h6>
                 <small><span><i className="fa fa-envelope" aria-hidden="true"></i></span>202101270@daiict.ac.in</small>
               </div>
             </div>
@@ -136,7 +138,7 @@ export default Footer;
 //     <footer style={footerStyle}>
 //       <div style={columnStyle}>
 //         <h3 style={headingStyle}>Column 1</h3>
-//         <h1>WonderWiz</h1>
+//         <h1>WanderWiz</h1>
 //       </div>
 //       <div style={columnStyle}>
 //         <h3 style={headingStyle}>Column 2</h3>
