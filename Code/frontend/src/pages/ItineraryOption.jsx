@@ -99,7 +99,7 @@ function ItineraryOption() {
     const startDate = new Date(e.target.value);
     setDestination({
       ...destination,
-      startDate: startDate,
+      startDate: startDate.toISOString().split("T")[0],
     });
   };
 
@@ -108,7 +108,7 @@ function ItineraryOption() {
     const endDate = new Date(e.target.value);
     setDestination({
       ...destination,
-      endDate: endDate,
+      endDate: endDate.toISOString().split("T")[0],
     });
   };
 
@@ -191,9 +191,9 @@ function ItineraryOption() {
 
       <div className="p-2 date-inputs">
         start date :
-        <input type="date" onChange={(e) => handleStartDateChange(e)} min={getCurrentDate()} value={startDate}/>
+        <input type="date" onChange={(e) => handleStartDateChange(e)} min={getCurrentDate()} value={destination.startDate || ''}/>
         end date :
-        <input type="date" onChange={(e) => handleEndDateChange(e)} min={getCurrentDate()} value={endDate}/>
+        <input type="date" onChange={(e) => handleEndDateChange(e)} min={getCurrentDate()} value={destination.endDate || ''}/>
       </div>
       <Button variant="dark" onClick={(e) => handleSubmit(e)}>submit</Button>
     </div>
