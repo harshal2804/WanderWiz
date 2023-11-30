@@ -199,7 +199,6 @@ function Signup() {
         </Button>
         <br />
         { status !== 200 ? 
-          // <Alert variant="danger"> {message} </Alert>
           <div className='py-2 text-danger'> {message} </div>
         : null }
         <div className="d-flex justify-content-center">
