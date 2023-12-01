@@ -216,13 +216,13 @@ function ItineraryOption() {
       </div>
 
       <div className="p-2 date-inputs w-75" style={{ width: "auto", maxWidth: "500px" }}>
-        {errors.destination && <p className="error-message ">{errors.destination}</p>}
+        {errors.destination && <p className="text-danger error-message ">{errors.destination}</p>}
         start date :
         <input type="date" onChange={(e) => handleStartDateChange(e)} min={getCurrentDate()} value={destination.startDate || ''}/>
-        {errors.startDate && <p className="error-message">{errors.startDate}</p>}
+        {errors.startDate && <p className="text-danger error-message">{errors.startDate}</p>}
         end date :
         <input type="date" onChange={(e) => handleEndDateChange(e)} min={getCurrentDate()} value={destination.endDate || ''}/>
-        {errors.endDate && <p className="error-message">{errors.endDate}</p>}
+        {errors.endDate && <p className="text-danger error-message">{errors.endDate}</p>}
       </div>
       <Button variant="dark" onClick={(e) => handleSubmit(e)}>submit</Button>
     </div>

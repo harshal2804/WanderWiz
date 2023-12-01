@@ -49,6 +49,14 @@ export default function Profile({ handleUser }) {
   }
 
   if (isError) {
+    if(error.response.status === 401) {
+      localStorage.removeItem("token");
+      handleUser({
+        user: false,
+        token: null,
+      });
+      navigate("/login");
+    }
     console.log(error);
     return <div className="min-vh-100"><Error message={error.message} /></div>;
   }
