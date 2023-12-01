@@ -99,7 +99,7 @@ function ItineraryOption() {
     const startDate = new Date(e.target.value);
     setDestination({
       ...destination,
-      startDate: startDate,
+      startDate: startDate.toISOString().split("T")[0],
     });
   };
 
@@ -108,13 +108,55 @@ function ItineraryOption() {
     const endDate = new Date(e.target.value);
     setDestination({
       ...destination,
-      endDate: endDate,
+      endDate: endDate.toISOString().split("T")[0],
     });
   };
 
+  const [errors, setErrors] = useState({ destination: '', startDate: '', endDate: '' });
+
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    const newErrors = { destination: '', startDate: '', endDate: '' };
+
+    // Check if the destination field is empty
+    if (query.trim() === '') {
+      newErrors.destination = 'Please enter a destination.';
+    }
+
+    // Check if the start date is selected
+    if (!destination.startDate) {
+      newErrors.startDate = 'Please select a start date.';
+    }
+
+    // Check if the end date is selected
+    if (!destination.endDate) {
+      newErrors.endDate = 'Please select an end date.';
+    }
+
+    // If there are errors, update the state and return
+    if (newErrors.destination || newErrors.startDate || newErrors.endDate) {
+      setErrors(newErrors);
+      return;
+    }
+    
     navigate("/createItinerary2", { state: { ...destination, currentCity: userDetails.currentCity} }) // user.currentCity
+  };
+
+  const [startDate, setStartDate] = useState('');
+  const [endDate, setEndDate] = useState('');
+  
+  const getCurrentDate = () => {
+    const today = new Date();
+    const year = today.getFullYear();
+    let month = today.getMonth() + 1;
+    let day = today.getDate();
+
+    // Add leading zeros if needed
+    month = month < 10 ? `0${month}` : month;
+    day = day < 10 ? `0${day}` : day;
+
+    return `${year}-${month}-${day}`;
   };
 
   return (
@@ -173,11 +215,14 @@ function ItineraryOption() {
         </Dropdown>
       </div>
 
-      <div className="p-2 date-inputs">
+      <div className="p-2 date-inputs w-75" style={{ width: "auto", maxWidth: "500px" }}>
+        {errors.destination && <p className="error-message ">{errors.destination}</p>}
         start date :
-        <input type="date" onChange={(e) => handleStartDateChange(e)} />
+        <input type="date" onChange={(e) => handleStartDateChange(e)} min={getCurrentDate()} value={destination.startDate || ''}/>
+        {errors.startDate && <p className="error-message">{errors.startDate}</p>}
         end date :
-        <input type="date" onChange={(e) => handleEndDateChange(e)} />
+        <input type="date" onChange={(e) => handleEndDateChange(e)} min={getCurrentDate()} value={destination.endDate || ''}/>
+        {errors.endDate && <p className="error-message">{errors.endDate}</p>}
       </div>
       <Button variant="dark" onClick={(e) => handleSubmit(e)}>submit</Button>
     </div>
