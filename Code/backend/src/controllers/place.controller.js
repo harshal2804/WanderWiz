@@ -26,7 +26,7 @@ export default function placeController(
                 res.status(200).json(place);
             }
         }catch(err){
-            throw err;
+            res.stats(500).json({message: err.message});
         }
     }
 

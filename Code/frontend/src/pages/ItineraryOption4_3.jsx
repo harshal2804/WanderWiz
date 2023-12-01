@@ -7,6 +7,8 @@ import { useLocation } from 'react-router-dom';
 import getDate from '../utils/getDate';
 import { useItineraryGeneration } from '../hooks/useItineraryGenration';
 import { UserContext } from '../context/UserContext';
+import { Spinner } from 'react-bootstrap';
+import Error from "./Error";
 
 function ItineraryOption4_3({ handleTravelCount }) {
 
@@ -23,11 +25,14 @@ function ItineraryOption4_3({ handleTravelCount }) {
 
   const user  = useContext(UserContext);
 
-  const itiGen = useItineraryGeneration();
+  const { isLoading, isError, error, mutate } = useItineraryGeneration();
   const handleNext = (e) => {
     e.preventDefault();
-    itiGen.mutate({ state, token: user.token });
+    mutate({ state, token: user.token });
   }
+
+  if(isLoading) return <div className="min-vh-100 m-2 text-center"><Spinner animation="border" variant="primary" /></div>;
+  if(isError) return <div><Error message={error.message} /></div>;
 
   return (
     <div className="App43 min-vh-100">

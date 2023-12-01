@@ -3,11 +3,12 @@ import "../css/PlaceInformation.css";
 import 'bootstrap/dist/css/bootstrap.css';// https://blog.hubspot.com/website/react-bootstrap-css
 import  LikeButton from "./LikeButton.jsx"
 import { FaStar, FaStarHalf, FaArrowRight, FaArrowLeft,FaArrowCircleUp, FaArrowCircleDown } from "react-icons/fa";
-import { Button, Carousel } from "react-bootstrap";
+import { Button, Carousel, Spinner } from "react-bootstrap";
 import { useQuery } from "react-query";
 import { UserContext } from "../context/UserContext.js";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+import Error from "./Error.jsx";
 
 const fetchPlaceDetails = async (fsq_id, token) => {
   const res = await axios.get(`http://localhost:3001/api/place/${fsq_id}`, {
@@ -33,8 +34,8 @@ export default function PlaceInformation() {
     },
   });
 
-  if(isLoading) return <div>Loading...</div>;
-  if(isError) return <div>{error.message}</div>;
+  if(isLoading) return <div className="m-2 text-center"><Spinner animation="border" variant="primary" /></div>;
+  if(isError) return <div><Error message={error.message} /></div>;
 
   const maxRating = 5;
   const ratingOn5Scale = (data.rating / 2); // Assuming the rating is on a scale of 0 to 10

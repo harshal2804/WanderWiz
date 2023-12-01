@@ -137,7 +137,7 @@ const ContactUsPage = () => {
       
       <h3 style={styles.mission}>Our Mission</h3>
       <p style={styles.paragraph}>
-        At [Your Website Name], our mission is to inspire and empower travelers to explore the world, creating memories that last a lifetime. 
+        At WanderWiz, our mission is to inspire and empower travelers to explore the world, creating memories that last a lifetime. 
         We strive to provide personalized travel experiences that cater to your preferences and offer expert advice for your journey.
       </p>
       

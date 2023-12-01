@@ -50,7 +50,7 @@ export default function Mynavbar() {
               <Nav.Link to="/itineraries" as={NavLink} style={customFontStyle}>
                 Itineraries
               </Nav.Link>
-              <Nav.Link to="/aboutus" as={NavLink} style={customFontStyle}>
+              <Nav.Link to="/contactus" as={NavLink} style={customFontStyle}>
                 About Us
               </Nav.Link>
             </Nav>

@@ -6,12 +6,15 @@ import axios from "axios";
 import { useContext, useState } from "react";
 import { UserContext } from "../context/UserContext";
 import dateArray from "../utils/dateArray";
+import { Spinner } from "react-bootstrap";
 
 const fetchItinerary = async (id, token) => {
   const res = await axios.get(`http://localhost:3001/api/itinerary/${id}`, {
     headers: {
       Authorization: `Bearer ${token}`,
     },
+  }).catch((err) => {
+    console.log(err);
   });
   return res.data;
 };
@@ -38,19 +41,16 @@ export default function ItineraryDisplay() {
       onSuccess: (data) => {
         console.log("itinerary: ", data);
         setDayIndex(new Date(data.startDate).getDay());
-        console.log("dayIndex: ", dayIndex);
+      },
+      onError: (error) => {
+        console.log("error: ", error);
       }
     }
   );
   const navigate = useNavigate();
 
-  if (isLoading) {
-    return <div className="min-vh-100">Loading...</div>;
-  }
-
-  if (isError) {
-    return <div className="min-vh-100">Error: {error.message}</div>;
-  }
+  if(isLoading) return <div className="m-2 text-center"><Spinner animation="border" variant="primary" /></div>;
+  if(isError) return <div><Error message={error.message} /></div>;
 
   const activityData = divideArrayIntoChunks(data.activities);
   
@@ -74,7 +74,6 @@ export default function ItineraryDisplay() {
                   Day - {index + 1}
                 </p>
                 {activityColumn.map((activity, index) => {
-                  console.log(((dayIndex + index)%7) );
                   return (
                     <Activity
                       onClick={(e) => handleActivityClick(e, activity.fsq_id)}
@@ -89,10 +88,10 @@ export default function ItineraryDisplay() {
                       name={activity.name}
                       photoType={activity.photo ? "fsq" : "cat"}
                       open={activity.hours_popular.length === 0 ? null
-                        : activity.hours_popular[((dayIndex + index)%7)].open
+                        : activity.hours_popular[((dayIndex + index)%7)]?.open
                       }
                       close={activity.hours_popular.length === 0 ? null
-                        : activity.hours_popular[((dayIndex + index)%7)].close
+                        : activity.hours_popular[((dayIndex + index)%7)]?.close
                       }
                     />
                   );

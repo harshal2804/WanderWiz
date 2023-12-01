@@ -20,6 +20,6 @@ export function useItineraryGeneration() {
         onSuccess: (data) => {
           console.log(data);
           navigate(`/itinerary/${data._id}`);
-        },
+        }
     })
 }
