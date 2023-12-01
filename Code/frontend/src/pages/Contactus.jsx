@@ -30,7 +30,7 @@ const ContactUsPage = () => {
       maxWidth: '800px',
     },
     card: {
-      width: '300px',
+      width: '200px',
       padding: '10px',
       margin: '10px',
       borderRadius: '8px',
@@ -39,7 +39,7 @@ const ContactUsPage = () => {
     },
     image: {
       width: '100%',
-      height: '300px',
+      height: '200px',
       objectFit: 'cover',
       borderRadius: '8px',
     },
@@ -51,9 +51,11 @@ const ContactUsPage = () => {
     },
     name: {
       marginTop: '10px',
-      fontSize: '1.5em', // Increased font size for card names
+      fontSize: '1.2em', // Increased font size for card names
       color: '#333',
     },
+   
+
     cardContent: {
       display: 'flex',
       flexDirection: 'column',
@@ -70,60 +72,67 @@ const ContactUsPage = () => {
     const cardData = [
     {
       id: 1,
-      name :'card 1', 
-      image: '/tryphoto.jpg',
-      link: 'https://www.google.com',
+      name :'Harshal Patel', 
+      image: '/harshal.jpeg',
+      
+      //paragraph:'hello this is test',
+      
+      link: 'https://www.linkedin.com/in/harshal-patel-0b61aa24b/',
+      //<Card.Title>Card Title</Card.Title>
       
     },
     {
       id: 2,
-      name :'card 2',
-      image: 'https://via.placeholder.com/300',
-      link: 'https://example.com/link2',
+      name :'Shaan Patel',
+      image: '/shaan.jpeg',
+      //paragraph:'hello this is test',
+      link: 'http://www.linkedin.com/in/shaanpatel121',
     },
    
     {
       id: 3,
-      name :'card 3',
-      image: 'https://via.placeholder.com/300',
-      link: 'https://example.com/link1',
+      name :'Mayank Gadhesariya',
+      image: '/mayank.jpeg',
+      //paragraph:'Hello this.',
+      link: 'https://www.linkedin.com/in/mayank-gadhesariya-564685259/',
     },
     {
       id: 4,
-      name :'card 4',
-      image: 'https://via.placeholder.com/300',
-      link: 'https://example.com/link1',
+      name :'Dhruv Limbad',
+      image: '/dhruv.jpeg',
+      
+      link: 'https://www.linkedin.com/in/dhruv-limbad-a89a97214/',
     },
     {
       id: 5,
-      name :'card 5',
-      image: 'https://via.placeholder.com/300',
-      link: 'https://example.com/link1',
+      name :'Pranali Thakkar',
+      image: '/pranali.jpeg',
+      link: 'https://www.linkedin.com/in/pranali-thakkar-859453273/?trk=contact-info',
     },
     {
       id: 6,
-      name :'card 6',
-      image: 'https://via.placeholder.com/300',
-      link: 'https://example.com/link1',
+      name :'Vidhi Nakum',
+      image: '/vidhi.jpeg',
+      link: 'https://www.linkedin.com/in/vidhi-nakum-a123a4268/',
     },
     {
       id: 7,
-      name :'card 7',
-      image: 'https://via.placeholder.com/300',
-      link: 'https://example.com/link1',
+      name :'Samarth Panchal',
+      image: '/samarth.jpeg',
+      link: 'https://www.linkedin.com/in/samarth-panchal-b77590254?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app',
     },
     {
       id: 8,
-      name :'card 8',
-      image: 'https://via.placeholder.com/300',
-      link: 'https://example.com/link1',
+      name :'Pushprajsinh Mori',
+      image: '/pushprajsinh.jpeg',
+      link: 'https://www.linkedin.com/in/pushprajsinh-mori-5072b8261/',
     },
 
     {
       id: 9,
-      name :'card 9',
-      image: 'https://via.placeholder.com/300',
-      link: 'https://example.com/link1',
+      name :'Anuj Pasaya',
+      image: '/anuj.jpeg',
+      link: 'https://www.linkedin.com/in/anuj-pasaya-8729b625a/',
     },
   ].slice(0,9);
 
@@ -149,8 +158,10 @@ const ContactUsPage = () => {
       </p>
 
       <h1>Our Team Member</h1>
-
+      <br></br>
+      <h5>Click on the photos to visit our Linkedin Profile</h5>
       <div style={styles.cardContainer}>
+        
         {cardData.map((card) => (
           <div
             key={card.id}
@@ -160,6 +171,7 @@ const ContactUsPage = () => {
             <div style={styles.cardContent}>
               <img src={card.image} alt={`Card ${card.id}`} style={styles.image} />
               <p style={styles.name}>{card.name}</p>
+              <p style={styles.paragraph}>{card.paragraph}</p> {/* Add this line */}
             </div>
           </div>
         ))}
@@ -167,6 +179,8 @@ const ContactUsPage = () => {
     </div>
   );
 };
+
+
 
 export default ContactUsPage;
 
