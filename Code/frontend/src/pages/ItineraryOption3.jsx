@@ -66,10 +66,7 @@ function ItineraryOption3() {
                         <input className="form-check-input" type="checkbox" id="transportationCheckbox2" onClick={() => setCheck2(!check2)} />
                         
                     </div>
-                    <div className="info3">
-                        <h2 className="t13">Things to Do</h2>
-                        <p className="p13">Information about things to do goes here.</p>
-                    </div>
+                    
                 </div>
                 <div className="container13">
                     <div className="back4" onClick={(e) => handleBack(e)}> <button id="i13">back</button></div>
