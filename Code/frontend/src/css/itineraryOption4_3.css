@@ -1,12 +1,12 @@
 .App43 {
   text-align: center;
-  background-color: rgb(1, 49, 98);
+  background-color: #DDF2D1;
 }
 
 .App-header43 {
-  background-color: rgb(5, 109, 189);
+  background-color: #21D375;;
   padding: 2vh;
-  color: white;
+  color: #073b3a;
 }
 
 .row143 {
@@ -19,7 +19,7 @@
 
 .box43 {
   color: white;
-  background-color: rgb(132, 193, 236);
+  background-color: #073b3a;
   border-radius: 3vh;
   padding: 2vh;
   margin: 2vh;
@@ -36,6 +36,7 @@
 .para43 {
   margin: 1vh 0;
   font-size: 2.5vh;
+  color:#99ff33;
 }
 
 .container143 {
@@ -48,18 +49,18 @@
   width: 23vh; /* Adjusted to percentage for better responsiveness */
   height: 7vh;
   font-size: 150%; /* Adjusted for smaller screens */
-  background-color: rgb(5, 109, 189);
+  background-color:#21D375;
   border-style: none;
-  color: #FFFFFF;
+  color:#073b3a;
 }
 #i243 {
   border-top-left-radius: 2vh;
   width: 23vh; /* Adjusted to percentage for better responsiveness */
   height: 7vh;
   font-size: 150%; /* Adjusted for smaller screens */
-  background-color: rgb(5, 109, 189);
+  background-color:#21D375;
   border-style: none;
-  color: #FFFFFF;
+  color: #073b3a;
 }
 
 /* Media query for responsiveness */
