@@ -1,19 +1,4 @@
-// import Container from "react-bootstrap/esm/Container";
 
-
-// export default function Footer() {
-//     return (
-//         <>
-//         <Container fluid style={{ backgroundColor: "#D4F1F4", width: "100%" , color :"#05588A" }} className="p-3 d-flex justify-content-center align-items-center">
-//                     <span className="mx-2">© 2023</span>
-//                     <span className="mx-2">WanderWiz</span>
-//                     <a href="https://github.com/harshal2804/WanderWiz">
-//                     <img src={github} style={{ height: "25px", width: "25px", marginLeft: "10px", marginRight: "10px" }}/>
-//                     </a>
-//         </Container>
-//         </>
-//     )
-// };
 
 import React from 'react';
 import github from "../assets/github.png";
@@ -26,7 +11,7 @@ function Footer() {
   const footerStyles = {
     
     backgroundColor: '#073B3A', // Background color
-    color: '#FFFFFF', // Font color
+    color: '#ffff99', // Font color
     overflow: 'hidden',
     //marginTop: '50px', // Top margin
     marginBottom: '0',
@@ -45,13 +30,15 @@ function Footer() {
   
 
   return (
-    <div style={footerStyles} className="container-fluid pb-0 mb-0 justify-content-center text-dark">
+    <div style={footerStyles} className="container-fluid pb-0 mb-0 justify-content-center text-#e7ee4f">
       <footer>
         <div className="row my-1 justify-content-center py-2">
           <div className="col-11">
             <div className="row">
               <div className="col-xl-8 col-md-4 col-sm-4 col-10 my-auto mx-auto a">
-                <h3 className="text-muted mb-md-0 mb-5 bold-text">WanderWiz.</h3>
+              
+
+                <h3 className="custom-text-color mb-md-0 mb-5 bold-text"  >WanderWiz.</h3>
               </div>
               <div className="col-xl-2 col-md-4 col-sm-4 col-12">
                 <h6 className="mb-3 mb-lg-4 bold-text"><b>MENU</b></h6>
@@ -113,13 +100,7 @@ function Footer() {
 
 export default Footer;
 
-
-
-
-
-
 // import React from 'react';
-
 // function Footer() {
 //   const footerStyle = {
 //     backgroundColor: '#f0f0f0',
@@ -127,16 +108,13 @@ export default Footer;
 //     display: 'flex',
 //     justifyContent: 'space-between',
 //   };
-
 //   const columnStyle = {
 //     width: '30%',
 //   };
-
 //   const headingStyle = {
 //     fontSize: '1.2em',
 //     marginBottom: '10px',
 //   };
-
 //   return (
 //     <footer style={footerStyle}>
 //       <div style={columnStyle}>
@@ -154,6 +132,7 @@ export default Footer;
 //     </footer>
 //   );
 // }
-
 // export default Footer;
+
+
 
