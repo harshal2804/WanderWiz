@@ -11,9 +11,10 @@ function ItineraryOption4({ handleTravelCount }) {
 
   const { state } = useLocation();
   const { startDate, endDate } = state;
-  const startingDate = getDate(startDate);
-  const endingDate = getDate(endDate);
+  const startingDate = new Date(startDate).toLocaleDateString('en-CA');;
+  const endingDate = new Date(endDate).toLocaleDateString('en-CA');;
   const navigate = useNavigate();
+  
 
   const handleBack = (e) => {
     e.preventDefault();

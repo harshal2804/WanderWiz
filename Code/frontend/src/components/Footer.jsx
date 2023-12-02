@@ -19,6 +19,8 @@ import React from 'react';
 import github from "../assets/github.png";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebook, faLinkedin, faTwitter, faInstagram, faGithub } from '@fortawesome/free-brands-svg-icons';
+import { useNavigate } from 'react-router-dom';
+
 
 function Footer() {
   const footerStyles = {
@@ -38,6 +40,7 @@ function Footer() {
   const text2 = {
     color : '#21D375',
   }
+  const navigate = useNavigate();
 
   
 
@@ -48,21 +51,19 @@ function Footer() {
           <div className="col-11">
             <div className="row">
               <div className="col-xl-8 col-md-4 col-sm-4 col-10 my-auto mx-auto a">
-                <h3 className="text mb-md-0 mb-5 bold-text" style={text2}>WonderWiz.</h3>
+                <h3 className="text-muted mb-md-0 mb-5 bold-text">WanderWiz.</h3>
               </div>
               <div className="col-xl-2 col-md-4 col-sm-4 col-12">
-                <h6 className="mb-3 mb-lg-4 bold-text" style={text2}><b>MENU</b></h6>
-                <ul className="list-unstyled" style={text2}>
-                  <li>Home</li>
-                  <li>Itineries</li>
-                  <li>About Us</li>
-                  <li>Contact Us</li>
-                  
+                <h6 className="mb-3 mb-lg-4 bold-text"><b>MENU</b></h6>
+                <ul className="d-flex flex-column align-item-left list-unstyled">
+                  <li className='p-0 btn-link' onClick={() => navigate("/")}>Home</li>
+                  <li className='p-0 btn-link' onClick={() => navigate("/itineraries")}>Itineries</li>
+                  <li className='p-0 btn-link' onClick={() => navigate("/")}>About Us</li>
                 </ul>
               </div>
               <div className="col-xl-2 col-md-4 col-sm-4 col-12">
-                <h6 className="mb-3 mb-lg-4 text-muted bold-text mt-sm-0 mt-5" ><b style={text2}>ADDRESS</b></h6>
-                <p className="mb-1" style={text2}>Daiict college, Reliance Cross Rd, Gandhinagar, Gujarat 382007</p>
+                <h6 className="mb-3 mb-lg-4 bold-text mt-sm-0 mt-5"><b>ADDRESS</b></h6>
+                <p className="mb-1">Daiict college, Reliance Cross Rd, Gandhinagar, Gujarat 382007</p>
                 
               </div>
             </div>
@@ -140,7 +141,7 @@ export default Footer;
 //     <footer style={footerStyle}>
 //       <div style={columnStyle}>
 //         <h3 style={headingStyle}>Column 1</h3>
-//         <h1>WonderWiz</h1>
+//         <h1>WanderWiz</h1>
 //       </div>
 //       <div style={columnStyle}>
 //         <h3 style={headingStyle}>Column 2</h3>

@@ -1,10 +1,12 @@
 import { useContext } from "react";
-import { Button, ButtonGroup, ButtonToolbar } from "react-bootstrap";
+import { Button, ButtonGroup, ButtonToolbar, Spinner } from "react-bootstrap";
 import { useQuery } from "react-query";
 import { UserContext } from "../context/UserContext";
 import axios from "axios";
 import Itinerary from "../components/Itinerary";
 import { useNavigate } from "react-router-dom";
+import profile from "../assets/profile.png";
+import Error from "./Error";
 
 const fetchUserDetails = async (token) => {
   const res = await axios.get("http://localhost:3001/api/user", {
@@ -43,11 +45,20 @@ export default function Profile({ handleUser }) {
   );
 
   if (isLoading) {
-    return <div className="min-vh-100">Loading...</div>;
+    return <div className="m-2 text-center min-vh-100"><Spinner animation="border" variant="primary" /></div>;
   }
 
   if (isError) {
-    return <div className="min-vh-100">Error: {error.message}</div>;
+    if(error.response.status === 401) {
+      localStorage.removeItem("token");
+      handleUser({
+        user: false,
+        token: null,
+      });
+      navigate("/login");
+    }
+    console.log(error);
+    return <div className="min-vh-100"><Error message={error.message} /></div>;
   }
 
   const handleLogOut = (e) => {
@@ -66,13 +77,14 @@ export default function Profile({ handleUser }) {
   }
 
   const smallProfilePhotoStyle = {
+    padding: "15px",
     width: "250px",
     height: "250px",
     display: "flex",
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#3498db",
+    // backgroundColor: "#3498db",
   };
   const formSectionStyle = {
     flex: 1,
@@ -93,7 +105,8 @@ export default function Profile({ handleUser }) {
       <div className="container d-flex min-vh-100 p-5 justify-content-around gap-4">
         <div className="profile-container d-flex flex-column align-items-center border border-dark border-32 h-100">
           <img
-            src="https://ca.slack-edge.com/T0266FRGM-U2Q173U05-g863c2a865d7-512"
+            // src="https://ca.slack-edge.com/T0266FRGM-U2Q173U05-g863c2a865d7-512"
+            src={profile}
             alt="Profile"
             className="profile-photo"
             style={smallProfilePhotoStyle}
@@ -117,7 +130,7 @@ export default function Profile({ handleUser }) {
           <div style={functionbutton}>
             <ButtonToolbar aria-label="Toolbar with button groups">
               <ButtonGroup className="me-2" aria-label="Second group">
-                <Button variant="secondary" type="reset">
+                <Button onClick={() => navigate("/editprofile")} variant="secondary" type="reset">
                   Edit Profile
                 </Button>
               </ButtonGroup>
