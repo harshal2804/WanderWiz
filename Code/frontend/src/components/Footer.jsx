@@ -25,10 +25,10 @@ import { useNavigate } from 'react-router-dom';
 function Footer() {
   const footerStyles = {
     
-    backgroundColor: '#D4F1F4', // Background color
+    backgroundColor: '#073B3A', // Background color
     color: '#FFFFFF', // Font color
     overflow: 'hidden',
-    marginTop: '50px', // Top margin
+    //marginTop: '50px', // Top margin
     marginBottom: '0',
     paddingBottom: '0',
   };
@@ -37,6 +37,9 @@ function Footer() {
     fontSize: 'calc(12px + (15 - 12) * ((100vw - 360px) / (1600 - 360)))',
   };
 
+  const text2 = {
+    color : '#21D375',
+  }
   const navigate = useNavigate();
 
   
@@ -44,7 +47,7 @@ function Footer() {
   return (
     <div style={footerStyles} className="container-fluid pb-0 mb-0 justify-content-center text-dark">
       <footer>
-        <div className="row my-3 justify-content-center py-2">
+        <div className="row my-1 justify-content-center py-2">
           <div className="col-11">
             <div className="row">
               <div className="col-xl-8 col-md-4 col-sm-4 col-10 my-auto mx-auto a">
@@ -88,16 +91,16 @@ function Footer() {
                     </a>
                 </span>
                 </p>
-                <span className="mx-2">© 2023 WanderWiz</span>
+                <span className="mx-2" style={text2}>© 2023 WonderWiz</span>
                 
                 {/* <small className="rights"><span>&#174;</span> Pepper All Rights Reserved.</small> */}
               </div>
               <div className="col-xl-2 col-md-4 col-sm-4 col-auto order-1 align-self-end">
-                <h6 className="mt-55 mt-2 bold-text"><b>COMPANY</b></h6>
-                <small><span><i className="fa fa-envelope" aria-hidden="true"></i></span>WanderWiz@gmail.com</small>
+                <h6 className="mt-55 mt-2 text-muted bold-text"><b style={text2}>COMPANY</b></h6>
+                <small><span><i className="fa fa-envelope" aria-hidden="true" ></i></span >Wonderwiz@gmail.com</small>
               </div>
               <div className="col-xl-2 col-md-4 col-sm-4 col-auto order-2 align-self-end mt-3">
-                <h6 className=" bold-text"><b>Harshal Patel</b></h6>
+                <h6 className="text-muted bold-text"><b style={text2}>Harshal Patel</b></h6>
                 <small><span><i className="fa fa-envelope" aria-hidden="true"></i></span>202101270@daiict.ac.in</small>
               </div>
             </div>

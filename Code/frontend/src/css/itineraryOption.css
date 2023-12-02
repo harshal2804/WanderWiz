@@ -7,20 +7,20 @@
   justify-content: center;
   height: 100vh;
   text-align: center;
-  background-color:  rgb(1, 49, 98);
+  background-color: #DDF2D1;
   padding: 20px; /* Adjust padding for better spacing on smaller screens */
-  color:white;
+  color:#21D375;
 }
 
 /* Style for the top center text */
 .top-center {
   font-size: 2rem; /* Adjust font size for better readability on smaller screens */
-  color: white;
+  color: #21D375;
 }
 
 .top-center1 {
   margin: 20px;
-  color: white;
+  color: #21D375;
 }
 
 /* Style for the search bar */
@@ -55,7 +55,7 @@
 .date-inputs {
   margin-top: 10px;
   font-size: 1.2rem; /* Adjust font size for better readability on smaller screens */
-  color: white
+  /* color: white */
 }
 
 .date-inputs input {

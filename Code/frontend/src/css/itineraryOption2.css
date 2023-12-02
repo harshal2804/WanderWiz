@@ -2,15 +2,15 @@
     box-sizing: border-box;
     margin:0;
     padding:0;
-    background-color: rgb(1, 49, 98);
+    background-color:#DDF2D1;
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 #header12 {
     text-align: center;
     padding: 30px;
-    background-color: rgb(5, 109, 189);
-    color:white;
+    background-color: #21D375;
+    color:#073b3a;
 }
 
 #input-blocks12 {
@@ -24,8 +24,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    background-color: rgb(132, 193, 236);
-    ; 
+    background-color: #073b3a;
     padding: 10px;
     border-radius: 5px;
     width: 100%;
@@ -37,10 +36,10 @@
     display: block;
     margin-bottom: 5px;
     text-align: center; 
-    color:white;    
+    color:#99ff33;    
 }
 #a1{
-    color: white;
+    color: #21D375;
 }
 
 /* input {
@@ -87,9 +86,9 @@
     width: 23vh;
   height: 7vh;
   font-size: 150%;
-  background-color: rgb(5, 109, 189);
+  background-color: #21D375;
   border-style: none;
-  color: #FFFFFF;
+  color:#073b3a;
   border-top-right-radius: 2vh;
 
 }
@@ -99,9 +98,9 @@
     width: 23vh;
     height: 7vh;
     font-size: 150%;
-    background-color: rgb(5, 109, 189);
+    background-color: #21D375;
     border-style: none;
-    color: #FFFFFF;
+    color:#073b3a;
     border-top-left-radius:2vh;
   
 }

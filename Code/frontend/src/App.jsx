@@ -45,7 +45,7 @@ function App() {
 
 
   return (
-    <>
+   
       <QueryClientProvider client={queryClient}>
         <UserContext.Provider value={user}>
         <BrowserRouter>
@@ -88,10 +88,7 @@ function App() {
       <ReactQueryDevtools initialIsOpen={false} />
       </QueryClientProvider>
       
-      
-      
-      
-      </>
+    
       
   )
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import photo4 from "../assets/photo4.jpg"
+import photo5 from "../assets/photo5.jpg"
 
 function Home() {
   const centeredTextContainer = {
@@ -7,18 +7,24 @@ function Home() {
     alignItems: 'center',
     justifyContent: 'center',
     height: 'calc(70vh - 45px)',
-    background: `url("${photo4}") center/cover no-repeat`,
+    background: `url("${photo5}") center/cover no-repeat`,
     backgroundSize: '100% auto',
-    color: 'white',
+    //color: '#DDF2D1',
     flexDirection: 'column',
     textAlign: 'center',
+    backgroundColor : '#DDF2D1',
    
   };
 
   const centeredText = {
     fontSize: '5vh',
     fontWeight: 'bold',
-    color: 'black',
+    //color: '#9FFFCB',
+    //color: '#71CB90',
+    // color : '#6c9751',
+    color : "#93dc5c",
+
+    
     textShadow: '2px 2px 4px rgba(0, 0, 0, 0.3)', // Adding text shadow
   };
   
@@ -39,6 +45,7 @@ function Home() {
     color: 'black',
     padding: '40px',
     textAlign: 'center',
+    backgroundColor : '#DDF2D1',
   };
 
   const cardContainerStyle = {
@@ -47,15 +54,27 @@ function Home() {
     justifyContent: 'center',
   };
 
+  const test2 = {
+    //color : '#91E555',
+    //color : '#FFF505',
+    //color : '#F9A602',
+    //color : '#d4af37',
+    //color : '#ffc000',
+    color : '#e7ee4f',
+    // color : '#ccff00',
+    // color : '#afb34f',
+  }
+
   
 
   return (
     <>
     <div style={centeredTextContainer}>
       <div className="p-3" style={centeredText}>
-        World Smartest Vacation Planner
+        World's Smartest Vacation Planner
         <br />
-        <h4>WanderWiz - Trips, Tales & Trust</h4>
+
+        <h4 style={test2}>WonderWiz - Trips, Tales & Trust</h4>
       </div>
       {/* <button style={butonStyle}> Add Itineraries </button> */}
 

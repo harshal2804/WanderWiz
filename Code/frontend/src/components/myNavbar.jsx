@@ -3,7 +3,7 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import ButtonGroup from "react-bootstrap/ButtonGroup";
 import Button from "react-bootstrap/Button";
-import WanderWizLogo from "../assets/WanderWizLogo.svg";
+import WanderWizLogo from "../assets/Frame 9.svg";
 import { useContext } from "react";
 import { UserContext } from "../context/UserContext";
 import { BsFillPersonFill } from "react-icons/bs";
@@ -11,7 +11,8 @@ import { NavLink, useNavigate } from "react-router-dom";
 
 export default function Mynavbar() {
   const customFontStyle = {
-    // color : "#05588A",   
+    //color : "#9FFFCB",
+    color : "#21D375",
     fontFamily: "Montserrat, sans-serif",
     fontSize: "2.5vh", 
   };
@@ -29,14 +30,14 @@ export default function Mynavbar() {
       <Navbar
         collapseOnSelect
         expand="lg"
-        style={{ backgroundColor: "#D4F1F4" }}
+        style={{ backgroundColor: "#073B3A" }}
       >
         <Container>
           <Navbar.Brand to="/" as={NavLink}>
             <img
               src={WanderWizLogo}
               alt="WanderWiz Logo"
-              width="85vh"
+              width="90vh"
               height="85vw"
               className="mx-3 d-inline-block align-top"
             />
