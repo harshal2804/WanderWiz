@@ -1,3 +1,5 @@
+import "../css/activity.css";
+
 export default function Activity({
   onClick,
   photo,
@@ -10,8 +12,7 @@ export default function Activity({
 }) {
   return (
     <div
-      className="d-flex border border-2 border-secondary rounded shadow-lg p-2 gap-3"
-      style={{ backgroundColor: "#c9c9c9", minWidth: "350px" }}
+      className="activity d-flex border border-success rounded shadow-lg p-2 gap-3"
       onClick={onClick}
     >
       <img
@@ -23,12 +24,12 @@ export default function Activity({
         }
       />
       <div className="d-flex flex-column w-100">
-        <p className="fw-bold" style={{ fontSize: "15px" }}>
+        <p className="text-truncate my-2 fw-bold" style={{ fontSize: "15px" }}>
           {name}
         </p>
         <div className="d-flex justify-content-left w-100 gap-2" style={{ fontSize: "10px"}}>
-          <p>Open : {open/100}</p>
-          <p>Close : {close/100}</p>
+          <p>Open : { typeof open !== "number" ? "No data" :  open/100+":00"}</p>
+          <p>Close : { typeof close !== "number" ? "No data" : close/100+":00"   }</p>
         </div>
         <div className="mt-auto d-flex justify-content-end gap-2">
           <img
