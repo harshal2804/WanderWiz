@@ -1,0 +1,87 @@
+.App43 {
+  text-align: center;
+  background-color: #DDF2D1;
+}
+
+.App-header43 {
+  background-color: #21D375;;
+  padding: 2vh;
+  color: #073b3a;
+}
+
+.row143 {
+  margin-top: 5%;
+  margin-bottom: 20%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap; /* Allow flex items to wrap */
+}
+
+.box43 {
+  color: white;
+  background-color: #073b3a;
+  border-radius: 3vh;
+  padding: 2vh;
+  margin: 2vh;
+  height: 25vh;
+  width: 25vh; /* Adjusted to percentage for better responsiveness */
+  max-width: 30vh; /* Limit maximum width */
+  text-align: center;
+}
+
+.icon43 {
+  font-size: 10vh;
+}
+
+.para43 {
+  margin: 1vh 0;
+  font-size: 2.5vh;
+  color:#99ff33;
+}
+
+.container143 {
+  display: flex;
+  justify-content: space-between;
+}
+
+#i143{
+  border-top-right-radius: 2vh;
+  width: 23vh; /* Adjusted to percentage for better responsiveness */
+  height: 7vh;
+  font-size: 150%; /* Adjusted for smaller screens */
+  background-color:#21D375;
+  border-style: none;
+  color:#073b3a;
+}
+#i243 {
+  border-top-left-radius: 2vh;
+  width: 23vh; /* Adjusted to percentage for better responsiveness */
+  height: 7vh;
+  font-size: 150%; /* Adjusted for smaller screens */
+  background-color:#21D375;
+  border-style: none;
+  color: #073b3a;
+}
+
+/* Media query for responsiveness */
+@media screen and (max-width: 768px) {
+  .box43 {
+    width: 45%; /* Adjust width for smaller screens */
+    max-width: none; /* Remove maximum width */
+  }
+
+  .icon43 {
+    font-size: 6vh; /* Adjust icon size for smaller screens */
+  }
+
+  .para43 {
+    font-size: 2vh; /* Adjust paragraph font size for smaller screens */
+  }
+
+  #i143,
+  #i243 {
+    width: 12vh; /* Adjust button width for smaller screens */
+    height: 7vh; /* Adjust button height for smaller screens */
+    font-size: 100%; /* Adjust button font size for smaller screens */
+  }
+}

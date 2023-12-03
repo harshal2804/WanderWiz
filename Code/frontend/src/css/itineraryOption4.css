@@ -1,0 +1,84 @@
+/* General styles */
+.App4 {
+  text-align: center;
+  background-color:#DDF2D1;
+}
+
+.App-header4 {
+  background-color: #21D375;
+  padding: 3vh;
+  color:#073b3a;
+}
+
+.row4 {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap; /* Ensure flexibility in wrapping items */
+}
+
+.box4 {
+  color: white;
+  background-color: #073b3a;
+  border-radius: 3vh;
+  padding: 5vh;
+  margin: 2vh;
+  height: 30vh;
+  width: 30vh;
+  text-align: center;
+}
+
+.icon4 {
+  font-size: 10vh; /* Adjust the font size for your icon */
+}
+
+.para4 {
+  margin: 2vh 0;
+  font-size: 3vh;
+  color: #99ff33;
+}
+
+.container14 {
+  display: flex;
+  justify-content: space-between;
+}
+
+#i14{
+  border-top-right-radius: 2vh;
+  width: 23vh; /* Adjusted to percentage for better responsiveness */
+  height: 7vh;
+  font-size: 150%; /* Adjusted for smaller screens */
+  background-color: #21D375;
+  border-style: none;
+  color:#073b3a;
+}
+#i24 {
+  border-top-left-radius: 2vh;
+  width: 23vh; /* Adjusted to percentage for better responsiveness */
+  height: 7vh;
+  font-size: 150%; /* Adjusted for smaller screens */
+  background-color: #21D375;
+  border-style: none;
+  color:#073b3a;
+}
+/* Media query for responsiveness */
+@media screen and (max-width: 768px) {
+  .box4 {
+    width: 45%; /* Adjust box width for smaller screens */
+    margin: 2vh 2.5%; /* Add spacing between boxes */
+  }
+
+  .icon4 {
+    font-size: 6vh; /* Adjust icon size for smaller screens */
+  }
+
+  .para4 {
+    font-size: 2.5vh; /* Adjust paragraph font size for smaller screens */
+  }
+
+  #i14,
+  #i24 {
+    width: 12vh; /* Adjust button width for smaller screens */
+    height: 7vh; /* Adjust button height for smaller screens */
+    font-size: 100%; /* Adjust button font size for smaller screens */
+  }
+}

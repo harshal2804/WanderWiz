@@ -1,0 +1,109 @@
+
+.App41 {
+  text-align: center;
+  background-color: #DDF2D1;
+}
+
+.App-header41 {
+  background-color: #21D375;
+  padding: 20px;
+  color:#073b3a;
+  margin-bottom: 3vh; /* Adjusted margin for smaller screens */
+}
+
+.container41 {
+  color:#21D375;
+  display: flex;
+  justify-content: center;
+}
+
+.row141,
+.row241 {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap; /* Allow flex items to wrap */
+}
+
+.box41 {
+  color:white;
+  background-color:  #073b3a;
+  border-radius: 3vh;
+  font-size: 4vw;  
+  padding: 10px;
+  margin: 10px;
+  height: 20vh;
+  width: 45%; /* Adjusted to percentage for better responsiveness */
+  max-width: 20vh; /* Limit maximum width */
+  text-align: center;
+}
+
+.icon41 {
+  font-size: 8vh; /* Adjusted for smaller screens */
+}
+
+.icons41 {
+  font-size: 4vh; /* Adjusted for smaller screens */
+}
+
+.para41 {
+  margin: 5px 0; /* Adjusted margin for smaller screens */
+  font-size: 2vh; /* Adjusted font size for smaller screens */
+  color: #99ff33;
+}
+
+.container141 {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10vh;
+}
+
+#i141{
+  border-top-right-radius: 2vh;
+  width: 23vh; /* Adjusted to percentage for better responsiveness */
+  height: 7vh;
+  font-size: 150%; /* Adjusted for smaller screens */
+  background-color: #21D375;
+  border-style: none;
+  color: #073b3a;
+}
+#i241 {
+  border-top-left-radius: 2vh;
+  width: 23vh; /* Adjusted to percentage for better responsiveness */
+  height: 7vh;
+  font-size: 150%; /* Adjusted for smaller screens */
+  background-color: #21D375;
+  border-style: none;
+  color:#073b3a;
+}
+
+/* Media query for responsiveness */
+@media screen and (max-width: 768px) {
+  .App-header41 {
+    margin-bottom: 2vh; /* Adjusted margin for smaller screens */
+  }
+
+  .box41 {
+    width: 90%; /* Adjust width for smaller screens */
+    max-width: none; /* Remove maximum width */
+    height: 15vh; /* Adjusted height for smaller screens */
+  }
+
+  .icon41 {
+    font-size: 6vh; /* Adjust icon size for smaller screens */
+  }
+
+  .icons41 {
+    font-size: 3vh; /* Adjust icon size for smaller screens */
+  }
+
+  .para41 {
+    font-size: 1.5vh; /* Adjust paragraph font size for smaller screens */
+  }
+
+  #i141,
+  #i241 {
+    width: 12vh; /* Adjust button width for smaller screens */
+    height: 7vh; /* Adjust button height for smaller screens */
+    font-size: 100%; /* Adjust button font size for smaller screens */
+  }
+}

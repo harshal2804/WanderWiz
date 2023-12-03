@@ -1,19 +1,60 @@
+import axios from "axios";
+import { useContext, useEffect, useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
+import { useMutation, useQuery } from "react-query";
+import { useNavigate } from "react-router";
+import { UserContext } from "../context/UserContext";
+import bg_login from "../assets/bg_login.jpg"
 
 
-function Login() {
+const fetchUser = async ({ email, password}) => {
+  const res = await axios.post("http://localhost:3001/api/auth/login", {
+    email: email,
+    password: password,
+  })
+
+  return res.data;
+};
+
+function Login({ handleUser }) {
+
+  const navigation = useNavigate();
+  const user = useContext(UserContext);
+  const [status, setStatus] = useState(200);
+  const [message, setMessage] = useState("");
+
+  const loginMutation = useMutation({
+    mutationFn: fetchUser,
+    onSuccess: (data) => {
+      localStorage.setItem("token", data.token);
+      handleUser({
+        user: true,
+        token: data.token,
+      });
+      navigation("/");
+    },
+    onError: (error) => {
+      setStatus(error.response.status);
+      setMessage(error.response.data.message);    }
+  })
+
   const handleLogin = (e) => {
     e.preventDefault();
+    loginMutation.mutate({
+      email: e.target.formBasicEmail.value,
+      password: e.target.formBasicPassword.value
+    })
   };
 
-  const handleSignUp = (e) => {
+  const handleSignup = (e) => {
     e.preventDefault();
+    navigation("/signup");
   };
 
   const myStyle = {
     height: "100vh",
-    backgroundImage: `url(${import.meta.env.BASE_URL}bg_login.jpg)`,
+    backgroundImage: `url(${bg_login})`,
     backgroundRepeat: "no-repeat",
     backgroundSize: "cover",
   };
@@ -28,6 +69,12 @@ function Login() {
   };
   return (
     <>
+      {user.user ? 
+        useEffect(() => {
+          navigation("/");
+        }
+      )
+      :
       <div
         className="p-5 d-flex align-items-center gap-4"
         style={myStyle}
@@ -48,12 +95,12 @@ function Login() {
           <div>
             <Form.Group
               className="mb-3 text-light"
-              controlId="formBasicUsername"
+              controlId="formBasicEmail"
             >
-              <Form.Label>Username</Form.Label>
-              <Form.Control type="text" placeholder="Enter username" required/>
+              <Form.Label>Email</Form.Label>
+              <Form.Control type="text" placeholder="Enter email" required/>
               <Form.Control.Feedback type="invalid">
-                Please choose a username.
+                Please choose a email.
               </Form.Control.Feedback>
             </Form.Group>
 
@@ -64,15 +111,16 @@ function Login() {
               <Form.Label>Password</Form.Label>
               <Form.Control type="password" placeholder="Password" required/>
             </Form.Group>
-            <Form.Group className="mb-3" controlId="formBasicCheckbox">
+            <Form.Group controlId="formBasicCheckbox">
               <Form.Text className="py-2 text-light" id="signupRedirect">
                 Are you new here?
               </Form.Text>
-              <Button variant="link btn-sm" onClick={(e) => handleSignUp(e)}>
+              <Button variant="link btn-sm" onClick={(e) => handleSignup(e)}>
                 Sign Up
               </Button>
             </Form.Group>
-            <div className="d-flex justify-content-center">
+            <div className="py-2 text-danger">{message}</div>
+            <div className="my-2 d-flex justify-content-center">
               {" "}
               <Button variant="primary" type="submit">
                 Login
@@ -80,7 +128,7 @@ function Login() {
             </div>
           </div>
         </Form>
-      </div>
+      </div>}
     </>
   );
 }

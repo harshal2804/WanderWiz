@@ -1,0 +1,14 @@
+.activity {
+    background-color: #DDF2D1;
+    min-width: 350px;
+    cursor: pointer;
+}
+
+.activity:hover {
+    -webkit-transition-duration: 500ms;
+    transition-duration: 500ms;
+    background-color: #073B3A;
+    color: white;
+    -webkit-transform: scale(1.15);
+    transform: scale(1.15);
+}

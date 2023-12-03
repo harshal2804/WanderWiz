@@ -23,7 +23,7 @@ export default function userRepositoryMongoDB() {
             return userDeleted;
         },
         async findById(id) {
-            const user = await userModel.findById(id);
+            const user = await userModel.findById(id).populate('itineraries');
             if(!user) return null;
             return user;
         },
