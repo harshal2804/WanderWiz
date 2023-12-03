@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import '../css/ItineraryOption4.css';
+import '../css/itineraryOption4.css';
 import { IoAccessibility } from "react-icons/io5";
 import { BsPeopleFill } from "react-icons/bs";
 import { MdFamilyRestroom} from "react-icons/md";
