@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import '../css/ItineraryOption4_3.css';
+import '../css/itineraryOption4_3.css';
 import { HiOutlineUserGroup} from "react-icons/hi2";
 import { MdOutlineGroups } from "react-icons/md";
 import { MdGroups2} from "react-icons/md";

@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import '../css/ItineraryOption4_2.css';
+import '../css/itineraryOption4_2.css';
 import { FaPerson} from "react-icons/fa6";
 import {PiPersonSimpleBold} from "react-icons/pi";
 import getDate from '../utils/getDate';
