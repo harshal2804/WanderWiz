@@ -8,7 +8,7 @@ import { useNavigate } from "react-router-dom";
 
 const fetchItineraries = async ({ queryKey, pageParam = 1 }) => {
   const res = await axios.get(
-    `http://localhost:3001/api/itinerary?_lim=3&_pageNum=${pageParam}`,
+    `http://localhost:3001/api/itinerary?_lim=4&_pageNum=${pageParam}`,
     {
       headers: {
         Authorization: `Bearer ${queryKey[1].token}`,
@@ -65,14 +65,14 @@ export default function Itineraries() {
 
   return (
     <div className="container my-3 min-vh-100">
-      <h2>Top Itineraries</h2>
+      <h2 className="my-5 text-center">Top Itineraries</h2>
       <div className="row">
         {data?.pages.map((group, index) => {
           return (
             <Fragment key={index}>
               {group.map((element) => {
                 return (
-                  <div onClick={(e) => handleIti(e, element._id)} className="col-md-4" key={element._id}>
+                  <div onClick={(e) => handleIti(e, element._id)} className="col-md-3" key={element._id}>
                     <Itinerary
                       title={element.name}
                       description={

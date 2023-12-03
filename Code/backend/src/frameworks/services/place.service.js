@@ -41,7 +41,7 @@ export default function placeService() {
                 tips: placeTips.data
             }
         }).catch((err) => {
-            console.log(err)
+            // console.log(err)
         })
         return place;
     }

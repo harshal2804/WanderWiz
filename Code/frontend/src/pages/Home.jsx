@@ -23,7 +23,7 @@ function Home() {
     //color: '#71CB90',
     // color : '#6c9751',
     color : "#93dc5c",
-
+    backdropFilter: 'blur(5px)',
     
     textShadow: '2px 2px 4px rgba(0, 0, 0, 0.3)', // Adding text shadow
   };
@@ -70,7 +70,7 @@ function Home() {
   return (
     <>
     <div style={centeredTextContainer}>
-      <div className="p-3" style={centeredText}>
+      <div className="rounded p-4" style={centeredText}>
         World's Smartest Vacation Planner
         <br />
 

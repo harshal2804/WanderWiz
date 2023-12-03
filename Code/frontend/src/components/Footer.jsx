@@ -41,7 +41,7 @@ function Footer() {
                 <h3 className="custom-text-color mb-md-0 mb-5 bold-text"  >WanderWiz.</h3>
               </div>
               <div className="col-xl-2 col-md-4 col-sm-4 col-12">
-                <h6 className="mb-3 mb-lg-4 bold-text"><b>MENU</b></h6>
+                <h6 className="mb-3 mb-lg-4 bold-text"><b style={text2}>MENU</b></h6>
                 <ul className="d-flex flex-column align-item-left list-unstyled">
                   <li className='p-0 btn-link' onClick={() => navigate("/")}>Home</li>
                   <li className='p-0 btn-link' onClick={() => navigate("/itineraries")}>Itineries</li>
@@ -49,7 +49,7 @@ function Footer() {
                 </ul>
               </div>
               <div className="col-xl-2 col-md-4 col-sm-4 col-12">
-                <h6 className="mb-3 mb-lg-4 bold-text mt-sm-0 mt-5"><b>ADDRESS</b></h6>
+                <h6 className="mb-3 mb-lg-4 bold-text mt-sm-0 mt-5"><b style={text2}>ADDRESS</b></h6>
                 <p className="mb-1">Daiict college, Reliance Cross Rd, Gandhinagar, Gujarat 382007</p>
                 
               </div>
@@ -99,40 +99,3 @@ function Footer() {
 }
 
 export default Footer;
-
-// import React from 'react';
-// function Footer() {
-//   const footerStyle = {
-//     backgroundColor: '#f0f0f0',
-//     padding: '20px',
-//     display: 'flex',
-//     justifyContent: 'space-between',
-//   };
-//   const columnStyle = {
-//     width: '30%',
-//   };
-//   const headingStyle = {
-//     fontSize: '1.2em',
-//     marginBottom: '10px',
-//   };
-//   return (
-//     <footer style={footerStyle}>
-//       <div style={columnStyle}>
-//         <h3 style={headingStyle}>Column 1</h3>
-//         <h1>WanderWiz</h1>
-//       </div>
-//       <div style={columnStyle}>
-//         <h3 style={headingStyle}>Column 2</h3>
-//         <p>Content for column 2 goes here.</p>
-//       </div>
-//       <div style={columnStyle}>
-//         <h3 style={headingStyle}>Column 3</h3>
-//         <p>Content for column 3 goes here.</p>
-//       </div>
-//     </footer>
-//   );
-// }
-// export default Footer;
-
-
-

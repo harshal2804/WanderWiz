@@ -71,11 +71,11 @@ export default function Mynavbar() {
             <Nav>
                 <div className="d-flex flex-column align-items-center">
               <Nav.Link className="p-1" to="/profile" as={NavLink} style={customFontStyle}>
-                <Button className="p-1 rounded-circle" variant="dark" onClick={(e) => handleProfile(e)}>
+                <Button className="p-1 rounded-circle" variant="success" onClick={(e) => handleProfile(e)}>
                   <BsFillPersonFill size={30} />
                 </Button>
               </Nav.Link>
-                <div className="text-center">Your Profile</div>
+                <div className="text-center" style={{ color: "#e7ee4f" }}>Your Profile</div>
                 </div>
             </Nav>
 

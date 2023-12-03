@@ -109,6 +109,7 @@ export default function Profile({ handleUser }) {
     flex: 1,
     display: "flex",
     flexDirection: "column",
+    alignItems: "center",
     padding: "20px",
   };
 
@@ -142,7 +143,7 @@ export default function Profile({ handleUser }) {
             </div>
             <div style={functionbutton}>
               <ButtonToolbar aria-label="Toolbar with button groups">
-                <ButtonGroup className="me-2" aria-label="Second group">
+                {/* <ButtonGroup className="me-2" aria-label="Second group">
                   <Button
                     onClick={() => navigate("/editprofile")}
                     variant="secondary"
@@ -150,7 +151,7 @@ export default function Profile({ handleUser }) {
                   >
                     Edit Profile
                   </Button>
-                </ButtonGroup>
+                </ButtonGroup> */}
 
                 <ButtonGroup className="me-2" aria-label="Third group">
                   <Button
