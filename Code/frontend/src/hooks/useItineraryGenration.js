@@ -3,7 +3,8 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 const postItinerary = async ({ state, token }) => {
-    const res = await axios.post("http://localhost:3001/api/itinerary", state, {
+    const VITE_BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
+    const res = await axios.post(`${VITE_BACKEND_URL}api/itinerary`, state, {
       headers: {
         Authorization: `Bearer ${token}`,
       },

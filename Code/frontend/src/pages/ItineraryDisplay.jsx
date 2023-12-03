@@ -10,8 +10,9 @@ import { Spinner } from "react-bootstrap";
 import Distance from "../assets/distance.png";
 
 const fetchItinerary = async (id, token) => {
+  const VITE_BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
   const res = await axios
-    .get(`http://localhost:3001/api/itinerary/${id}`, {
+    .get(`${VITE_BACKEND_URL}api/itinerary/${id}`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -23,7 +24,7 @@ const fetchItinerary = async (id, token) => {
 };
 
 const fetchUserDetails = async (token) => {
-  const res = await axios.get("http://localhost:3001/api/user", {
+  const res = await axios.get(`${VITE_BACKEND_URL}api/user`, {
     headers: {
       Authorization: `Bearer ${token}`,
     },

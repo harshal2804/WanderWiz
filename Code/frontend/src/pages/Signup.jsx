@@ -7,7 +7,8 @@ import { useMutation } from "react-query";
 import axios from "axios";
 
 const postUser = async (user) => {
-  const res = await axios.post("http://localhost:3001/api/user", user);
+  const VITE_BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
+  const res = await axios.post(`${VITE_BACKEND_URL}api/user`, user);
   if (res.status !== 200) {
     return {
       status: res.status,

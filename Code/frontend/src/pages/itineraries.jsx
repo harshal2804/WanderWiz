@@ -7,8 +7,9 @@ import { Button, Spinner, Placeholder, Card } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 
 const fetchItineraries = async ({ queryKey, pageParam = 1 }) => {
+  const VITE_BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
   const res = await axios.get(
-    `http://localhost:3001/api/itinerary?_lim=4&_pageNum=${pageParam}`,
+    `${VITE_BACKEND_URL}api/itinerary?_lim=4&_pageNum=${pageParam}`,
     {
       headers: {
         Authorization: `Bearer ${queryKey[1].token}`,

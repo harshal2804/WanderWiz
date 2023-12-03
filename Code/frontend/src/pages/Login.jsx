@@ -9,7 +9,8 @@ import bg_login from "../assets/bg_login.jpg"
 
 
 const fetchUser = async ({ email, password}) => {
-  const res = await axios.post("http://localhost:3001/api/auth/login", {
+  const VITE_BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
+  const res = await axios.post(`${VITE_BACKEND_URL}api/auth/login`, {
     email: email,
     password: password,
   })
