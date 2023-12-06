@@ -45,7 +45,7 @@ function Footer() {
                 <ul className="d-flex flex-column align-item-left list-unstyled">
                   <li className='p-0 btn-link' onClick={() => navigate("/")}>Home</li>
                   <li className='p-0 btn-link' onClick={() => navigate("/itineraries")}>Itineries</li>
-                  <li className='p-0 btn-link' onClick={() => navigate("/")}>About Us</li>
+                  <li className='p-0 btn-link' onClick={() => navigate("/Contactus")}>About Us</li>
                 </ul>
               </div>
               <div className="col-xl-2 col-md-4 col-sm-4 col-12">
