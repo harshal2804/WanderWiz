@@ -62,6 +62,7 @@ function Edit_Profile() {
       setStatus(200);
       setPasswordError("");
       setEmailError("");
+      const itineraries = state.itineraries.map((itinerary) => itinerary._id);
       EditProfileMutation.mutate({
         token: user.token,
         user:{
@@ -72,7 +73,7 @@ function Edit_Profile() {
           email: e.target.email.value,
           password: e.target.password.value,
           currentCity: e.target.currentCity.value,
-          itineraries: state.itineraries
+          itineraries: itineraries
         }
       });
     }
