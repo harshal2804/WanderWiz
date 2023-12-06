@@ -1,5 +1,7 @@
 import React from 'react';
 import photo5 from "../assets/photo5.jpg"
+import photo1 from "../assets/travel.jpg"
+import photo2 from "../assets/we_do.jpg"
 
 function Home() {
   const centeredTextContainer = {
@@ -127,7 +129,7 @@ Welcome to WanderWiz, your ultimate voyage companion. We are dedicated to helpin
 <div className="my-3" style={containerStyle}>
       
       <div style={pictureStyle}>
-        <img src="/src/assets/travel.jpg" alt="Your Image" style={{ width: '90%', height: 'auto' }} />
+        <img src={photo1} alt="Your Image" style={{ width: '90%', height: 'auto' }} />
       </div>
       <div style={textStyle}>
         <h1 style={{fontWeight : 'bold'}}>Who We Are</h1>
@@ -147,7 +149,7 @@ Welcome to WanderWiz, your ultimate voyage companion. We are dedicated to helpin
       </div>
 
       <div style={pictureStyle}>
-        <img src="/src/assets/we_do.jpg" style={{ width: '90%', height: 'auto' }} />
+        <img src={photo2} style={{ width: '90%', height: 'auto' }} />
       </div>
      
     </div>
