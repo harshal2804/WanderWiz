@@ -46,6 +46,8 @@ function Home() {
     padding: '40px',
     textAlign: 'center',
     backgroundColor : '#DDF2D1',
+    fontFamily: "Montserrat, serif",
+    fontSize : '3vh',
   };
 
   const cardContainerStyle = {
@@ -93,7 +95,7 @@ function Home() {
       </div> */}
 
 <div style={aboutUsSection}>
-<h1>About WanderWiz</h1>
+<h1 style={{fontSize : '8vh'}}>About WanderWiz</h1>
 <p>
 Welcome to WanderWiz, your ultimate travel companion. We are dedicated to helping you plan your dream vacations with ease and precision. Our mission is to provide you with the smartest tools and insights to make your trips memorable. Whether it's finding the best places to visit, planning itineraries, or discovering hidden gems, we've got you covered. With WanderWiz, it's not just about traveling; it's about creating stories, making memories, and building trust.
 </p>

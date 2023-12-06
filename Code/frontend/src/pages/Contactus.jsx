@@ -63,6 +63,26 @@ const ContactUsPage = () => {
       justifyContent: 'center',
       textAlign: 'center',
     },
+
+    '@media (max-width: 768px)': {
+      cardContainer: {
+        gridTemplateColumns: 'repeat(2, 1fr)',
+      },
+    },
+    '@media (max-width: 480px)': {
+      cardContainer: {
+        gridTemplateColumns: '1fr',
+      },
+      heading: {
+        fontSize: '2em', // Adjusted font size for smaller screens
+      },
+      mission: {
+        fontSize: '1.2em', // Adjusted font size for smaller screens
+      },
+      paragraph: {
+        fontSize: '1em', // Adjusted font size for smaller screens
+      },
+    },
   };
 
   const handleCardClick = (link) => {
@@ -160,7 +180,11 @@ const ContactUsPage = () => {
       <h1>Our Team Member</h1>
       <br></br>
       <h5>Click on the photos to visit our Linkedin Profile</h5>
-      <div style={styles.cardContainer}>
+      <div className='d-flex justify-content-center'>
+      <div 
+        className='d-flex justify-content-center flex-wrap gap-3'
+        style={{ width: "100vh" }}
+      >
         
         {cardData.map((card) => (
           <div
@@ -175,6 +199,7 @@ const ContactUsPage = () => {
             </div>
           </div>
         ))}
+      </div>
       </div>
     </div>
   );

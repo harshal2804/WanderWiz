@@ -101,7 +101,8 @@ function Signup() {
   }
 
   const ms = {
-    backgroundImage: `url(${Signupp})`,
+    //backgroundImage: `url(${Signupp})`,
+    backgroundColor : "#ddf2d1",
     backgroundPosition: "center",
     backgroundSize: "cover",
     backgroundRepeat: "no-repeat",

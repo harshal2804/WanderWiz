@@ -5,7 +5,7 @@ import Form from "react-bootstrap/Form";
 import { useMutation, useQuery } from "react-query";
 import { useNavigate } from "react-router";
 import { UserContext } from "../context/UserContext";
-import bg_login from "../assets/bg_login.jpg"
+import bg_login from "../assets/Login_Page.jpg"
 
 
 const fetchUser = async ({ email, password}) => {
@@ -58,6 +58,7 @@ function Login({ handleUser }) {
     backgroundImage: `url(${bg_login})`,
     backgroundRepeat: "no-repeat",
     backgroundSize: "cover",
+    opacity : "0.8",
   };
   const textStyle = {
     textAlign: "center",
