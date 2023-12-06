@@ -59,9 +59,9 @@ function App() {
             <Route path="/profile" element={user.user ? <Profile handleUser={(user) => updateUser(user)}/> :
               <Login handleUser={(user) => updateUser(user)} />}
             />
-            {/* <Route path="/editprofile" element={user.user ? <Edit_Profile handleUser={(user) => updateUser(user)}/> :  
+            <Route path="/editprofile" element={user.user ? <Edit_Profile handleUser={(user) => updateUser(user)}/> :  
               <Login handleUser={(user) => updateUser(user)} />}
-            /> */}
+            />
             <Route path="/createItinerary" element={user.user ? <ItineraryOption /> : 
               <Login handleUser={(user) => updateUser(user)} />} 
             />
