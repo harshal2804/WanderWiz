@@ -44,9 +44,6 @@ export default function Profile({ handleUser }) {
   const { isLoading, isError, error, data } = useQuery(
     "userDetails",
     () => fetchUserDetails(user.token),
-    {
-      staleTime: Infinity,
-    }
   );
 
   if (isLoading) {
@@ -144,15 +141,15 @@ export default function Profile({ handleUser }) {
             </div>
             <div style={functionbutton}>
               <ButtonToolbar aria-label="Toolbar with button groups">
-                {/* <ButtonGroup className="me-2" aria-label="Second group">
+                <ButtonGroup className="me-2" aria-label="Second group">
                   <Button
-                    onClick={() => navigate("/editprofile")}
+                    onClick={() => navigate("/editprofile", { state: data })}
                     variant="secondary"
                     type="reset"
                   >
                     Edit Profile
                   </Button>
-                </ButtonGroup> */}
+                </ButtonGroup>
 
                 <ButtonGroup className="me-2" aria-label="Third group">
                   <Button

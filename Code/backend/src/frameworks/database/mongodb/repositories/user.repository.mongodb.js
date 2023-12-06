@@ -14,8 +14,15 @@ export default function userRepositoryMongoDB() {
             const userCreated = await userModel.create(user);
             return userCreated;
         },
-        async findByIdAndUpdate(id, user, options) {
-            const userUpdated = await userModel.findByIdAndUpdate(id, user, options);
+        async findByIdAndUpdate(id, userEntity, options) {
+            const updatedUser = {
+                name: userEntity.getName(),
+                email: userEntity.getEmail(),
+                password: userEntity.getPassword(),
+                currentCity: userEntity.getCurrentCity(),
+                itineraries: userEntity.getItineraries()
+            }
+            const userUpdated = await userModel.findByIdAndUpdate(id, updatedUser, options);
             return userUpdated;
         },
         async findByIdAndDelete(id) {

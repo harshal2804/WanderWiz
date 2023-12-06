@@ -9,11 +9,14 @@ export default function userRouter(express){
     const router = express.Router();
     const controller = userController(userRepository, userRepositoryMongoDB, authService, authServiceImplementation);
 
-    //GET /users/:id
+    //GET /user
     router.get('/', authMiddleware, controller.getUser);
 
-    //POST /users
+    //POST /user
     router.post('/', controller.addNewUser);
+
+    //PUT /user
+    router.put('/', authMiddleware, controller.updateNewUser);
 
     return router;
 }

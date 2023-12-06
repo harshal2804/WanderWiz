@@ -1,5 +1,6 @@
 import addUser from "application/usecases/user/add";
 import getUserById from "application/usecases/user/getUser"
+import updateUser from "application/usecases/user/updateUser";
 
 export default function userController(
     userRepository,
@@ -31,8 +32,23 @@ export default function userController(
         }
     }
 
+    const updateNewUser = async (req, res, next) => {
+        try{
+            const { payload } = req.userId;
+            const { name, email, password, currentCity, itineraries } = req.body;
+            const user = await getUserById(payload, dbRepository);
+            if(!user) return res.status(404).json({ message: "User not found" });
+            const encryptedPassword = authServiceImpl.encryptPassword(password);
+            const updatedUser = await updateUser(payload, name, email, encryptedPassword, currentCity, itineraries, dbRepository);
+            res.status(200).json(updatedUser);
+        }catch(err){
+            res.status(500).json({ message: err.message });
+        }
+    }
+
     return {
         addNewUser,
-        getUser
+        getUser,
+        updateNewUser
     }
 }
