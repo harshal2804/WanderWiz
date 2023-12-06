@@ -65,9 +65,32 @@ function Home() {
     color : '#e7ee4f',
     // color : '#ccff00',
     // color : '#afb34f',
-  }
+  };
 
-  
+  const containerStyle = {
+    display: 'flex',
+    //flexDirection : 'column',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    //position : 'relative',
+
+    width: '80vw', // 90% of viewport width
+    margin: '0 auto', // Center the content horizontally
+  };
+
+  const pictureStyle = {
+    width: '60vw', // 40% of viewport width
+    maxWidth: '400px', // Maximum width for the picture
+  };
+
+
+  const textStyle = {
+    width: '50vw', // 50% of viewport width
+    textAlign: 'left',
+    padding: '0 2vw', // 2% padding horizontally
+    //backgroundColor : 'White',
+    borderRadius : '3vh',
+  };
 
   return (
     <>
@@ -95,11 +118,42 @@ function Home() {
       </div> */}
 
 <div style={aboutUsSection}>
-<h1 style={{fontSize : '8vh'}}>About WanderWiz</h1>
+{/* <h1 style={{fontSize : '8vh'}}>About WanderWiz</h1>
 <p>
-Welcome to WanderWiz, your ultimate travel companion. We are dedicated to helping you plan your dream vacations with ease and precision. Our mission is to provide you with the smartest tools and insights to make your trips memorable. Whether it's finding the best places to visit, planning itineraries, or discovering hidden gems, we've got you covered. With WanderWiz, it's not just about traveling; it's about creating stories, making memories, and building trust.
-</p>
+Welcome to WanderWiz, your ultimate voyage companion. We are dedicated to helping you plan your dream vacations with ease and precision. Our mission is to provide you with the smartest tools and insights to make your trips memorable. Whether it's finding the best places to visit, planning itineraries, or discovering hidden gems, we've got you covered. With WanderWiz, it's not just about traveling; it's about creating stories, making memories, and building trust.
+</p> */}
+
+
+<div className="my-3" style={containerStyle}>
+      
+      <div style={pictureStyle}>
+        <img src="/src/assets/travel.jpg" alt="Your Image" style={{ width: '90%', height: 'auto' }} />
+      </div>
+      <div style={textStyle}>
+        <h1 style={{fontWeight : 'bold'}}>Who We Are</h1>
+        <p>
+        We are WonderWiz, sparking your love for travel. Our goal is To be your reliable guide in uncovering amazing places. Let us make your travel dreams real with personalized attention.
+        </p>
+      </div>
 </div>
+
+<div className="my-5" style={containerStyle}>
+      
+      <div style={textStyle}>
+          <h1 style={{fontWeight : 'bold'}}>What We Do</h1>
+          <p>
+                We plan your trips just for you , We make your travel smooth, so you can make awesome memories. We'll transform your travel dreams into unforgettable experiences.
+          </p>
+      </div>
+
+      <div style={pictureStyle}>
+        <img src="/src/assets/we_do.jpg" style={{ width: '90%', height: 'auto' }} />
+      </div>
+     
+    </div>
+</div>
+
+
 
 </>
 

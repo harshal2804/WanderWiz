@@ -1,6 +1,15 @@
 import React from 'react';
 
 const ContactUsPage = () => {
+
+  const textStyle = {
+    width: '50vw', // 50% of viewport width
+    textAlign: 'left',
+    padding: '0 2vw', // 2% padding horizontally
+    //backgroundColor : 'White',
+    borderRadius : '3vh',
+  }; 
+
   const styles = {
     container: {
       fontFamily: 'Arial, sans-serif',
@@ -8,17 +17,28 @@ const ContactUsPage = () => {
       padding: '40px 20px',
       textAlign: 'center',
       color: '#444',
+      backgroundColor : '#DDF2D1',
     },
     heading: {
       fontSize: '3em', // Increased font size for heading
       color: '#2A9D8F',
       marginBottom: '20px',
       textTransform: 'uppercase',
+      //fontFamily: "Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif",
+      fontSize : "6vh",
+      fontweight : "bold",
+      textAlign : 'center',
+      fontFamily: "Montserrat, serif",
+      fontweight : "bold",
     },
     mission: {
-      fontSize: '1.5em', // Increased font size for mission
+
+      fontSize: '2em', // Increased font size for mission
       color: '#2A9D8F',
       marginBottom: '15px',
+      textAlign : 'center',
+      fontFamily: "Montserrat, serif",
+      fontweight : "bold",
     },
     cardContainer: {
       display: 'grid',
@@ -46,8 +66,10 @@ const ContactUsPage = () => {
     paragraph: {
       lineHeight: '1.6',
       color: '#555',
-      fontSize: '1.2em', // Increased font size for paragraph
+      fontSize: '1.7em', // Increased font size for paragraph
       marginBottom: '20px', // Added margin bottom for separation
+      fontFamily: "Montserrat, serif",
+      
     },
     name: {
       marginTop: '10px',
@@ -158,25 +180,39 @@ const ContactUsPage = () => {
 
   return (
     <div style={styles.container}>
-      <h2 style={styles.heading}>About Us</h2>
-      <p style={styles.paragraph}>
-        Welcome to our world of adventure! We are passionate about crafting unforgettable travel experiences.
-        Join us on this journey as we explore the hidden treasures of the world together.
+      {/* <h2 style={styles.heading}>Welcome to WonderWiz</h2>
+      <div style={styles.paragraph}>
+      <p >
+            At WonderWiz, we believe that travel should be an enriching and stress-free experience from start to finish. Our goal is to empower every traveler by offering a robust and intuitive platform that streamlines the complexities of trip planning. 
+
       </p>
+      </div>
       
-      <h3 style={styles.mission}>Our Mission</h3>
+      <h3 style={styles.mission}>Our Goal</h3>
       <p style={styles.paragraph}>
         At WanderWiz, our mission is to inspire and empower travelers to explore the world, creating memories that last a lifetime. 
         We strive to provide personalized travel experiences that cater to your preferences and offer expert advice for your journey.
-      </p>
-      
-      <h3 style={styles.mission}>Our Slogan</h3>
-      <p style={styles.paragraph}>"Explore Beyond, Journey Within"</p>
-      
-      <p style={styles.paragraph}>
-        Join us on this adventure as we unlock the world's hidden treasures together!
-      </p>
+      </p> */}
 
+      <div className="my-4 d-flex flex-column align-items-center gap-5">
+      <div style={textStyle}>
+        <h2 style={styles.heading}>Welcome to WonderWiz</h2>
+        <p style={{fontSize : '3.5vh',alignContent :'center'}}>
+        We are WonderWiz, sparking your love for travel. Our goal is To be your reliable guide in uncovering amazing places. Let us make your travel dreams real with personalized attention.
+        </p>
+      </div>
+
+
+      <div style={textStyle}>
+        <h2 style={styles.mission}>Our Goal</h2>
+        <p style={{fontSize : '3.5vh',alignContent :'center'}}>
+        At WanderWiz, our mission is to inspire and empower travelers to explore the world, creating memories that last a lifetime. 
+        We strive to provide personalized travel experiences that cater to your preferences and offer expert advice for your journey.        </p>
+      </div>
+
+      </div>
+      <br/>
+      
       <h1>Our Team Member</h1>
       <br></br>
       <h5>Click on the photos to visit our Linkedin Profile</h5>
